@@ -108,65 +108,51 @@ Text mit dem Namen `llm-wiki.md` als sogenannten GitHub-Gist – eine kurze,
 und Programmierer ihren Code austauschen. Das ist **kein Programm**, sondern eine
 Ideen- und Musterbeschreibung in Prosa, gedacht zum Einbauen in einen KI-Agenten.
 
-Die Kernidee grenzt sich von klassischem **RAG** ab – dem Ansatz „erst
-nachschlagen, dann antworten". Bei RAG durchsucht die KI bei **jeder** Frage die
-Rohdokumente neu und leitet die Antwort jedes Mal „von vorne" ab. Beim LLM-Wiki
-baut ein KI-Agent stattdessen **nach und nach ein dauerhaftes Wiki aus
-Markdown-Dateien** auf und pflegt es. Dieses Wiki sitzt als Zwischenschicht
-zwischen den Rohquellen und den Fragen der Nutzer. Man kann es sich als
-**Gedächtnis** oder **Zwischenspeicher** (Cache) vorstellen: Wissen sammelt sich
-über viele Sitzungen hinweg an, statt nach jedem Gespräch verloren zu gehen. Ein
-erklärender Fachartikel beschreibt es als System, das flüchtige Gespräche in
-dauerhaftes Wissen umwandelt.
+Ein herkömmliches **RAG-System** sucht für eine konkrete Frage passende Stellen
+in seinen Unterlagen und formuliert daraus eine Antwort. Das LLM-Wiki verfolgt
+ein anderes Ziel: Aus ausgewählten Unterlagen entsteht schrittweise ein
+redigierter Bestand aus miteinander verknüpften Markdown-Seiten. Spätere Fragen
+können auf diesen bereits geordneten Bestand zurückgreifen. Neue Quellen führen
+nicht zu einem kompletten Neubeginn, sondern zu gezielten Ergänzungen und
+Korrekturen.
 
-Ein oft genutztes Bild dafür ist die **Software-Herstellung**: Die Rohquellen
-(PDFs, Notizen) sind wie der Quelltext eines Programms, das Wiki wie das fertige,
-„kompilierte" Programm. Der Agent „übersetzt" einmal und pflegt danach nur noch
-die Änderungen. Der Begriff **redaktioneller Compiler** ist dabei ein Bild aus
-der internen Rohfassung, kein Zitat von Karpathy.
+Der praktische Unterschied liegt damit weniger im Dateiformat als in der
+Pflegearbeit. RAG ist vor allem ein Verfahren zum Auffinden von Belegstellen;
+ein LLM-Wiki hält zusätzlich fest, wie die Redaktion diese Belege eingeordnet
+hat. Dadurch bleibt Wissen über mehrere Arbeitssitzungen erhalten. Zugleich kann
+eine falsche Einordnung dauerhaft weiterwirken, weshalb Quellenbezug,
+Versionsgeschichte und menschliche Prüfung unverzichtbar sind.
 
 Karpathys Text verweist außerdem auf einen alten Gedanken: den „Memex", ein
 1945 von Vannevar Bush beschriebenes ideales Wissensgerät.
 
-### Die Drei-Schichten-Architektur
+### Bausteine und redaktioneller Betrieb
 
-Karpathys Gist und mehrere erklärende Artikel beschreiben übereinstimmend drei
-Schichten:
+Für eine Umsetzung müssen vier Aufgaben getrennt geregelt sein:
 
-| Schicht | Was darin liegt | Wer sie ändert |
-|---|---|---|
-| **Rohquellen** (*Raw Source Layer*) | Ausgewählte Originaldokumente, die nicht mehr verändert werden – etwa PDFs, Notizen, Fachartikel, Rohdaten und Screenshots. | Menschen wählen sie aus und pflegen sie ein; das Modell greift nur lesend zu. |
-| **Wiki / Ausgabe** (*Output Layer*) | Die untereinander verknüpften Markdown-Seiten, die das Modell daraus erzeugt – Zusammenfassungen und eigene Seiten zu Personen, Begriffen oder Ereignissen. | Entwürfe kommen vom Modell, die Freigabe von einem Menschen. |
-| **Schema** (*Schema Layer*) | Eine zentrale Regeldatei (bei diesem Projekt z. B. `CLAUDE.md`), die Ablauf, Konventionen und Rollen der beteiligten Agenten festlegt. | Wird von Mensch und Modell gemeinsam weiterentwickelt. |
+1. **Quellen bewahren:** Originale wie PDFs, Notizen oder Datensätze bleiben
+   unverändert, damit jede Aussage später überprüft werden kann.
+2. **Wissen ordnen:** Themenseiten fassen belegte Aussagen zusammen und
+   verweisen untereinander. Eine Übersichtsseite erleichtert den Einstieg.
+3. **Änderungen dokumentieren:** Neue, geänderte und verworfene Aussagen werden
+   mit Zeitpunkt und Anlass nachvollziehbar festgehalten.
+4. **Arbeitsregeln festlegen:** Eine eigene Anleitung bestimmt Seitenaufbau,
+   Quellenstandard, Zuständigkeiten und Freigabe. In diesem Repository erfüllen
+   `AGENTS.md` und `CLAUDE.md` diese Funktion.
 
-Dazu kommen zwei besondere Dateien:
+Im Alltag wechseln sich drei Tätigkeiten ab. Bei der **Aufnahme** einer Quelle
+werden nur die betroffenen Seiten ergänzt. Bei einer **Recherchefrage** sucht
+der Agent zuerst im geordneten Bestand und führt die Antwort zu den Belegen
+zurück. Eine regelmäßige **Bestandsprüfung** sucht schließlich nach
+Widersprüchen, veralteten Angaben und verwaisten Seiten. Karpathys Gist nennt
+für diese Tätigkeiten die englischen Kurzbezeichnungen *ingest*, *query* und
+*lint*; die hier beschriebene Rollen- und Freigabeverteilung ist die Umsetzung
+dieses Projekts.
 
-- **`index.md`** – der Startpunkt für den Agenten: eine nach Themen gegliederte
-  Übersicht sämtlicher Seiten, zu jeder ein Link und ein knapper, einzeiliger
-  Anriss.
-- **`log.md`** – eine fortlaufende Änderungshistorie mit maschinenlesbaren
-  Zeitstempeln, an die nur angehängt, aber nie rückwirkend etwas geändert wird.
-
-Wächst der Bestand, reicht laut Gist zunächst eine einfache Suche über diesen
-Index – Karpathy nennt einen wirksamen Betrieb bei etwa hundert Quellen und
-einigen hundert Seiten, bevor aufwendigere Suchtechnik nötig wird. Eine konkrete
-Obergrenze, ab der „das Wiki nicht mehr in den Kontext passt", wird in der
-Debatte diskutiert (oft ist von einigen hundert Seiten die Rede), steht aber so
-nicht wörtlich im Gist.
-
-### Ingest, Query, Lint
-
-Die Arbeit am LLM-Wiki läuft in drei wiederkehrenden Arbeitsgängen:
-
-- **Ingest (Einlesen):** Trifft eine neue Quelle ein, zerlegt das Modell sie
-  und zieht die wichtigsten Aussagen heraus; Index und betroffene Seiten
-  werden dabei zugleich aktualisiert und der Vorgang wird festgehalten.
-- **Query (Abfragen):** Zu einer Frage durchsucht das Modell Index und Wiki
-  und antwortet mit Belegstellen; erweist sich eine Antwort als besonders
-  wertvoll, wird daraus eine eigene Wiki-Seite.
-- **Lint (Aufräumen):** Ein regelmäßiger Durchgang prüft den Bestand auf
-  Schwachstellen – etwa sich widersprechende Seiten, überholte Aussagen oder
-  Seiten, auf die niemand mehr verlinkt.
+Eine einfache Übersichtsdatei und Volltextsuche können für einen überschaubaren
+Bestand genügen. Erst wenn Navigation und Trefferqualität messbar nachlassen,
+lohnt sich zusätzliche Suchtechnik. Eine allgemeingültige Seitenzahl als Grenze
+gibt es nicht; Dokumentlänge, Verlinkung und Modellkontext sind ebenso wichtig.
 
 Es gibt bereits fertige Programme, die diese Idee umsetzen – etwa das frei
 lizenzierte Community-Werkzeug `nashsu/llm_wiki` (GNU GPL v3.0), das Dokumente
