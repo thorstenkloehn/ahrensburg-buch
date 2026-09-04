@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Urheberrecht und Duplicate Content - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="urheberrecht-und-duplicate-content"><a class="header" href="#urheberrecht-und-duplicate-content">Urheberrecht und Duplicate Content</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>Diese Seite beantwortet drei Fragen, die bei einem KI-gestützten Wiki schnell aufkommen: Was schützt das Urheberrecht überhaupt – und was nicht? Wie stellt die Redaktion sicher, dass kein fremder Text ungefragt übernommen wird? Und schadet es der Auffindbarkeit bei Google, wenn sich Passagen mit anderen Websites ähneln (der sogenannte „Duplicate Content")?</p>
+<h2 id="was-das-urheberrecht-schützt--und-was-nicht"><a class="header" href="#was-das-urheberrecht-schützt--und-was-nicht">Was das Urheberrecht schützt – und was nicht</a></h2>
+<p>Das ist der wichtigste Punkt für ein Lexikon. Geschützt ist die <strong>konkrete Ausdrucksform</strong> eines Textes – Wortwahl, Satzbau, Gliederung –, sofern sie eine gewisse Eigenständigkeit erreicht. Das Gesetz nennt das „Schöpfungshöhe"; § 2 Abs. 2 UrhG verlangt „persönliche geistige Schöpfungen". <strong>Nicht</strong> geschützt sind die zugrunde liegenden Tatsachen, Zahlen, Daten, Ereignisse und Ideen. Das entspricht der allgemeinen Auffassung in der juristischen Literatur.</p>
+<p>Vereinfacht gesagt: Die Einwohnerzahl Ahrensburgs ist eine bloße Tatsache und hat keine Schöpfungshöhe – aber <em>wie</em> eine Website sie in Sätze fasst, sehr wohl. Das Baujahr des Schlosses oder der Name einer Straße gehören niemandem; solche Angaben darf man aus jeder Quelle entnehmen und frei verwenden. Geschützt ist allein die fremde Formulierung.</p>
+<p>Deshalb brauchen viele Seiten dieses Wikis gar keinen Herkunftshinweis: Wo sich lediglich einzelne Tatsachen mit einem Wikipedia-Artikel überschneiden, der Text aber eigenständig formuliert ist, entsteht keine Bearbeitung – und damit auch keine Attributionspflicht.</p>
+<h2 id="wie-dieses-wiki-urheberrechte-prüft"><a class="header" href="#wie-dieses-wiki-urheberrechte-prüft">Wie dieses Wiki Urheberrechte prüft</a></h2>
+<p>Die Prüfung ist ein <strong>manueller redaktioneller Durchgang</strong>, kein automatischer Scanner. Sie gehört zum <a href="co-wiki.html">Co-Wiki-Prozess</a>: Die KI liefert Entwürfe, ein Mensch prüft und gibt frei, die KI veröffentlicht nie eigenständig. Neue und überarbeitete Artikel durchlaufen dabei eine Redaktionspipeline aus mehreren spezialisierten Rollen – darunter ein Faktenchecker und ein Lektor.</p>
+<p>Am 3. September 2026 wurden auf diese Weise <strong>alle Inhaltsseiten</strong> des Wikis noch einmal gezielt daraufhin durchgesehen, ob irgendwo fremder Text wörtlich übernommen wurde. Ergebnis: keine wörtliche Übernahme. Wo Seiten sich eng an eine Vorlage angelehnt hatten, wurden sie neu formuliert und mit einem Herkunftshinweis versehen (Beispiele weiter unten).</p>
+<p>Eine <strong>automatisierte Ähnlichkeitsprüfung</strong> – etwa ein Abgleich neuer Absätze gegen bekannte Quellen vor jeder Veröffentlichung – ist bisher <strong>nicht</strong> eingebaut. Sie wäre ein denkbarer Ausbau; der Ist-Zustand ist die Kontrolle durch Menschen.</p>
+<h3 id="worauf-die-redaktion-achtet"><a class="header" href="#worauf-die-redaktion-achtet">Worauf die Redaktion achtet</a></h3>
+<ul>
+<li><strong>Wörtlichkeit:</strong> Stimmt eine Formulierung auffällig genau mit einer bekannten Quelle überein? Dann wird sie umgeschrieben oder als Zitat kenntlich gemacht.</li>
+<li><strong>Quellenangabe:</strong> Ist belegt, woher eine Information stammt? Der Faktenchecker markiert jede Aussage als belegt, abweichend oder unbelegt.</li>
+<li><strong>Paraphrase mit zu wenig Abstand:</strong> Auch das bloße Umstellen von Sätzen bei gleichem Aufbau kann zu nah am Original sein. Dann wird der Abschnitt aus eigenständig recherchierten Quellen neu aufgebaut.</li>
+</ul>
+<p>Unsichere Stellen bleiben als sichtbarer Kommentar im Text stehen, bis ein Mensch sie geklärt hat – geraten wird nicht.</p>
+<h2 id="prüf-prompts-zum-selbernutzen"><a class="header" href="#prüf-prompts-zum-selbernutzen">Prüf-Prompts zum Selbernutzen</a></h2>
+<p>Die folgenden Prompts werden in diesem Wiki für den redaktionellen Durchgang eingesetzt. Sie lassen sich in Claude Code, ChatGPT oder einem anderen KI-Werkzeug verwenden, sobald der zu prüfende Entwurf – und möglichst auch die genannte Quelle – im Kontext liegt. Wer ein eigenes KI-gestütztes Wiki betreibt, kann sie als Prüfschritt vor jedem Commit einbauen.</p>
+<ul>
+<li>
+<p><strong>Gesamtdurchgang (der Ausgangspunkt):</strong>
+„Überprüfe alle Inhalte dieses Wikis daraufhin, ob sie fremdes Urheberrecht verletzen – wörtliche Übernahmen, eng angelehnte Paraphrasen, übersetzte Passagen. Gib eine Liste der auffälligen Seiten mit Fundstelle, vermuteter Quelle und Schweregrad." Die folgenden Prompts arbeiten die Treffer dann einzeln ab.</p>
+</li>
+<li>
+<p><strong>Wörtliche Übernahme finden:</strong>
+„Vergleiche den folgenden Entwurf Absatz für Absatz mit dem Artikel <em>[Titel/URL]</em>. Markiere jede Stelle, an der Wortwahl oder Satzbau auffällig nah am Original liegen – etwa mehr als vier aufeinanderfolgende Wörter identisch oder nur trivial umgestellt. Gib je Fund den Entwurfssatz, die Vorlage und einen Umformulierungsvorschlag."</p>
+</li>
+<li>
+<p><strong>Faktenüberschneidung von Textbearbeitung unterscheiden:</strong>
+„Dieser Abschnitt überschneidet sich thematisch mit <em>[Quelle]</em>. Entscheide begründet: reine Tatsachenüberschneidung – gleiche Zahlen und Ereignisse, aber eigenständige Formulierung, also kein Herkunftshinweis nötig – oder übernommene Struktur bzw. Formulierung, also Herkunftshinweis nötig?"</p>
+</li>
+<li>
+<p><strong>Lizenz der Quellen einordnen:</strong>
+„Liste alle externen Quellen und Weblinks dieser Seite auf. Ordne jede ein: freie Lizenz (CC BY, CC BY-SA, gemeinfrei, amtliches Werk nach § 5 UrhG) oder ‚alle Rechte vorbehalten'. Bei geschützten Quellen: prüfe, ob Text daraus übernommen wurde oder ob nur verlinkt wird."</p>
+</li>
+<li>
+<p><strong>Attributionsblock prüfen:</strong>
+„Diese Seite beruht laut Herkunftshinweis auf einem Wikipedia-Artikel. Prüfe, ob der Abschnitt ‚Wikipedia als Quelle' alle vier Anforderungen der Lizenz CC BY-SA 4.0 erfüllt: Autorennennung mit Link auf den Artikel, Lizenzangabe mit Link, Änderungshinweis, Weitergabe unter gleicher Lizenz."</p>
+</li>
+<li>
+<p><strong>Dopplungen im eigenen Wiki:</strong>
+„Durchsuche alle Seiten dieses Repos auf Textdopplungen – Absätze, die fast wörtlich auf mehreren Seiten stehen. Gib die Fundstellen und einen Vorschlag, welche Seite den Absatz behält und wie die andere ihn durch einen Querverweis ersetzt."</p>
+</li>
+</ul>
+<p>Diese Prompts ersetzen die menschliche Freigabe nicht – sie bereiten sie vor. Jeder Treffer wird von einem Menschen bewertet.</p>
+<h2 id="texte-aus-wikipedia-attribution-richtig-machen"><a class="header" href="#texte-aus-wikipedia-attribution-richtig-machen">Texte aus Wikipedia: Attribution richtig machen</a></h2>
+<p>Wikipedia-Artikel stehen unter der freien Lizenz CC BY-SA 4.0. Man darf sie weiternutzen und auch bearbeiten – aber nur, wenn man die Lizenzbedingungen einhält. Eine gesonderte Genehmigung braucht es dafür nicht. Nach der Anleitung <a href="https://de.wikipedia.org/wiki/Wikipedia:Weiternutzung">Wikipedia:Weiternutzung</a> sind vier Dinge nötig:</p>
+<ul>
+<li><strong>Autoren nennen.</strong> Bei Online-Nutzung genügt ein Link auf den Wikipedia-Artikel, über den die Versionsgeschichte erreichbar ist.</li>
+<li><strong>Lizenz angeben:</strong> „CC BY-SA 4.0", mit Link.</li>
+<li><strong>Änderungen kenntlich machen.</strong></li>
+<li><strong>Weitergabe unter derselben Lizenz</strong> (dazu unten mehr).</li>
+</ul>
+<p>Einige ältere Seiten enthalten noch bearbeitete Wikipedia-Inhalte. Dort dokumentiert ein eigener Quellenabschnitt den Artikel, die Lizenz und die vorgenommenen Änderungen. Neu bearbeitete Seiten sollen stattdessen möglichst auf amtlichen oder lokalen Primärquellen beruhen und einen eigenständigen Aufbau erhalten.</p>
+<h2 id="eng-an-einer-vorlage-dann-neu-schreiben"><a class="header" href="#eng-an-einer-vorlage-dann-neu-schreiben">Eng an einer Vorlage? Dann neu schreiben</a></h2>
+<p>Die Seite zur <a href="verkehrsanbindung.html">Verkehrsanbindung</a> war ursprünglich eine enge Verdichtung des Verkehrs-Abschnitts aus dem Wikipedia-Artikel über Ahrensburg. Sie wurde vollständig neu formuliert. Dabei fiel auch ein Sachfehler auf: Die Regionalexpress-Linie war als „RE 8" bezeichnet, richtig ist „RE 80".</p>
+<p>Beim selben Urheberrechts-Durchgang zeigte sich zudem, dass eine Angabe im Wikipedia-Artikel selbst nicht stimmte: die Sitzverteilung der Ahrensburger Stadtvertretung von 2023. Die eigene Recherche ergab Grüne 9, CDU 9, SPD 6, WAB 4, FDP 3 – der Wikipedia-Wert war falsch. Eigenständiges Nacharbeiten schützt also nicht nur vor Urheberrechtsproblemen, es verbessert oft auch die Qualität.</p>
+<h2 id="geschützte-quellen-und-amtliche-werke"><a class="header" href="#geschützte-quellen-und-amtliche-werke">Geschützte Quellen und amtliche Werke</a></h2>
+<p>Nicht jede Quelle im Internet ist frei nutzbar. Proprietäre regionale Facharchive und Lexika stehen oft unter dem Schutz „alle Rechte vorbehalten" und bieten keine freie Lizenz. Für dieses Wiki gilt deshalb die strikte Richtlinie: niemals Text aus solchen geschützten Vorlagen übernehmen, eng paraphrasieren oder übersetzen. Fremde urheberrechtlich geschützte Inhalte dürfen keinesfalls in Artikel einfließen.</p>
+<p>Anders liegt der Fall bei <strong>amtlichen Werken</strong> nach <a href="https://www.gesetze-im-internet.de/urhg/__5.html">§ 5 UrhG</a>. Gesetze, Verordnungen, Erlasse und amtliche Bekanntmachungen genießen keinen Urheberrechtsschutz. Deshalb darf zum Beispiel die amtliche Wappenbeschreibung – die <em>Blasonierung</em>, die heraldische Fachbeschreibung eines Wappens – wörtlich zitiert werden; sie ist gemeinfrei und über die Kommunale Wappenrolle Schleswig-Holsteins belegt. Wichtig: § 5 betrifft nur das Urheberrecht am Text. Die <em>Verwendung</em> eines Wappens als Hoheitszeichen ist davon unabhängig kommunalrechtlich geregelt (mehr dazu auf der Seite <a href="stadtwappen.html">Wappen und Flagge</a>).</p>
+<h2 id="freie-lizenzen-verstehen-cc-by-sa"><a class="header" href="#freie-lizenzen-verstehen-cc-by-sa">Freie Lizenzen verstehen: CC BY-SA</a></h2>
+<p>Dieses Wiki steht vollständig unter der <a href="https://creativecommons.org/licenses/by-sa/4.0/">Lizenz CC BY-SA 4.0</a> (siehe <a href="impressum.html">Impressum</a>). Die beiden Kürzel bedeuten:</p>
+<ul>
+<li><strong>BY (Namensnennung):</strong> Wer Inhalte weiternutzt, muss die Urheber angemessen nennen, die Lizenz angeben und auf sie verlinken und kenntlich machen, dass etwas geändert wurde. Dieser Änderungshinweis ist in der Version 4.0 ausdrücklich verpflichtend.</li>
+<li><strong>SA (Share-Alike, „Weitergabe unter gleichen Bedingungen"):</strong> Bearbeitungen müssen wieder unter CC BY-SA 4.0 gestellt werden. Dieses „Copyleft" – die Pflicht, Abgeleitetes unter derselben freien Lizenz weiterzugeben – hält die Inhalte dauerhaft frei.</li>
+</ul>
+<p>Praktischer Nebeneffekt: Weil Wikipedia und dieses Wiki dieselbe Lizenz verwenden, passt die Weiternutzung in beide Richtungen ohne Lizenzkonflikt zusammen. Die Share-Alike-Bedingung ist damit automatisch erfüllt.</p>
+<h2 id="zitatrecht-fachquellen-sauber-einbauen"><a class="header" href="#zitatrecht-fachquellen-sauber-einbauen">Zitatrecht: Fachquellen sauber einbauen</a></h2>
+<p>Manchmal soll eine geschützte Quelle nicht nur verlinkt, sondern wörtlich wiedergegeben werden – als Beleg oder um sich mit einer Aussage auseinanderzusetzen. Dafür gibt es das Zitatrecht in <a href="https://www.gesetze-im-internet.de/urhg/__51.html">§ 51 UrhG</a>. Eine Übernahme ist danach zulässig „zum Zweck des Zitats, sofern die Nutzung in ihrem Umfang durch den besonderen Zweck gerechtfertigt ist".</p>
+<p>Vereinfacht gesagt müssen dafür mehrere Bedingungen zusammenkommen: Es braucht einen echten <strong>Zitatzweck</strong> (Beleg oder inhaltliche Auseinandersetzung, nicht bloße Ausschmückung), das Zitat muss als solches erkennbar und <strong>unverändert</strong> sein, sein Umfang darf nicht über den Zweck hinausgehen, und es braucht eine <strong>Quellenangabe</strong> (§ 63 UrhG). Ein Zitat ersetzt also keine eigene Darstellung – es stützt sie.</p>
+<h2 id="duplicate-content-und-google"><a class="header" href="#duplicate-content-und-google">Duplicate Content und Google</a></h2>
+<p>Ähnliche Texte führen nicht automatisch zu einer Sanktion. Google unterscheidet zwischen gewöhnlichen Dopplungen und Inhalten, die Suchergebnisse gezielt beeinflussen sollen. Das erläutert ein Beitrag von <a href="https://developers.google.com/search/blog/2008/09/demystifying-duplicate-content-penalty">Google Search Central aus dem Jahr 2008</a>.</p>
+<p>Findet Google mehrere weitgehend gleiche Seiten, bestimmt das System eine davon als hauptsächliche Fassung. Die anderen können seltener durchsucht oder nicht als eigener Treffer angezeigt werden. Die <a href="https://developers.google.com/search/docs/crawling-indexing/canonicalization">Google-Dokumentation zur Kanonisierung</a> beschreibt dieses Auswahlverfahren. Einen allgemein gültigen Prozentwert, ab dem Texte als Duplikat gelten, nennt Google dort nicht.</p>
+<h3 id="warum-eigenständige-formulierung-trotzdem-lohnt"><a class="header" href="#warum-eigenständige-formulierung-trotzdem-lohnt">Warum eigenständige Formulierung trotzdem lohnt</a></h3>
+<p>Eigenständige Texte geben Suchmaschinen und Lesenden einen Grund, diese Seite neben anderen Quellen zu berücksichtigen. Deshalb setzt das Wiki auf lokale Recherche, eine eigene Gliederung und Querverweise innerhalb des Stadtbuchs.</p>
+<h2 id="diese-seite-ist-keine-rechtsberatung"><a class="header" href="#diese-seite-ist-keine-rechtsberatung">Diese Seite ist keine Rechtsberatung</a></h2>
+<p>Sie fasst öffentlich zugängliche Informationen allgemeinverständlich zusammen; die rechtlichen Aussagen sind vereinfacht und als solche gekennzeichnet („nach allgemeiner Auffassung", „vereinfacht gesagt"). Ein Hinweis zur Rechtslage: Der früher für die „freie Benutzung" einschlägige § 24 UrhG a. F. ist seit dem 7. Juni 2021 aufgehoben; die Frage des nötigen Abstands zu einer Vorlage richtet sich heute nach <a href="https://www.gesetze-im-internet.de/urhg/__23.html">§ 23 UrhG</a>, der einen „hinreichenden Abstand" zum benutzten Werk verlangt.</p>
+<p>Stand: 3. September 2026. Angaben ohne Gewähr; Gesetze, Gerichtsentscheidungen und die Praxis von Suchmaschinen können sich ändern. Verbindliche Auskünfte gibt nur eine fachkundige Rechtsberatung. Weitere Angaben zu Betreiber und Lizenz stehen im <a href="impressum.html">Impressum</a>, Hinweise zur Datenverarbeitung unter <a href="datenschutz.html">Datenschutz</a>.</p>
+<h2 id="verwandte-seiten"><a class="header" href="#verwandte-seiten">Verwandte Seiten</a></h2>
+<ul>
+<li><a href="co-wiki.html">Co-Wiki: Mensch &amp; KI</a></li>
+<li><a href="neue-artikel-erstellen.html">Neue Artikel aus Rohfassungen erstellen</a></li>
+<li><a href="wissen-speichern.html">Wissen speichern</a></li>
+<li><a href="wissenssysteme-im-vergleich.html">Wissenssysteme im Vergleich</a></li>
+<li><a href="llm-wiki.html">LLM Wiki</a></li>
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+<li><a href="stadtwappen.html">Wappen und Flagge</a></li>
+<li><a href="ahrensburger-tunneltal.html">Ahrensburger Tunneltal und die Ahrensburger Kultur</a></li>
+<li><a href="schloss-ahrensburg.html">Schloss Ahrensburg</a></li>
+<li><a href="verkehrsanbindung.html">Verkehrsanbindung</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="wissen-speichern.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="wissenssysteme-im-vergleich.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="wissen-speichern.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="wissenssysteme-im-vergleich.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

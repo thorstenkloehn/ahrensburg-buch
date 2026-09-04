@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Software für ein großes Wissensprojekt - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="software-für-ein-großes-wissensprojekt"><a class="header" href="#software-für-ein-großes-wissensprojekt">Software für ein großes Wissensprojekt</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>Dieses Wiki über Ahrensburg soll langfristig sehr groß werden – viele tausend
+Artikel, geschrieben von Menschen und künstlicher Intelligenz (KI) gemeinsam
+(siehe <a href="co-wiki.html">Co-Wiki: Mensch &amp; KI</a>). Für so ein Projekt muss man am Anfang
+eine wichtige Frage beantworten: <strong>Mit welchem Programm sammelt und verwaltet man
+das ganze Wissen?</strong> Welche Grundkonzepte hinter dem Speichern und Suchen stecken,
+erklärt <a href="wissen-speichern.html">Wissen speichern</a>.</p>
+<p>Diese Seite erklärt, worauf es dabei ankommt. Die drei folgenden Seiten
+vergleichen dann die konkreten Programme:</p>
+<ul>
+<li><a href="wikis-im-vergleich.html">Wiki-Programme im Vergleich</a> – z. B. MediaWiki (das
+Programm hinter Wikipedia), XWiki, Wiki.js, BookStack, DokuWiki.</li>
+<li><a href="cms-im-vergleich.html">CMS im Vergleich</a> – Programme zum Betreiben von Websites,
+z. B. WordPress, Drupal, TYPO3, dazu <strong>Headless</strong>-CMS wie Strapi und Directus
+(„headless" heißt „kopflos": das Programm verwaltet nur die Inhalte, nicht das
+fertige Aussehen) sowie das datei-basierte Grav.</li>
+<li><a href="doku-generatoren-im-vergleich.html">Doku-Generatoren im Vergleich</a> – Programme,
+die aus einfachen Textdateien ein Buch oder eine Website bauen, z. B. mdBook
+(das nutzt dieses Wiki), MkDocs, Docusaurus, Hugo.</li>
+</ul>
+<p>Für einen selbstgebauten Anwendungs-Server – wenn also ein Projekt seinen eigenen
+Internet-Dienst programmieren würde – sind die verfügbaren Programmiersprachen und
+Webframeworks zentral; ein Überblick dazu steht auf der Seite
+<a href="webframeworks-im-vergleich.html">Webframeworks im Vergleich</a>.</p>
+<h2 id="kurz-erklärt-wiki-cms-doku-generator"><a class="header" href="#kurz-erklärt-wiki-cms-doku-generator">Kurz erklärt: Wiki, CMS, Doku-Generator</a></h2>
+<p>Alle drei Arten von Programmen helfen dabei, Texte im Internet zu
+veröffentlichen. Sie sind aber für unterschiedliche Zwecke gebaut.</p>
+<div class="table-wrapper"><table><thead><tr><th>Art</th><th>Wofür gemacht</th><th>Bild dazu</th></tr></thead><tbody>
+<tr><td><strong>Wiki</strong></td><td>Viele Menschen schreiben gemeinsam an einem großen Nachschlagewerk. Jeder darf Seiten anlegen und ändern, jede Änderung wird gespeichert.</td><td>Ein öffentliches Notizbuch, in das alle hineinschreiben dürfen.</td></tr>
+<tr><td><strong>CMS</strong> (Redaktionssystem, englisch <em>Content-Management-System</em>)</td><td>Eine Redaktion pflegt eine Website mit Artikeln, Bildern, Menüs und festem Aussehen. Wenige Leute schreiben, viele lesen.</td><td>Eine Zeitungsredaktion mit fester Ausgabe.</td></tr>
+<tr><td><strong>Doku-Generator</strong></td><td>Aus einfachen Textdateien (im Notizformat <em>Markdown</em>) wird automatisch ein sauberes Online-Buch. Die Texte liegen als Dateien, nicht in einer Datenbank.</td><td>Eine Druckmaschine: vorne Zettel rein, hinten fertiges Buch raus.</td></tr>
+</tbody></table>
+</div>
+<p>Dieses Wiki nutzt heute einen Doku-Generator namens <strong>mdBook</strong>. Ob das auf Dauer
+für zehntausende Artikel reicht, ist genau die Frage, um die es hier geht.</p>
+<h2 id="was-dieses-projekt-vom-programm-verlangt"><a class="header" href="#was-dieses-projekt-vom-programm-verlangt">Was dieses Projekt vom Programm verlangt</a></h2>
+<p>Die folgende Liste ist der Maßstab. Jedes Programm auf den Vergleichsseiten wird
+an diesen Punkten gemessen.</p>
+<h3 id="1-sehr-viele-artikel-verwalten"><a class="header" href="#1-sehr-viele-artikel-verwalten">1. Sehr viele Artikel verwalten</a></h3>
+<p>Das Ziel sind <strong>mehr als 10.000 Artikel</strong>, später gern noch viel mehr. Das
+Programm muss so viele Seiten schnell anzeigen, durchsuchbar halten und im
+Bearbeiten flüssig bleiben. Manche Programme sind für ein paar hundert Seiten
+gedacht und werden dann langsam.</p>
+<h3 id="2-offen-und-kostenlos-open-source"><a class="header" href="#2-offen-und-kostenlos-open-source">2. Offen und kostenlos (Open Source)</a></h3>
+<p><em>Open Source</em> heißt: Der Bauplan des Programms (der Quelltext) ist öffentlich.
+Jeder darf das Programm gratis benutzen, verändern und weitergeben. Wichtig, weil
+das Projekt niemandem gehören soll und nicht von einer Firma abhängig sein darf,
+die es später abschaltet oder teuer macht.</p>
+<h3 id="3-keine-persönlichen-daten-pii-frei"><a class="header" href="#3-keine-persönlichen-daten-pii-frei">3. Keine persönlichen Daten (PII-frei)</a></h3>
+<p><em>PII</em> steht für „persönlich identifizierbare Informationen" – also Namen,
+E-Mail-Adressen, Zugangsdaten von Nutzern. Die <strong>Inhalte</strong> des Wikis sollen
+komplett frei von solchen Nutzerdaten sein. So kann jeder den gesamten Text
+herunterladen, ohne dass Datenschutz-Probleme entstehen. Konten und Passwörter
+der Autorinnen und Autoren bleiben getrennt davon und werden nicht mitgegeben.</p>
+<h3 id="4-datenbank-neutrale-sicherungsdatei"><a class="header" href="#4-datenbank-neutrale-sicherungsdatei">4. Datenbank-neutrale Sicherungsdatei</a></h3>
+<p>Das komplette Wissen soll sich in <strong>eine einzige Datei</strong> exportieren lassen, die
+jeder öffnen und weiterverwenden kann – zum Beispiel <code>ahrensburg.xml</code>,
+<code>ahrensburg.json</code> oder <code>ahrensburg.yaml</code>. „Datenbank-neutral" bedeutet: Die Datei
+funktioniert auch ohne genau das Programm, das sie erzeugt hat. Sie ist kein
+verschlüsselter Klumpen, sondern lesbarer Text in einem verbreiteten Format.</p>
+<ul>
+<li><strong>XML, JSON und YAML</strong> sind drei solche Textformate. Sie schreiben Daten so
+auf, dass sowohl Menschen als auch Programme sie verstehen. XML nutzt
+spitze Klammern, sogenannte Tags (<code>&lt;titel&gt;…&lt;/titel&gt;</code>); JSON und YAML sind
+kompakter.</li>
+<li>Mit so einer Datei kann jemand das Wissen auf einer anderen Website, in einem
+anderen Programm oder in einem gedruckten Buch weiterverwenden.</li>
+</ul>
+<h3 id="5-speicherort-datenbank-oder-dateien"><a class="header" href="#5-speicherort-datenbank-oder-dateien">5. Speicherort: Datenbank oder Dateien</a></h3>
+<p>Es gibt zwei Wege, wie ein Programm die Texte ablegt:</p>
+<div class="table-wrapper"><table><thead><tr><th>Weg</th><th>Wie es funktioniert</th><th>Vorteil</th><th>Nachteil</th></tr></thead><tbody>
+<tr><td><strong>Datenbank</strong> (oft <em>PostgreSQL</em> – eine bekannte, kostenlose Datenbank)</td><td>Alle Texte stecken in einer Datenbank, einer Art riesiger sortierter Tabelle.</td><td>Schnell auch bei sehr vielen Seiten; viele Leute können gleichzeitig schreiben.</td><td>Man braucht einen laufenden Datenbank-Server; Sicherung ist aufwendiger.</td></tr>
+<tr><td><strong>Dateisystem</strong> (jede Seite eine Datei)</td><td>Jede Seite liegt als einzelne Textdatei in einem Ordner.</td><td>Einfach zu sichern, zu kopieren, per Versionsverwaltung <em>Git</em> zu verfolgen.</td><td>Wird bei zehntausenden Dateien und mehreren gleichzeitigen Autoren unübersichtlich und langsam.</td></tr>
+</tbody></table>
+</div>
+<p>Für dieses Projekt wäre <strong>PostgreSQL oder ein sauberes Dateisystem</strong> in Ordnung –
+solange Punkt 4 (die Export-Datei) erfüllt ist.</p>
+<h3 id="6-reifegrad-und-aktive-entwicklung"><a class="header" href="#6-reifegrad-und-aktive-entwicklung">6. Reifegrad und aktive Entwicklung</a></h3>
+<p>„Reif" heißt: Das Programm gibt es seit vielen Jahren, es läuft stabil, es wird
+von großen Organisationen im Alltag eingesetzt, und Sicherheitslücken werden
+schnell geschlossen. Eine <strong>große, aktive Entwicklergemeinschaft</strong> ist wichtig,
+damit das Programm auch in zehn Jahren noch gepflegt wird.</p>
+<h3 id="7-zugang-für-ki-werkzeuge-schnittstelle--rest-api"><a class="header" href="#7-zugang-für-ki-werkzeuge-schnittstelle--rest-api">7. Zugang für KI-Werkzeuge (Schnittstelle / REST-API)</a></h3>
+<p>Damit KI-Programme wie <strong>Claude Code</strong>, <strong>Codex CLI</strong>, <strong>Gemini CLI</strong> oder
+<strong>GitHub Copilot</strong> beim Schreiben helfen können, müssen sie an die Texte
+herankommen. Am besten geht das über</p>
+<ul>
+<li>eine <strong>Schnittstelle</strong> (englisch <em>API</em>, meist <em>REST-API</em> oder <em>GraphQL</em>) – ein
+standardisierter Weg, über den andere Programme Seiten lesen und ändern dürfen,
+oder</li>
+<li><strong>einfache Textdateien im Ordner</strong>, die ein KI-Werkzeug direkt öffnen kann (so
+arbeitet dieses Wiki heute).</li>
+</ul>
+<h2 id="sonderfall-llm-wiki--co-wiki"><a class="header" href="#sonderfall-llm-wiki--co-wiki">Sonderfall: LLM-Wiki / Co-Wiki</a></h2>
+<p>Es gibt eine neue Gruppe von Wissenssystemen, die von Anfang an für die
+Zusammenarbeit mit KI gedacht sind. Man nennt sie <strong>LLM-Wiki</strong> oder <strong>Co-Wiki</strong>
+(<em>LLM</em> = großes Sprachmodell, die Technik hinter Chat-KI). Kennzeichen:</p>
+<ul>
+<li>Die Inhalte sind kleine, klar benannte Markdown-Dateien – gut für Menschen
+<strong>und</strong> für die KI lesbar. Oft tragen sie ein paar <strong>Kopfzeilen</strong> (auch
+<em>Frontmatter</em> genannt: einige Zeilen am Dateianfang mit Titel,
+Kurzbeschreibung und Schlagwörtern).</li>
+<li>Eine Technik namens <strong>RAG</strong> (etwa: „Nachschlagen vor dem Antworten") lässt die
+KI erst die echten Notizen durchsuchen und dann daraus schreiben, statt sich
+etwas auszudenken.</li>
+<li>Dieses Wiki folgt diesem Modell: Markdown-Dateien, KI-lesbar, mit menschlicher
+Redaktion. Nur die technischen Dokumentationsseiten im Ordner <code>openwiki/</code>
+tragen ausführliche Kopfzeilen, die Ahrensburg-Artikel selbst nicht. Details in
+<a href="co-wiki.html">Co-Wiki: Mensch &amp; KI</a>. Ausführlich werden die LLM-Grundlagen und
+Andrej Karpathys Muster zur Wissensverwaltung auf der Seite <a href="llm-wiki.html">LLM Wiki</a>
+erklärt.</li>
+</ul>
+<h2 id="was-ist-mit-vibe-coding"><a class="header" href="#was-ist-mit-vibe-coding">Was ist mit „Vibe Coding"?</a></h2>
+<p><em>Vibe Coding</em> ist ein Begriff aus der Softwareentwicklung: Man beschreibt einer
+KI in normaler Sprache, was man haben will, und lässt sie den Code schreiben,
+ohne jede Zeile selbst zu prüfen. Übertragen auf das Schreiben von Texten heißt
+das: die KI formuliert, der Mensch nickt nur ab. Für schnelle Versuche ist das
+praktisch. Für ein Wissensprojekt, das
+richtig sein muss, ist es <strong>allein nicht genug</strong>: Jeder von der KI geschriebene
+Text muss von einem Menschen auf Fakten geprüft und freigegeben werden
+(<em>Human-in-the-Loop</em>, „der Mensch bleibt in der Schleife"). Die KI darf also
+kräftig zuarbeiten – die letzte Entscheidung trifft immer ein Mensch.</p>
+<h2 id="kurzfazit"><a class="header" href="#kurzfazit">Kurzfazit</a></h2>
+<ul>
+<li><strong>Reine Doku-Generatoren</strong> (wie heute mdBook) sind einfach und robust, stoßen
+aber bei zehntausenden Seiten und vielen gleichzeitigen Autoren an Grenzen.</li>
+<li><strong>Wiki-Programme</strong> sind für genau diesen Zweck gebaut. Für dieses Projekt sind
+vor allem <strong>XWiki</strong>, <strong>MediaWiki</strong> und <strong>Wiki.js</strong> interessant, weil sie viele
+Seiten, eine Schnittstelle und einen Export in ein offenes, datenbank-neutrales
+Format bieten (XML bei MediaWiki und XWiki, Markdown-Dateien per Git bei
+Wiki.js).</li>
+<li><strong>CMS</strong> sind eher für klassische Websites gedacht; datei-basierte Flat-File-CMS
+wie <strong>Grav</strong> liegen nah am heutigen Aufbau.</li>
+<li>Egal welches Programm: Ausschlaggebend bleiben zwei Dinge. Erstens ein
+<strong>Export in ein offenes, datenbank-neutrales Format</strong>, dessen Inhalte keine
+E-Mail-Adressen oder Passwörter enthalten. Zweitens eine <strong>große, aktive
+Entwicklergemeinschaft</strong>.</li>
+</ul>
+<p>Die Einzelheiten stehen auf den drei Vergleichsseiten. Wie diese Programme in
+die größere Landschaft von Wissenssystemen passen – bis hinauf zu Beständen von
+Millionen Artikeln und zur Suche nach Bedeutung –, zeigt die Seite
+<a href="wissenssysteme-im-vergleich.html">Wissenssysteme im Vergleich</a>.</p>
+<h2 id="fachwörter-kurz-erklärt"><a class="header" href="#fachwörter-kurz-erklärt">Fachwörter kurz erklärt</a></h2>
+<p>Diese Begriffe tauchen auf den Vergleichsseiten immer wieder auf.</p>
+<div class="table-wrapper"><table><thead><tr><th>Wort</th><th>Was es bedeutet</th></tr></thead><tbody>
+<tr><td><strong>Open Source</strong></td><td>Der Bauplan (Quelltext) des Programms ist öffentlich; jeder darf es gratis nutzen, ändern und weitergeben.</td></tr>
+<tr><td><strong>Schnittstelle</strong> (englisch <em>API</em>)</td><td>Ein fester Weg, über den ein Programm einem anderen Programm Daten gibt oder abnimmt.</td></tr>
+<tr><td><strong>REST-API</strong></td><td>Die heute verbreitetste Art solcher Schnittstellen: Andere Programme rufen über Web-Adressen einzelne Seiten ab oder ändern sie.</td></tr>
+<tr><td><strong>GraphQL</strong></td><td>Eine neuere Schnittstellen-Art; das fragende Programm sagt genau, welche Angaben es haben will, und bekommt nur die.</td></tr>
+<tr><td><strong>Datenbank</strong></td><td>Ein Programm, das große Mengen Daten sortiert speichert und schnell durchsuchbar hält. <strong>PostgreSQL</strong> ist eine bekannte, kostenlose Datenbank.</td></tr>
+<tr><td><strong>XML / JSON / YAML</strong></td><td>Drei verbreitete Textformate für Daten. XML nutzt spitze Klammern (Tags), JSON und YAML sind kompakter; alle sind für Menschen und Programme lesbar.</td></tr>
+<tr><td><strong>Markdown</strong></td><td>Ein einfaches Notizformat: normaler Text mit ein paar Zeichen für Überschriften, Fettschrift und Listen.</td></tr>
+<tr><td><strong>Git</strong></td><td>Eine „Zeitmaschine" für Dateien: Sie merkt sich jede gespeicherte Änderung, man kann jederzeit zurück.</td></tr>
+<tr><td><strong>Node.js</strong></td><td>Eine Umgebung, um JavaScript-Programme außerhalb des Webbrowsers zu nutzen – auf Servern oder als Werkzeuge.</td></tr>
+<tr><td><strong>MCP</strong> (Model Context Protocol)</td><td>Ein einheitlicher, geregelter Weg, über den KI-Programme auf Dateien und Werkzeuge zugreifen.</td></tr>
+<tr><td><strong>RAG</strong></td><td>„Erst nachschlagen, dann antworten": Die KI durchsucht echte Notizen, bevor sie einen Text schreibt.</td></tr>
+</tbody></table>
+</div>
+<h2 id="quellen"><a class="header" href="#quellen">Quellen</a></h2>
+<ul>
+<li><a href="https://www.wikimatrix.org/compare/bookstack+wiki-js+dokuwiki+mediawiki+xwiki+wackowiki">WikiMatrix – Vergleich von Wiki-Programmen</a></li>
+<li><a href="https://docs.requarks.io/storage/git">Wiki.js – Git-Speicher (Dokumentation)</a></li>
+<li><a href="https://www.mediawiki.org/wiki/Manual:PostgreSQL">MediaWiki – Handbuch: PostgreSQL</a></li>
+<li><a href="https://www.mediawiki.org/wiki/Help:Export">MediaWiki – Hilfe: Export</a></li>
+<li><a href="https://www.xwiki.org/xwiki/bin/view/Main/License">XWiki.org – Lizenz</a></li>
+<li><a href="https://www.bookstackapp.com/docs/user/export-import/">BookStack – Inhalte exportieren und importieren</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="co-wiki.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="openwiki/overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="co-wiki.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="openwiki/overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

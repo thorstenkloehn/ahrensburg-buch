@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ahrensburger Tunneltal und die Ahrensburger Kultur - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ahrensburger-tunneltal-und-die-ahrensburger-kultur"><a class="header" href="#ahrensburger-tunneltal-und-die-ahrensburger-kultur">Ahrensburger Tunneltal und die Ahrensburger Kultur</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>Das Ahrensburger Tunneltal ist eine schmale, langgestreckte Senke zwischen Ahrensburg und dem Hamburger Stadtteil Rahlstedt. Sie wurde am Ende der letzten Eiszeit von Schmelzwasser unter einem Gletscher ausgeschürft und steht heute als Naturschutzgebiet unter Schutz.</p>
+<p>Bekannt wurde das Tal weit über die Region hinaus durch die Steinzeit-Funde von Stellmoor und Meiendorf: Nach ihnen ist die „Ahrensburger Kultur" benannt, eine Epoche der Altsteinzeit, deren Name bis heute zum internationalen Fachvokabular gehört. Ausgegraben wurden die Funde in den 1930er-Jahren von Alfred Rust, dem späteren Ehrenbürger der Stadt.</p>
+<h2 id="wie-das-tal-entstand"><a class="header" href="#wie-das-tal-entstand">Wie das Tal entstand</a></h2>
+<p>Gegen Ende der letzten Eiszeit (fachlich „Weichsel-Kaltzeit") war die Gegend um Ahrensburg von mächtigen Gletschern aus Skandinavien bedeckt; das Eis wird bei Ahrensburg auf rund 300 Meter Dicke geschätzt. Unter dem Eis floss Schmelzwasser unter hohem Druck ab und riss dabei eine unregelmäßige Rinne in den Untergrund – ein solches Tal nennt man „Tunneltal". Als sich die Gletscher zurückzogen, blieben im Tal einzelne Eisreste liegen (sogenanntes Toteis). Wo dieses Eis schließlich schmolz, entstanden langgestreckte Seen; der bekannteste reichte vom Hof Stellmoor bis in die Gegend des heutigen Bahnhofs Ahrensburg-Ost. In der darauf folgenden Warmzeit verlandeten die Seen allmählich, und an der Oberfläche bildeten sich Niedermoore. Beim Hof Stellmoor entstand eine Wasserscheide, sodass das Wasser seither nach zwei Seiten abfließt. Von Rahlstedt bis Ahrensburg erstreckt sich das Tal über eine Länge von rund sieben Kilometern; seine Breite schwankt zwischen etwa 200 Metern an den engsten und rund zwei Kilometern an den weitesten Stellen. Am Rand des Gebiets liegen weitere eiszeitliche Landschaftsformen, etwa die Wartenberge – ein von den Gletschern zusammengeschobener Höhenzug (eine sogenannte Stauchmoräne).</p>
+<h2 id="die-landschaft-und-ihr-schutz-heute"><a class="header" href="#die-landschaft-und-ihr-schutz-heute">Die Landschaft und ihr Schutz heute</a></h2>
+<p>Heute ist das Tunneltal ein grüner, über weite Strecken feuchter Wiesen- und Moorraum mit offenen Flächen, lichten Wäldern und mehreren Fließgewässern. Durch das Tal verlaufen die Wandse, der Stellmoorer Quellfluss und der Hopfenbach; der Stellmoorer Quellfluss fließt nach Süden und ist ein Zufluss der Wandse, während der Hopfenbach nach Norden entwässert.</p>
+<p>Das Tal reicht über die Landesgrenze hinweg und wird auf schleswig-holsteinischer und Hamburger Seite durch eigene Schutzgebiete gesichert. In Ahrensburg übernimmt der Verein Jordsand die Betreuung. Die amtlichen Gebietsangaben und Schutzbestimmungen sind über die unten verlinkten Behörden- und Vereinsseiten erreichbar.</p>
+<p>Als Naherholungsraum ist das Tal auch in den Artikeln <a href="naherholungsgebiete.html">Naherholungsgebiete</a> und <a href="wander-und-radwege.html">Wander- und Radwege</a> beschrieben; in der Übersicht der Ahrensburger Schutzgebiete steht es im Artikel <a href="geografie.html">Geografie</a>.</p>
+<h2 id="alfred-rust-und-die-grabungen-in-stellmoor-und-meiendorf"><a class="header" href="#alfred-rust-und-die-grabungen-in-stellmoor-und-meiendorf">Alfred Rust und die Grabungen in Stellmoor und Meiendorf</a></h2>
+<p>Alfred Rust (1900–1983) war ein deutscher Prähistoriker. Seine Untersuchungen im Ahrensburger Tunneltal machten die Fundorte Meiendorf und Stellmoor international bekannt. Seine Verbindungen zu nationalsozialistischen Organisationen sind Teil der kritischen historischen Einordnung seiner Person.</p>
+<p>Bei den Grabungen kamen neben Steingeräten auch Gegenstände aus organischem Material zum Vorschein. Die Fundschichten halfen der Forschung, die Hamburger und die Ahrensburger Kultur zeitlich voneinander zu unterscheiden.</p>
+<h2 id="die-eiszeitlichen-rentierjäger"><a class="header" href="#die-eiszeitlichen-rentierjäger">Die eiszeitlichen Rentierjäger</a></h2>
+<h3 id="die-ahrensburger-kultur"><a class="header" href="#die-ahrensburger-kultur">Die Ahrensburger Kultur</a></h3>
+<p>Die Bezeichnung „Ahrensburger Kultur" ordnet spätaltsteinzeitliche Funde einer eigenen archäologischen Kultur zu. Für die Stadt ist vor allem bedeutsam, dass ihr Name durch die Fundorte im Tunneltal zu einem internationalen Fachbegriff wurde. Der Artikel <a href="geschichte-der-stadt-ahrensburg.html">Geschichte der Stadt Ahrensburg</a> stellt diesen Abschnitt in den örtlichen Zusammenhang.</p>
+<p>Die in Stellmoor geborgenen Jagdgeräte und Tierknochen erlauben Einblicke in das Leben am Ende der letzten Eiszeit. Zu den örtlich besonders bekannten Fundstücken gehören Feuersteinspitzen und der sogenannte Kultpfahl.</p>
+<h3 id="die-ältere-hamburger-kultur"><a class="header" href="#die-ältere-hamburger-kultur">Die ältere Hamburger Kultur</a></h3>
+<p>Unter den Fundschichten lag auch Material der älteren Hamburger Kultur. Damit dokumentiert Stellmoor mehrere Abschnitte der spätaltsteinzeitlichen Besiedlung an einem Ort.</p>
+<h2 id="verbleib-der-funde"><a class="header" href="#verbleib-der-funde">Verbleib der Funde</a></h2>
+<p>Nicht alles hat überdauert. Die hölzernen Funde aus dem Stellmoorer Seeboden – darunter über hundert Pfeilschäfte – lagerten nach der Grabung in Kiel und verbrannten dort 1944 bei einem Luftangriff; erhalten blieb zunächst nur Rusts Grabungsbericht von 1943. 2013 fanden sich in seinem Nachlass mehrere kleine Holzstücke, die den dort abgebildeten Pfeilschäften ähneln; eine Radiokohlenstoff-Datierung bestätigte ein eiszeitliches Alter, das zu den Rentierknochen von Stellmoor passt (Meadows u. a. 2018).</p>
+<p>Die übrigen Funde sind auf mehrere Sammlungen verteilt. Der Großteil gelangte an das heutige Museum für Archäologie Schloss Gottorf in Schleswig; weitere Stücke und Nachbildungen besitzen das Archäologische Museum Hamburg und das Stormarnsche Dorfmuseum in Hoisdorf. Einige Originale – Rentierknochen und Steingeräte – stehen dauerhaft in einer Vitrine in der Integrierten Gesamtschule Ahrensburg am Wulfsdorfer Weg 71.</p>
+<h2 id="das-tunneltal-heute-erleben"><a class="header" href="#das-tunneltal-heute-erleben">Das Tunneltal heute erleben</a></h2>
+<p>Durch das Gebiet führt der Alfred-Rust-Wanderweg, an dem Infotafeln die geologisch und archäologisch bedeutsamen Stellen erläutern. Geführte Wanderungen bieten der Verein Jordsand und die Stadt Ahrensburg auf Anfrage an. Wer Originalfunde sehen möchte, findet die erwähnte Vitrine in der Integrierten Gesamtschule (Wulfsdorfer Weg 71). Als lokale Interessengemeinschaft kümmert sich die IG Stellmoor-Ahrensburger Tunneltal e. V. um das Tal; sie ging aus einer seit 2015 aktiven Initiative hervor und betreibt die Website tunneltal.de. Wanderwege im Tal beschreibt auch der Artikel <a href="wander-und-radwege.html">Wander- und Radwege</a>.</p>
+<h2 id="bedeutung-für-die-stadt-ahrensburg"><a class="header" href="#bedeutung-für-die-stadt-ahrensburg">Bedeutung für die Stadt Ahrensburg</a></h2>
+<p>Das Tunneltal ist für Ahrensburg identitätsstiftend. Seit 1976 zeigt das Stadtwappen in seiner unteren Hälfte einen stilisierten Rentierschädel mit Geweihschaufeln auf einem roten Pfahl – eine unmittelbare Anspielung auf den Kultpfahl von Stellmoor. Der große Veranstaltungssaal am Wulfsdorfer Weg trägt den Namen <a href="musik-und-theater.html">Alfred-Rust-Saal</a>, und Rust selbst ist Ehrenbürger der Stadt. Vor allem aber ist der Name der Stadt über die Wissenschaft in die ganze Welt gelangt: Die von Rust eingeführte Bezeichnung „Ahrensburger Kultur" wird – ebenso wie die „Hamburger Kultur" – bis heute in der Archäologie weltweit verwendet. Weiterführende Informationen zu Alfred Rust bietet das Online-Angebot „Rustbuch" (siehe Weblinks).</p>
+<h2 id="weblinks"><a class="header" href="#weblinks">Weblinks</a></h2>
+<p><strong>Amtliche und frei lizenzierte Quellen</strong></p>
+<ul>
+<li><a href="https://umweltanwendungen.schleswig-holstein.de/Natura2000/pdf/bis/alfred_rust_wanderweg_im_stellmoor_ahrensburger_tunneltal.pdf">Faltblatt „Alfred-Rust-Wanderweg im Stellmoor-Ahrensburger Tunneltal" (Landesamt für Natur und Umwelt SH)</a></li>
+<li><a href="https://www.ahrensburg.de/Wirtschaft-Tourismus/Tourismus/Naherholung/Tunneltal/">Stadt Ahrensburg: „Tunneltal"</a></li>
+<li><a href="https://www.jordsand.de/schutzgebiete/ahrensburger-tunneltal/">Verein Jordsand: Schutzgebiet Ahrensburger Tunneltal</a></li>
+<li><a href="https://pure.au.dk/portal/da/publications/datierung-der-verlorenen-pfeilsch%C3%A4fte-aus-stellmoor-schleswig-hol/">John Meadows u. a.: „Dating the lost arrow shafts from Stellmoor" (2018, Universität Aarhus)</a></li>
+<li>Wikipedia-Artikel: siehe Abschnitt <a href="#wikipedia-als-quelle">„Wikipedia als Quelle"</a></li>
+</ul>
+<p><strong>Weiterführende Links</strong></p>
+<ul>
+<li><a href="https://rustbuch.wissen-ahrensburg.de/">Rustbuch – Online-Angebot zu Alfred Rust</a></li>
+<li><a href="https://tunneltal.de/">tunneltal.de – Website der IG Stellmoor-Ahrensburger Tunneltal e. V. (Vereinsseite, kein neutrales Nachschlagewerk)</a></li>
+</ul>
+<h2 id="wikipedia-als-quelle"><a class="header" href="#wikipedia-als-quelle">Wikipedia als Quelle</a></h2>
+<p>Teile dieses Artikels wurden aus der deutschsprachigen Wikipedia übernommen und für dieses Wiki bearbeitet (gekürzt, neu gegliedert und sprachlich überarbeitet). Autoren der Vorlagen jeweils laut Versionsgeschichte des jeweiligen Artikels; die Ursprungstexte stehen unter <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">CC BY-SA 4.0</a>, diese Seite steht unter derselben Lizenz.</p>
+<ul>
+<li><a href="https://de.wikipedia.org/wiki/Ahrensburger_Kultur">Ahrensburger Kultur</a></li>
+<li><a href="https://de.wikipedia.org/wiki/Stellmoor%E2%80%93Ahrensburger_Tunneltal">Stellmoor–Ahrensburger Tunneltal</a></li>
+<li><a href="https://de.wikipedia.org/wiki/Alfred_Rust_(Pr%C3%A4historiker)">Alfred Rust (Prähistoriker)</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="fauna-und-flora.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="sehenswuerdigkeiten-kultur.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="fauna-und-flora.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="sehenswuerdigkeiten-kultur.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

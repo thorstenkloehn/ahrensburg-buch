@@ -1,0 +1,541 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ein Wissenssystem selbst bauen - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ein-wissenssystem-selbst-bauen"><a class="header" href="#ein-wissenssystem-selbst-bauen">Ein Wissenssystem selbst bauen</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>Die Seite <a href="webframeworks-im-vergleich.html">Webframeworks im Vergleich</a> sagt: Das
+Framework ist nur der <strong>Dirigent</strong>, die eigentliche Last liegt in der Schicht
+darunter. Diese Seite geht eine Ebene tiefer und dreht die Frage um: Wenn ein
+Projekt seinen Auslieferungs- <strong>und</strong> seinen Redaktionsstack wirklich selbst
+baut – was schenkt einem jedes große Ökosystem an fertigen Bausteinen? Das ist
+der technische Tiefgang unter der Vergleichsseite, so wie
+<a href="cms-millionen-artikel.html">Wie CMS mit Millionen Artikeln umgehen</a> der Tiefgang
+unter <a href="cms-im-vergleich.html">CMS im Vergleich</a> ist. Betrachtet werden zwei
+Ausbaustufen – (1) ein durchsuchbares Wissenssystem mit KI-Anbindung und (2) ein
+vollwertiges CMS mit Redaktions-Oberfläche.</p>
+<p>Betrachtet werden nur die vier Ökosysteme, die bei sehr großen Beständen erprobt
+sind: <strong>ASP.NET Core</strong> (Sprache C#), die <strong>JVM</strong> (Java und verwandte Sprachen),
+<strong>Go</strong> und <strong>Rust</strong>. <strong>Python</strong> und <strong>Node.js</strong> kommen hier nicht als
+Auslieferungs-Framework vor – nicht weil sie untauglich wären, sondern weil ihre
+Stärke woanders liegt: Python taucht im LLM-Teil weiter unten als
+Bibliotheks-Ökosystem auf, und für ein fertiges CMS sind Django/Wagtail (Python)
+und die Node-Headless-CMS oft der kürzere Weg.</p>
+<p>Dieses Wiki nutzt heute mdBook mit Git und Markdown – „Docs as Code", also gar
+kein Framework und keine Datenbank. Die Grundkonzepte, wie Wissensprojekte ihre
+Daten speichern und durchsuchbar halten, erklärt die Seite
+<a href="wissen-speichern.html">Wissen speichern</a>. Alles Folgende ist Einordnung und Ausblick
+und greift erst, wenn ein Projekt in die Nähe von Millionen Artikeln käme. Einen
+fertigen, bewährten Standard-Aufbau für Millionen-Wikis gibt es dabei nicht.</p>
+<blockquote>
+<p>Fachwörter wie <em>Open Source</em>, <em>Schnittstelle</em> (<em>API</em>), <em>REST</em>, <em>GraphQL</em>,
+<em>Datenbank</em>, <em>Markdown</em>, <em>Git</em>, <em>Node.js</em>, <em>MCP</em> oder <em>RAG</em> sind in
+<a href="software-fuer-ein-grosses-wissensprojekt.html#fachw%C3%B6rter-kurz-erkl%C3%A4rt">Software für ein großes Wissensprojekt</a>
+in einer kurzen Liste erklärt.</p>
+</blockquote>
+<h2 id="was-bei-allen-gleich-bleibt"><a class="header" href="#was-bei-allen-gleich-bleibt">Was bei allen gleich bleibt</a></h2>
+<p>Die schwere Arbeit bei Millionen Artikeln liegt nicht im Framework, sondern in
+der Schicht darunter – und die sieht in allen vier Ökosystemen ähnlich aus. In
+jedem gilt: fürs massenhafte <strong>Lesen</strong> keine schwere Abbildungsschicht zwischen
+Datenbank und Programm verwenden. Eine <strong>objektrelationale Abbildung</strong> (englisch
+<em>Object-Relational Mapping</em>, ORM) behandelt Datenbankzeilen als Programmobjekte
+und verfolgt jede Änderung mit; für reine Lese-Massen ist dieser
+Änderungs-Nachlauf unnötiger Ballast. Jedes Ökosystem hat einen schlanken Weg
+daran vorbei: in .NET <code>AsNoTracking()</code> oder die schmale Bibliothek Dapper, in der
+JVM-Welt rein lesende Transaktionen oder jOOQ, in Go <code>database/sql</code> mit <code>pgx</code> oder
+<code>sqlc</code>, in Rust <code>sqlx</code>. Alles Weitere – große Tabellen aufteilen, Verbindungen
+bündeln, Lese-Kopien, die Suche auslagern, ein Vorschalt-Cache oder CDN – ist vom
+Framework unabhängig und steht ausführlich auf
+<a href="cms-millionen-artikel.html">Wie CMS mit Millionen Artikeln umgehen</a>. Wie sich die
+Lizenzlage bei Speicher- und Such-Bausteinen 2024/25 verschoben hat, steht auf
+<a href="webframeworks-im-vergleich.html">Webframeworks im Vergleich</a>.</p>
+<h2 id="die-vier-großen-sprach-Ökosysteme"><a class="header" href="#die-vier-großen-sprach-Ökosysteme">Die vier großen Sprach-Ökosysteme</a></h2>
+<p>Kurze Steckbriefe – es geht um den selbst betriebenen Auslieferungs-Server in
+einer dieser Sprachen. Die Mechanik der Speicherverwaltung – ob eine Sprache
+einen <strong>Garbage Collector</strong> hat (ein Hintergrundprogramm, das ungenutzten
+Speicher automatisch einsammelt und dabei kurze Pausen verursachen kann) – sowie
+Reifegrad und Durchsatz im Detail stehen für JVM, Go und Rust auf
+<a href="webframeworks-im-vergleich.html">Webframeworks im Vergleich</a>; hier steht ASP.NET
+Core im Vordergrund, das dort nicht vorkommt. Die folgenden Steckbriefe
+verweisen darauf nicht noch einmal einzeln.</p>
+<h3 id="aspnet-core-c"><a class="header" href="#aspnet-core-c">ASP.NET Core (C#)</a></h3>
+<p>ASP.NET Core ist das quelloffene Web-Framework von Microsoft, unter der
+permissiven MIT-Lizenz. Es bringt den eigenen Webserver <strong>Kestrel</strong> und die
+<strong>Minimal APIs</strong> mit – eine knappe Schreibweise für einzelne HTTP-Endpunkte. Wie
+JVM und Go hat die .NET-Laufzeit einen Garbage Collector. Als Gegenstück zum
+Native Image der JVM (mit dem Werkzeug GraalVM) gibt es <strong>Native AOT</strong>
+(<em>Ahead-of-Time</em>, „vorab übersetzt"): ein vorab in Maschinensprache übersetztes,
+eigenständiges Programm mit schnellem Start und geringem Arbeitsspeicherbedarf.
+Einschränkung laut Microsoft-Dokumentation: Nicht jede Bibliothek ist
+AOT-tauglich. Als Praxisbeispiel für .NET unter Last gilt Stack Overflow; die
+öffentlich dokumentierten Zahlen stammen allerdings aus dem Jahr 2016 (rund
+209 Millionen Anfragen pro Tag auf etwa 25 Servern, damals noch ASP.NET MVC 5) –
+sie belegen qualitativ einen Betrieb in Millionengröße, mehr nicht.</p>
+<h3 id="jvm-java"><a class="header" href="#jvm-java">JVM (Java)</a></h3>
+<p>Auf der Java Virtual Machine laufen Spring Boot (der De-facto-Standard) sowie die
+jüngeren Quarkus und Micronaut, alle unter Apache 2.0. Der Garbage Collector der
+JVM hat Stop-the-World-Anteile; im klassischen Betrieb ist der
+Arbeitsspeicherbedarf höher, mit einem GraalVM Native Image deutlich niedriger.</p>
+<h3 id="go"><a class="header" href="#go">Go</a></h3>
+<p>Go bringt <strong>Goroutinen</strong> mit – sehr leichtgewichtige „Fäden" für viele
+gleichzeitige Anfragen – und ist seit Version 1.0 im Server- und Netzwerkbereich
+fest etabliert. Sein Garbage Collector arbeitet überwiegend nebenläufig, ist aber
+nicht ganz pausenfrei. Große Anwendungen mit Redaktions-Oberfläche wie
+Gitea/Forgejo oder Mattermost sind in Go geschrieben; öffentliche
+Millionen-Artikel-Referenzzahlen gibt es dafür nicht.</p>
+<h3 id="rust"><a class="header" href="#rust">Rust</a></h3>
+<p>Rust hat keinen Garbage Collector: Der Compiler entscheidet schon beim Übersetzen
+anhand fester Regeln (dem <em>Ownership</em>-Modell), wann Speicher frei wird – dadurch
+keine GC-Pausen, dafür eine steile Lernkurve und eine junge Community.
+Web-Frameworks sind Axum und Actix-web. Discord hat 2020 einen einzelnen Dienst
+wegen kurzer, aber regelmäßiger GC-Latenz von Go auf Rust umgestellt – ein
+Dienst, nicht die ganze Plattform. Als weiteres Rust-Projekt unter Last gilt
+Cloudflares <strong>Pingora</strong> (Apache 2.0), das Cloudflare-intern nginx ersetzt; das
+ist ein Baukasten für Proxy-Dienste, kein Artikel-Stack.</p>
+<h2 id="ausbaustufe-1--wissenssystem-mit-llm-und-rag"><a class="header" href="#ausbaustufe-1--wissenssystem-mit-llm-und-rag">Ausbaustufe 1 — Wissenssystem mit LLM und RAG</a></h2>
+<p>Die erste Ausbaustufe ist ein durchsuchbares Wissenssystem: Bedeutungssuche, ein
+Nachschlage-Ablauf für KI-Antworten (<strong>RAG</strong>, „erst nachschlagen, dann
+antworten") und eventuell Agenten. Auf dem Auslieferungs-Ökosystem sitzt dafür
+eine LLM-Schicht aus SDKs (fertigen Programmbibliotheken der Modell-Anbieter),
+RAG-Orchestrierung und der Anbindung an die Bedeutungssuche.</p>
+<p>Zwei Dinge sind für alle Sprachen gleich. Erstens der <strong>Vektor-Speicher</strong>: Für
+rund eine Million Artikel reicht die PostgreSQL-Erweiterung <code>pgvector</code> in
+derselben Datenbank – ausgeführt auf
+<a href="cms-millionen-artikel.html">Wie CMS mit Millionen Artikeln umgehen</a>. Zweitens
+<strong>MCP</strong> (Model Context Protocol), die offene Andockstelle zwischen Modell und
+Werkzeugen, hat offizielle SDKs quer durch alle hier genannten Sprachen und ist
+damit <strong>kein</strong> Auswahlkriterium (Details zu MCP auf <a href="llm-wiki.html">LLM Wiki</a>).</p>
+<p>Wo die Ökosysteme sich unterscheiden, ist die Reife der RAG-Werkzeuge darüber.
+Die folgende Reihenfolge ist eine Einschätzung nach unserer Recherche, kein
+Messergebnis.</p>
+<ul>
+<li><strong>Python</strong> – die reichste Auswahl: LangChain (Version 1.0 seit Oktober 2025),
+dazu LlamaIndex, Haystack und die offiziellen SDKs <code>anthropic</code> und <code>openai</code>.
+Nach verbreiteter Erfahrung landen neue Modell-Funktionen hier zuerst –
+eine Erfahrungsaussage, keine Regel.</li>
+<li><strong>TypeScript/Node.js</strong> – gut ausgestattet: Das Vercel AI SDK (Version 5 seit
+Juli 2025) gilt als stabil, dazu LangChain.js und Mastra.</li>
+<li><strong>.NET</strong> – <code>Microsoft.Extensions.AI</code> (allgemein verfügbar seit Mai 2025) bietet
+eine einheitliche Schnittstelle über verschiedene Modelle. Semantic Kernel ist
+stabil, doch für neue Projekte lenkt Microsoft auf dessen Nachfolger, das
+<strong>Microsoft Agent Framework</strong>; <strong>Kernel Memory</strong> führt Microsoft ausdrücklich
+als „Research project" – ein gepflegter RAG-Baustein, kein zugesichertes
+Produkt.</li>
+<li><strong>Java/JVM</strong> – Spring AI (1.0 seit Mai 2025) gilt als stabil, LangChain4j ist
+mit der 1.x-Reihe etabliert, und Quarkus hat eine erstklassige
+LangChain4j-Erweiterung.</li>
+<li><strong>Go</strong> – dünner bei viel RAG-Orchestrierung: offizielle SDKs <code>anthropic-sdk-go</code>
+und <code>openai-go</code>, aber <code>langchaingo</code> ist ein Community-Projekt. Das Zerlegen,
+Heraussuchen und Neu-Sortieren langer Texte baut man eher selbst – Einschätzung.</li>
+<li><strong>Rust</strong> – am unreifsten für diese Aufgabe: <code>rig</code>, <code>async-openai</code> und das
+offizielle MCP-SDK <code>rmcp</code>. Für reine Auslieferung tauglich, für komplexe
+RAG-Ketten noch wenig Fertiges – Einschätzung.</li>
+</ul>
+<h2 id="ausbaustufe-2--ein-vollwertiges-cms"><a class="header" href="#ausbaustufe-2--ein-vollwertiges-cms">Ausbaustufe 2 — Ein vollwertiges CMS</a></h2>
+<p>Die zweite Ausbaustufe ist ein vollwertiges Redaktionssystem. Dafür kommt eine
+ganze Baustein-Ebene dazu: Anmeldung und <strong>Rollenrechte</strong> (englisch <em>Role-Based
+Access Control</em>, RBAC – wer darf was), eine Redaktions-Oberfläche (idealerweise
+automatisch aus dem Datenmodell erzeugt, sodass man die Eingabemasken nicht von
+Hand baut – kurz „Auto-Admin"), eine Medien-Bibliothek mit Bildbearbeitung, ein
+Freigabe-Workflow (Entwurf → Prüfung → Veröffentlichung), Versionierung und
+Hintergrund-Aufgaben. Wie viele dieser Bausteine fertig vorliegen – und wie
+sauber sie lizenziert sind – ist der eigentliche Unterschied zwischen den vier
+Ökosystemen.</p>
+<p>Die Reife-Angaben in diesem Abschnitt sind Einschätzungen nach unserer
+Recherche, keine öffentlich belegten Benchmarks; die Eignung für rund eine
+Million Artikel ist bei fast allen genannten Bausteinen technisch plausibel, aber
+nicht mit einer Großreferenz belegt (wie schon auf den Schwesterseiten). Die
+Systematik trägt die Tabelle am Ende des Abschnitts; die Absätze nennen nur, wie
+weit man kommt und wo der eine Vorbehalt liegt, der in keine Tabellenzelle passt.</p>
+<p><strong>.NET.</strong> Am weitesten kommt man mit einem fertigen CMS-Framework – Orchard Core,
+Piranha oder Umbraco (siehe Tabelle) –, das Anmeldung, Rollen, Workflow und Admin
+schon mitbringt. Der eine Reibungspunkt sitzt bei der Bildbearbeitung:
+<strong>ImageSharp</strong> steht unter einer Split-Lizenz (für Non-Profits mit unter
+1 Mio. USD Umsatz kostenlos, ab Version 4 aber mit einem Build-Lizenzschlüssel),
+während <strong>SkiaSharp</strong> (MIT) reibungsfrei ist.</p>
+<p><strong>JVM.</strong> Das Enterprise-Erbe zeigt sich hier am deutlichsten: <strong>Apache Jackrabbit
+Oak</strong> – das Standard-Backend hinter Adobe AEM – ist eine hierarchische
+Inhalts-Datenbank nach dem Standard <strong>JCR</strong> (Java Content Repository) und bringt
+Versionierung, feingranulare Rechte und Volltextsuche mit; Apache Sling legt die
+REST-Schicht darüber. Beim Workflow ist die Lizenzlage der Haken: <strong>Flowable</strong>
+(Apache 2.0) ist die freie Option, während bei <strong>Camunda</strong> die Community Edition
+von Version 7 seit Oktober 2025 abgekündigt ist (keine Sicherheits-Patches mehr)
+und Version 8 nur „source available" ist und im Selbstbetrieb eine
+Produktionslizenz braucht.</p>
+<p><strong>Go.</strong> Fertige Rundum-Bausteine sind seltener; am weitesten kommt <strong>PocketBase</strong>
+(MIT), ein komplettes Backend in einer Datei (Auto-REST-API, Admin, Anmeldung,
+Datei-Ablage). Die zwei Vorbehalte: Es steht weiterhin bei Version 0.x ohne
+zugesicherte Aufwärtskompatibilität und ist an die eingebettete Datenbank SQLite
+gebunden. Die Suche über <strong>Bleve</strong> bleibt eingebettet und ohne separaten Dienst –
+ab welcher Bestandsgröße ein externer Suchdienst besser ist, hängt vom Fall ab
+(siehe „Suche früh auslagern" auf
+<a href="cms-millionen-artikel.html">Wie CMS mit Millionen Artikeln umgehen</a>).</p>
+<p><strong>Rust.</strong> Am wenigsten Fertiges. <strong>Loco.rs</strong> (Apache 2.0, „Rails für Rust", auf
+Axum und SeaORM) hat am 25. Juli 2026 Version 1.0 erreicht und gilt seither als
+stabil, doch die Community bleibt klein. Die eingebettete Volltextsuche
+<strong>tantivy</strong> (MIT) ist für rund eine Million Artikel plausibel (die Suchmaschine
+Quickwit baut darauf), aber ohne öffentliche Zahlen – Einschätzung. Ein
+Gegenstück zu Orchard Core oder Wagtail, also ein fertiges CMS-Framework mit
+Auto-Admin, gibt es nach unserer Recherche nicht.</p>
+<h3 id="cms-bausteine-der-vier-Ökosysteme"><a class="header" href="#cms-bausteine-der-vier-Ökosysteme">CMS-Bausteine der vier Ökosysteme</a></h3>
+<p>Qualitative Übersicht, kein Sieger. Lizenz-Kürzel in Klammern.</p>
+<div class="table-wrapper"><table><thead><tr><th>Baustein</th><th>.NET</th><th>JVM</th><th>Go</th><th>Rust</th></tr></thead><tbody>
+<tr><td>CMS-Framework / Plattform</td><td>Orchard Core (BSD-3), Piranha (MIT), Umbraco (MIT)</td><td>Jackrabbit Oak + Sling (Apache 2.0), JHipster (Apache 2.0)</td><td>PocketBase (MIT, v0.x)</td><td>Loco.rs (Apache 2.0, 1.0)</td></tr>
+<tr><td>Anmeldung / Rollen (RBAC)</td><td>ASP.NET Identity; OpenIddict (Apache 2.0); Duende (kommerziell, mit Community Edition)</td><td>Keycloak (Apache 2.0)</td><td>Casbin (Apache 2.0)</td><td><code>axum-login</code> (MIT), RBAC selbst</td></tr>
+<tr><td>Admin- / Schema-Oberfläche</td><td>in Orchard Core / Umbraco enthalten</td><td>JHipster erzeugt sie</td><td>qor5 (Einschätzung)</td><td>– (nach unserer Recherche keins)</td></tr>
+<tr><td>Medien / Bildbearbeitung</td><td>ImageSharp (Split-Lizenz) oder SkiaSharp (MIT)</td><td>Ablage über Jackrabbit Oak</td><td>Datei-Ablage in PocketBase</td><td><code>object_store</code>-Bibliothek</td></tr>
+<tr><td>Freigabe-Workflow</td><td>Elsa 3 (MIT)</td><td>Flowable (Apache 2.0); Camunda mit Lizenz-/EoL-Vorbehalt</td><td>in qor5 enthalten (Einschätzung)</td><td>selbst bauen</td></tr>
+<tr><td>Volltextsuche</td><td>Lucene.NET (Apache 2.0)</td><td>Hibernate Search (LGPL 2.1); besser extern auslagern</td><td>Bleve (Apache 2.0, eingebettet)</td><td>tantivy (MIT, eingebettet)</td></tr>
+<tr><td>Hintergrund-Aufgaben</td><td>Quartz.NET (frei); Hangfire (Kern frei, „Pro" kostenpflichtig)</td><td>Spring Batch / Quartz / JobRunr (Kern frei)</td><td>asynq (Redis) / River (PostgreSQL), beide MIT</td><td>apalis (permissiv)</td></tr>
+</tbody></table>
+</div>
+<p>Eine vollständig permissiv lizenzierte Zusammenstellung ist in jedem Ökosystem
+möglich – man muss nur pro Zeile die freie Variante wählen: in .NET etwa
+OpenIddict statt Duende und SkiaSharp statt ImageSharp, in der JVM Flowable statt
+Camunda. Vor einer „voll frei"-Gesamtaussage lohnt bei einzelnen
+Nischen-Bausteinen (Elsa 3, Squidex, Hibernate Search, JobRunr-Kern) ein kurzer
+Blick ins jeweilige Repository.</p>
+<h2 id="ehrlich-über-den-tellerrand"><a class="header" href="#ehrlich-über-den-tellerrand">Ehrlich über den Tellerrand</a></h2>
+<p>Für „ein eigenes CMS bauen" führt an zwei Optionen kaum ein Weg vorbei, die hier
+bewusst außen vor bleiben. <strong>Django</strong> mit <strong>Wagtail</strong> (Python) liefert mit
+<code>django-admin</code> praktisch geschenkt eine Redaktions-Oberfläche; Wagtail steht
+unter der BSD-3-Clause-Lizenz. Und die <strong>Node.js-Headless-CMS</strong> – Strapi,
+Directus, Payload – bringen Schema-Verwaltung, API und Admin fertig mit. Zur
+Auswahl unter den fertigen CMS (einschließlich der Node-Headless-Welt) siehe
+<a href="cms-im-vergleich.html">CMS im Vergleich</a>; zur Skalierung von Django/Wagtail auf
+große Bestände siehe
+<a href="cms-millionen-artikel.html">Wie CMS mit Millionen Artikeln umgehen</a>. Die vier hier
+betrachteten Ökosysteme sind also vor allem dann die Wahl, wenn ohnehin ein
+selbst gebauter Auslieferungs-Server in einer dieser Sprachen läuft.</p>
+<h2 id="was-heißt-das-für-dieses-wiki"><a class="header" href="#was-heißt-das-für-dieses-wiki">Was heißt das für dieses Wiki?</a></h2>
+<p>Für rund sechzig Artikel plus KI-Zusammenarbeit ist mdBook mit Git und Markdown –
+Docs as Code, kein CMS, keine Datenbank – die passende Grundlage. Bei starkem
+Wachstum käme eher ein echtes Wiki-System oder ein zusätzlicher Suchverbund in
+Frage als ein Framework-Eigenbau. Eine Redaktions-Oberfläche würde am ehesten als
+schlanker Redaktions-Aufsatz auf das Git-Lager entstehen, nicht als selbst
+gebautes CMS. Der eigentliche eigene Weg dieses Projekts ist ohnehin
+die geregelte Zusammenarbeit von Mensch und KI – beschrieben unter
+<a href="co-wiki.html">Co-Wiki: Mensch &amp; KI</a> und <a href="llm-wiki.html">LLM Wiki</a>. Die vier Familien
+von Wissenssystemen aus der Vogelperspektive – und warum es keinen fertigen
+Standard-Stack für große Wikis gibt – behandelt
+<a href="wissenssysteme-im-vergleich.html">Wissenssysteme im Vergleich</a>.</p>
+<h2 id="verwandte-seiten"><a class="header" href="#verwandte-seiten">Verwandte Seiten</a></h2>
+<ul>
+<li><a href="webframeworks-im-vergleich.html">Webframeworks im Vergleich</a> – die Elternseite
+(Framework als Dirigent, GC-Mechanik der Sprach-Familien, Lizenzlage 2024/25)</li>
+<li><a href="cms-millionen-artikel.html">Wie CMS mit Millionen Artikeln umgehen</a> – Skalierung,
+pgvector, Bezug zu Django/Wagtail</li>
+<li><a href="cms-im-vergleich.html">CMS im Vergleich</a> – fertige CMS inklusive Node-Headless</li>
+<li><a href="wissenssysteme-im-vergleich.html">Wissenssysteme im Vergleich</a> – die vier
+Familien, „kein Standard-Stack"</li>
+<li><a href="llm-wiki.html">LLM Wiki</a> · <a href="co-wiki.html">Co-Wiki: Mensch &amp; KI</a> – der agentische
+Ansatz dieses Projekts, MCP als Andockstelle</li>
+<li><a href="software-fuer-ein-grosses-wissensprojekt.html">Software für ein großes Wissensprojekt</a>
+– Übersicht und Fachwörter-Liste</li>
+<li><a href="wikis-im-vergleich.html">Wiki-Programme im Vergleich</a> ·
+<a href="doku-generatoren-im-vergleich.html">Doku-Generatoren im Vergleich</a> –
+Schwesterseiten</li>
+</ul>
+<h2 id="quellen"><a class="header" href="#quellen">Quellen</a></h2>
+<p>Auslieferung und Praxis:</p>
+<ul>
+<li><a href="https://learn.microsoft.com/aspnet/core/fundamentals/servers/kestrel">ASP.NET Core – Kestrel</a></li>
+<li><a href="https://learn.microsoft.com/aspnet/core/fundamentals/minimal-apis">ASP.NET Core – Minimal APIs</a></li>
+<li><a href="https://learn.microsoft.com/dotnet/core/deploying/native-aot/">.NET – Native AOT deployment</a></li>
+<li><a href="https://nickcraver.com/blog/2016/02/17/stack-overflow-the-architecture-2016-edition/">Nick Craver – Stack Overflow: The Architecture – 2016 Edition</a></li>
+<li><a href="https://highscalability.com/stackoverflow-update-560m-pageviews-a-month-25-servers-and-i/">High Scalability – Stack Overflow Update: 560M Pageviews A Month, 25 Servers</a></li>
+<li><a href="https://discord.com/blog/why-discord-is-switching-from-go-to-rust">Discord – Why Discord is switching from Go to Rust</a></li>
+<li><a href="https://blog.cloudflare.com/pingora-open-source/">Cloudflare – Open sourcing Pingora</a></li>
+<li><a href="https://gitea.io/">Gitea</a> · <a href="https://github.com/mattermost/mattermost">Mattermost – GitHub</a></li>
+<li><a href="https://www.techempower.com/benchmarks/">TechEmpower Framework Benchmarks</a></li>
+<li><a href="https://learn.microsoft.com/ef/core/querying/tracking">Entity Framework Core – Tracking vs. No-Tracking Queries</a></li>
+</ul>
+<p>CMS-Bausteine .NET:</p>
+<ul>
+<li><a href="https://github.com/OrchardCMS/OrchardCore/blob/main/LICENSE">Orchard Core – LICENSE (BSD-3-Clause)</a></li>
+<li><a href="https://github.com/PiranhaCMS/piranha.core/blob/master/LICENSE">Piranha CMS – LICENSE (MIT)</a></li>
+<li><a href="https://github.com/umbraco/Umbraco-CMS/blob/contrib/LICENSE.md">Umbraco CMS – LICENSE</a> · <a href="https://umbraco.com/blog/umbraco-9-release">Umbraco 9 Release</a></li>
+<li><a href="https://learn.microsoft.com/aspnet/core/security/authentication/identity">ASP.NET Core – Identity</a></li>
+<li><a href="https://documentation.openiddict.com/">OpenIddict – Dokumentation</a></li>
+<li><a href="https://docs.duendesoftware.com/general/licensing/">Duende – Licensing</a> · <a href="https://duendesoftware.com/products/communityedition">Duende – Community Edition</a></li>
+<li><a href="https://docs.elsaworkflows.io/">Elsa Workflows – Dokumentation</a></li>
+<li><a href="https://sixlabors.com/pricing/">Six Labors – Pricing</a> · <a href="https://sixlabors.com/posts/announcing-imagesharp-400/">Announcing ImageSharp 4.0.0</a></li>
+<li><a href="https://github.com/mono/SkiaSharp">SkiaSharp – GitHub</a></li>
+<li><a href="https://www.hangfire.io/">Hangfire</a> · <a href="https://www.quartz-scheduler.net/">Quartz.NET</a></li>
+<li><a href="https://lucenenet.apache.org/">Lucene.NET</a></li>
+</ul>
+<p>CMS-Bausteine JVM:</p>
+<ul>
+<li><a href="https://jackrabbit.apache.org/oak/">Apache Jackrabbit Oak</a> · <a href="https://sling.apache.org/">Apache Sling</a></li>
+<li><a href="https://www.jhipster.tech/">JHipster</a></li>
+<li><a href="https://github.com/keycloak/keycloak/blob/main/LICENSE.txt">Keycloak – LICENSE</a></li>
+<li><a href="https://www.flowable.com/open-source">Flowable – Open Source</a></li>
+<li><a href="https://github.com/camunda/camunda-bpm-platform">camunda-bpm-platform – GitHub</a> · <a href="https://camunda.com/blog/2024/04/licensing-update-camunda-8-self-managed/">Camunda – Licensing update: Camunda 8 Self-Managed</a></li>
+<li><a href="https://hibernate.org/search/">Hibernate Search</a></li>
+<li><a href="https://www.jooq.org/legal/licensing">jOOQ – Licensing</a></li>
+<li><a href="https://spring.io/projects/spring-batch">Spring Batch</a> · <a href="https://www.jobrunr.io/">JobRunr</a></li>
+</ul>
+<p>CMS-Bausteine Go:</p>
+<ul>
+<li><a href="https://pocketbase.io/">PocketBase</a> · <a href="https://github.com/pocketbase/pocketbase">PocketBase – GitHub</a></li>
+<li><a href="https://sqlc.dev/">sqlc</a> · <a href="https://casbin.org/">Casbin</a></li>
+<li><a href="https://github.com/qor5/admin">qor5/admin – GitHub</a></li>
+<li><a href="https://github.com/hibiken/asynq">asynq – GitHub</a> · <a href="https://riverqueue.com/">River</a></li>
+<li><a href="https://blevesearch.com/">Bleve</a></li>
+</ul>
+<p>CMS-Bausteine Rust:</p>
+<ul>
+<li><a href="https://github.com/loco-rs/loco/releases/tag/v1.0.0">Loco 1.0.0 – Release</a> · <a href="https://github.com/loco-rs/loco/blob/master/LICENSE">Loco – LICENSE (Apache 2.0)</a> · <a href="https://loco.rs/">loco.rs</a></li>
+<li><a href="https://www.sea-ql.org/SeaORM/">SeaORM</a> · <a href="https://github.com/launchbadge/sqlx">sqlx – GitHub</a></li>
+<li><a href="https://github.com/maxcountryman/axum-login">axum-login – GitHub</a></li>
+<li><a href="https://github.com/quickwit-oss/tantivy">tantivy – GitHub</a></li>
+<li><a href="https://github.com/geofmureithi/apalis">apalis – GitHub</a> · <a href="https://docs.rs/object_store/">object_store</a></li>
+</ul>
+<p>LLM-Ökosystem:</p>
+<ul>
+<li><a href="https://modelcontextprotocol.io/docs/sdk">Model Context Protocol – SDKs</a></li>
+<li><a href="https://devblogs.microsoft.com/dotnet/ai-vector-data-dotnet-extensions-ga/">.NET – AI and vector data extensions GA</a></li>
+<li><a href="https://learn.microsoft.com/en-us/agent-framework/overview/">Microsoft Agent Framework – Overview</a></li>
+<li><a href="https://github.com/microsoft/kernel-memory">Kernel Memory – GitHub</a></li>
+<li><a href="https://spring.io/blog/2025/05/20/spring-ai-1-0-GA-released/">Spring AI 1.0 GA</a></li>
+<li><a href="https://github.com/langchain4j/langchain4j/releases">LangChain4j – Releases</a> · <a href="https://docs.quarkiverse.io/quarkus-langchain4j/dev/">Quarkus LangChain4j</a></li>
+<li><a href="https://changelog.langchain.com/announcements/langchain-1-0-now-generally-available">LangChain 1.0 – now generally available</a></li>
+<li><a href="https://vercel.com/blog/ai-sdk-5">Vercel – AI SDK 5</a></li>
+<li><a href="https://github.com/0xPlaygrounds/rig">rig – GitHub</a> · <a href="https://github.com/tmc/langchaingo">langchaingo – GitHub</a></li>
+<li><a href="https://github.com/pgvector/pgvector">pgvector – GitHub</a></li>
+</ul>
+<p>Django/Wagtail (nur Bezug):</p>
+<ul>
+<li><a href="https://github.com/wagtail/wagtail/blob/main/LICENSE">Wagtail – LICENSE (BSD-3-Clause)</a></li>
+<li><a href="https://docs.djangoproject.com/en/stable/ref/contrib/admin/">Django – The Django admin site</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="webframeworks-im-vergleich.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="geschichte-allgemeines.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="webframeworks-im-vergleich.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="geschichte-allgemeines.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

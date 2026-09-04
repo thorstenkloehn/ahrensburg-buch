@@ -1,0 +1,435 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Wissenssysteme im Vergleich - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="wissenssysteme-im-vergleich"><a class="header" href="#wissenssysteme-im-vergleich">Wissenssysteme im Vergleich</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>Dieses Wiki ist heute klein – rund sechzig Artikel. Aber was, wenn ein
+Nachschlagewerk aus <strong>Hunderttausenden oder Millionen</strong> Artikeln bestünde? Große
+Organisationen wie die Wikimedia-Stiftung, Software-Firmen oder Behörden stehen
+vor genau dieser Frage: Wie speichert, sichert und durchsucht man so viel Wissen,
+ohne dass alles unübersichtlich oder langsam wird?</p>
+<p>Diese Seite ist ein <strong>Blick nach oben</strong> – eine Landkarte, kein Ratgeber für die
+nächste Entscheidung dieses Projekts. Sie sortiert die verfügbaren Ansätze in
+<strong>vier Familien</strong> und beschreibt, wie weit jede Familie trägt.</p>
+<p>Die genaue Bewertung einzelner Programme an den Projektzielen steht weiterhin auf
+den vier Schwesterseiten, die von
+<a href="software-fuer-ein-grosses-wissensprojekt.html">Software für ein großes Wissensprojekt</a>
+ausgehen. Die grundlegenden Konzepte zum Speichern und Suchen von Wissen
+erklärt <a href="wissen-speichern.html">Wissen speichern</a>. Hier geht es um die Ebene
+darüber: die Größenordnung von einer Million Artikeln aufwärts und der
+Ausblick auf Systeme, die nach Bedeutung suchen statt nur nach Stichwörtern.</p>
+<blockquote>
+<p>Fachwörter wie <em>Open Source</em>, <em>Schnittstelle</em> (<em>API</em>), <em>REST</em>, <em>GraphQL</em>,
+<em>Datenbank</em>, <em>Markdown</em>, <em>Git</em>, <em>Node.js</em>, <em>MCP</em> oder <em>RAG</em> sind in
+<a href="software-fuer-ein-grosses-wissensprojekt.html#fachw%C3%B6rter-kurz-erkl%C3%A4rt">Software für ein großes Wissensprojekt</a>
+in einer kurzen Liste erklärt.</p>
+</blockquote>
+<h2 id="vier-familien-von-wissenssystemen"><a class="header" href="#vier-familien-von-wissenssystemen">Vier Familien von Wissenssystemen</a></h2>
+<p>Die vier Familien lösen unterschiedliche Probleme. Manche Projekte kombinieren
+sie sogar. Hier der Reihe nach.</p>
+<h3 id="1-wiki-engines--viele-menschen-schreiben-gemeinsam"><a class="header" href="#1-wiki-engines--viele-menschen-schreiben-gemeinsam">1. Wiki-Engines – viele Menschen schreiben gemeinsam</a></h3>
+<p>Ein <strong>Wiki</strong> ist darauf ausgelegt, dass viele Menschen dieselben Seiten
+bearbeiten. Jede Änderung landet in einer Versionsgeschichte, man kann also
+jederzeit zurückspringen und sehen, wer was geändert hat. Das ist der große
+Unterschied zu einem Ordner voller Dateien: Das Wiki verwaltet den gemeinsamen
+Zugriff selbst.</p>
+<p><strong>MediaWiki</strong>, das Programm hinter der Wikipedia, ist der Beweis, dass diese
+Familie riesige Mengen verträgt. Es speichert die Inhalte in einer Datenbank
+(am besten unterstützt: MySQL/MariaDB) und hält den Betrieb mit mehreren
+Zwischenspeichern (Caches) schnell: Im Wikimedia-Betrieb beantworten die meisten
+Anfragen vorgelagerte Caches, sie erreichen die eigentlichen Anwendungs-Server
+nie. Außerdem bringt MediaWiki seit 2004 eine eingebaute Lastverteilung mit –
+Lese-Anfragen gehen an Kopien der Datenbank, Schreib-Anfragen an den
+Haupt-Server.</p>
+<p>Die Volltextsuche großer Wikis läuft dabei <strong>nicht</strong> über die Datenbank. Dafür
+gibt es die Erweiterung <strong>CirrusSearch</strong>, die einen eigenen Suchdienst
+(Elasticsearch beziehungsweise das quelloffene OpenSearch) als getrennten
+Verbund von Servern anspricht. Diese Kombination wird bei der Wikimedia-Stiftung
+für Wikis mit vielen Millionen Seiten eingesetzt. Wer die Wiki-Seiten zusätzlich
+als strukturierte Daten nutzen will – mit festen Feldern und Abfragen –, greift
+zu Fachversionen wie <strong>Wikibase</strong> (der Software hinter Wikidata, mit verknüpften
+offenen Daten) oder <strong>Semantic MediaWiki</strong>; das Programm <strong>XWiki</strong> bietet noch
+mehr freie Gestaltung. Mehr zu den einzelnen Programmen auf der Seite
+<a href="wikis-im-vergleich.html">Wiki-Programme im Vergleich</a>.</p>
+<h3 id="2-docs-as-code-und-static-site-generators--texte-als-dateien-versioniert"><a class="header" href="#2-docs-as-code-und-static-site-generators--texte-als-dateien-versioniert">2. Docs-as-Code und Static Site Generators – Texte als Dateien versioniert</a></h3>
+<p>„<strong>Docs as Code</strong>" heißt: Dokumentation wird mit denselben Werkzeugen und
+Abläufen geschrieben wie Programmcode – Klartext-Dateien (meist Markdown),
+Versionsverwaltung mit Git, gegenseitige Durchsicht („Reviews") und automatische
+Prüfungen. Aus den Dateien baut dann ein <strong>Static Site Generator</strong> eine fertige
+Website. Genau so entsteht auch dieses Wiki – mit dem Generator mdBook.</p>
+<p>In dieser Familie gibt es reife Vertreter für große Bestände: <strong>MkDocs</strong> mit dem
+Design „Material" (die Suche läuft komplett im Browser des Lesers, breit
+eingesetzt), <strong>Hugo</strong> (in der Sprache Go geschrieben, das höchste Bautempo),
+<strong>Antora</strong> (führt Dokumentation aus mehreren getrennten Git-Lagern zusammen,
+Schreibweise AsciiDoc) und <strong>Backstage/TechDocs</strong>, die selbstgebaute Lösung von
+Spotify: Dort werden nach eigenen Angaben über 5.000 Dokumentations-Websites auf
+diese Weise betrieben.</p>
+<p>Die Grenze dieser Familie ist immer dieselbe: Wenn sehr viele Menschen
+<strong>gleichzeitig</strong> schreiben sollen, gibt es Datei-Konflikte, die jemand von Hand
+auflösen muss. Und bei sehr großen Beständen dauert das Bauen der Website
+länger – wie lange, hängt stark vom gewählten Generator ab. Einzelheiten auf der
+Seite <a href="doku-generatoren-im-vergleich.html">Doku-Generatoren im Vergleich</a>.</p>
+<h3 id="3-suche-und-semantische-systeme--nach-bedeutung-suchen"><a class="header" href="#3-suche-und-semantische-systeme--nach-bedeutung-suchen">3. Suche und semantische Systeme – nach Bedeutung suchen</a></h3>
+<p>Bei Millionen Artikeln reicht die reine Stichwortsuche oft nicht: Wer „Auto"
+eingibt, findet keine Seite, auf der nur „Kraftfahrzeug" oder „Pkw" steht.
+Semantische Systeme suchen deshalb nach der <strong>Bedeutung</strong> eines Textes, nicht
+nur nach den genauen Wörtern.</p>
+<p>Dafür wird jeder Text in eine lange Zahlenreihe übersetzt, ein <strong>Embedding</strong> oder
+<strong>Vektor</strong>. Man kann sich das wie Koordinaten vorstellen: „Auto", „Kraftfahrzeug"
+und „Pkw" bekommen ähnliche Koordinaten und liegen nah beieinander, obwohl kein
+Buchstabe übereinstimmt. Die Suche liefert dann die <strong>k nächsten Nachbarn</strong>
+(englisch <em>k-NN</em>) – die inhaltlich ähnlichsten Texte. Eine <strong>Hybrid-Suche</strong>
+kombiniert beides: klassische Stichwörter plus Bedeutungsähnlichkeit.</p>
+<p>Bekannte quelloffene Bausteine sind <strong>OpenSearch</strong> und <strong>Elasticsearch</strong> –
+Such-Verbünde, die man durch Hinzufügen weiterer Server wachsen lässt und die
+seit einigen Jahren auch mit Vektoren umgehen; <strong>Meilisearch</strong> – bewusst einfach
+einzurichten und tolerant gegenüber Tippfehlern; und <strong>pgvector</strong> – eine
+Erweiterung, die Vektoren in der Datenbank PostgreSQL ablegt, sodass kein
+zusätzliches System nötig ist. Eng verwandt ist <strong>RAG</strong> – „erst nachschlagen,
+dann antworten": Eine KI durchsucht echte Dokumente, bevor sie einen Text
+formuliert. Damit das gelingt, werden lange Dokumente vorher in handliche Teile
+zerlegt (<strong>Chunking</strong>). Das quelloffene <strong>RAGFlow</strong> ist darauf spezialisiert,
+auch schwierige Dateien wie PDFs mit Tabellen sauber in solche Häppchen zu
+zerlegen und daraus einen Frage-Antwort-Ablauf zu bauen. Für pgvector kursieren
+Angaben zum Arbeitsspeicher-Bedarf – von wenigen Gigabyte bis zu mehreren zehn
+Gigabyte je Million Vektoren; das sind <strong>grobe Schätzungen</strong> aus zweiter Hand und
+hängen stark von den Einstellungen ab.</p>
+<h3 id="4-selbstgebaute-systeme-aus-mehreren-schichten"><a class="header" href="#4-selbstgebaute-systeme-aus-mehreren-schichten">4. Selbstgebaute Systeme aus mehreren Schichten</a></h3>
+<p>Sehr große Organisationen kaufen selten ein einzelnes Fertigprodukt. Sie bauen
+sich einen <strong>Schichten-Aufbau</strong> (englisch <em>Stack</em>): eine Redaktions-Schicht, in
+der Menschen schreiben; einen Speicher für große Dateien wie Bilder und Videos;
+und einen Such-Verbund für die Millionen Dokumente, dessen Daten bei Bedarf auf
+mehrere Server aufgeteilt werden (<strong>Sharding</strong>).</p>
+<p>Für die Redaktions-Schicht kommen oft <strong>Headless-CMS</strong> zum Einsatz, zum Beispiel
+<strong>Strapi</strong> oder <strong>Directus</strong>. <strong>Headless</strong> heißt wörtlich „ohne Kopf": Das System
+verwaltet nur die Inhalte und liefert sie über Schnittstellen (REST, GraphQL),
+zeigt sie aber nicht selbst an – das Aussehen baut jede Website selbst. Mehr dazu
+auf der Seite <a href="cms-im-vergleich.html">CMS im Vergleich</a>. Für die großen Dateien
+nutzt man einen <strong>Objektspeicher</strong> wie S3 oder das quelloffene MinIO – einen
+Dienst, der beliebig viele Dateien unter festen Adressen ablegt.</p>
+<p>So ein Schichten-Aufbau ist eine Maßanfertigung: Die Bausteine sind erprobt, die
+Kombination baut jedes Projekt selbst. Konkrete Überlegungen, welche
+Programmiersprachen und Ökosysteme dafür taugen – Rust, Go, JVM, ASP.NET Core –,
+zeigt <a href="wissenssystem-selbst-bauen.html">Ein Wissenssystem selbst bauen</a>.</p>
+<h2 id="eine-mögliche-sicht-generationen-von-wissenssystemen"><a class="header" href="#eine-mögliche-sicht-generationen-von-wissenssystemen">Eine mögliche Sicht: Generationen von Wissenssystemen</a></h2>
+<p>Man kann die vier Familien auch als zeitliche Abfolge lesen: von der Wiki-Familie
+über die Docs-as-Code-Familie und die Suche-Familie bis zu <strong>agentischen</strong>
+Systemen, in denen KI-Programme selbstständig recherchieren und schreiben.</p>
+<p>Das ist ausdrücklich <strong>eine mögliche Einteilung, kein Fachstandard</strong>. Belegt ist
+vor allem die jüngste Stufe: Eine Übersichtsarbeit zu „Agentic RAG" beschreibt
+die Entwicklung von einfacher zu immer eigenständigerer Nachschlage-KI. Wie so
+eine agentische Stufe konkret aussieht, zeigt die Seite
+<a href="llm-wiki.html">LLM Wiki</a>.</p>
+<h2 id="vier-familien-auf-einen-blick"><a class="header" href="#vier-familien-auf-einen-blick">Vier Familien auf einen Blick</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Familie</th><th>Bis 1 Mio.+ Artikel</th><th>Bis 10 Mio.+ Artikel</th><th>Volltextsuche eingebaut</th><th>Semantische / RAG-Suche</th><th>Viele gleichzeitige Autoren</th><th>Quelloffen &amp; kostenlos</th></tr></thead><tbody>
+<tr><td><strong>Wiki-Engines</strong> (MediaWiki u. a.)</td><td>Ja</td><td>Ja (Wikipedia, viele Mio. Seiten)</td><td>Teilweise (große Wikis über Zusatz-Suchdienst)</td><td>Nein (nur über Zusatz)</td><td>Ja</td><td>Ja</td></tr>
+<tr><td><strong>Docs-as-Code / SSG</strong></td><td>Ja</td><td>Teilweise (vom Generator abhängig)</td><td>Teilweise (je nach Generator/Theme)</td><td>Nein</td><td>Nein</td><td>Ja</td></tr>
+<tr><td><strong>Suche &amp; semantische Systeme</strong></td><td>Ja</td><td>Ja</td><td>Ja (das ist ihr Zweck)</td><td>Ja</td><td>Nein (kein Schreib-System)</td><td>Ja</td></tr>
+<tr><td><strong>Selbstgebaute Schichten-Systeme</strong></td><td>Ja</td><td>Ja</td><td>Ja (Such-Schicht)</td><td>Teilweise (je nach Aufbau)</td><td>Ja (Redaktions-Schicht)</td><td>Teilweise (Bausteine ja, Lizenzen unterschiedlich)</td></tr>
+</tbody></table>
+</div>
+<p>Die quelloffenen Bausteine stehen unter verschiedenen freien Lizenzen
+(OpenSearch und RAGFlow unter Apache 2.0, Meilisearch unter MIT, pgvector unter
+der PostgreSQL-Lizenz, Wikibase und Semantic MediaWiki unter der GPL), während
+die Headless-CMS Strapi und Directus in neueren Versionen Einschränkungen haben
+(siehe <a href="cms-im-vergleich.html">CMS im Vergleich</a>).</p>
+<h2 id="verbreitete-missverständnisse"><a class="header" href="#verbreitete-missverständnisse">Verbreitete Missverständnisse</a></h2>
+<p>Über die Grenzen dieser Systeme kursieren einige Faustregeln, die so nicht
+stimmen. Drei davon.</p>
+<h3 id="meilisearch-funktioniert-nur-bis-510-millionen-dokumente"><a class="header" href="#meilisearch-funktioniert-nur-bis-510-millionen-dokumente">„Meilisearch funktioniert nur bis 5–10 Millionen Dokumente"</a></h3>
+<p>Woher diese Zahl stammt, ist unklar – belegt ist sie nicht. Die offizielle
+Dokumentation nennt als hartes Limit <strong>4.294.967.296 Dokumente pro Index</strong> (das
+ist zwei hoch 32, also gut vier Milliarden). Der Hersteller-Blog beschreibt einen
+Fall, in dem ein Firmen-Team die Marke von 100 Millionen Dokumenten überschritten
+hatte; die Lösung war dort Sharding, also das Aufteilen des Bestands auf mehrere
+Server. Richtig ist also: Meilisearch ist auf einfache Einrichtung und
+Tippfehler-Toleranz ausgelegt, und sehr große Bestände brauchen auch hier mehrere
+Server – nicht aber, dass bei zehn Millionen Schluss wäre.</p>
+<h3 id="static-site-generatoren-brechen-bei-über-100000-seiten-ab"><a class="header" href="#static-site-generatoren-brechen-bei-über-100000-seiten-ab">„Static-Site-Generatoren brechen bei über 100.000 Seiten ab"</a></h3>
+<p>Für einen langsamen, speicherhungrigen Generator kann das zutreffen. Als
+allgemeines Prinzip ist es falsch. Hugo etwa ist in der Sprache Go geschrieben
+und gilt als schnellster verbreiteter Generator; es gibt Berichte über
+Hugo-Websites mit rund einer Million Seiten. Ob ein Generator bei großen
+Beständen einbricht, ist also eine Frage des <strong>Werkzeugs</strong>, nicht der Familie.</p>
+<h3 id="es-gibt-einen-bewährten-standard-stack-für-große-wikis"><a class="header" href="#es-gibt-einen-bewährten-standard-stack-für-große-wikis">„Es gibt einen bewährten Standard-Stack für große Wikis"</a></h3>
+<p>Den gibt es nicht. Öffentlich nachweisbaren Groß-Referenzbetrieb hat nur
+<strong>MediaWiki mit CirrusSearch</strong> bei der Wikimedia-Stiftung. Alle anderen
+Schicht-Kombinationen – Wiki plus Wissensdatenbank plus Suchverbund, oder
+Redaktions-CMS plus Objektspeicher plus RAG-Pipeline – sind plausibel, aber
+Maßanfertigungen. Ein „One size fits all" für Millionen-Wikis existiert nicht.</p>
+<h2 id="was-heißt-das-für-dieses-wiki"><a class="header" href="#was-heißt-das-für-dieses-wiki">Was heißt das für dieses Wiki?</a></h2>
+<p>Dieses Wiki nutzt heute den Doku-Generator <strong>mdBook</strong> – Familie 2, Docs as Code.
+Das passt gut zu einem überschaubaren Bestand und zur Zusammenarbeit mit KI, weil
+alle Inhalte einfache Markdown-Dateien sind. Sollte das Projekt einmal auf
+zehntausende Artikel wachsen, käme ein echtes Wiki-System oder ein zusätzlicher
+Such-Verbund in Frage; welche Programme dann wie abschneiden, steht auf den vier
+Schwesterseiten
+(<a href="wikis-im-vergleich.html">Wiki-Programme</a>, <a href="cms-im-vergleich.html">CMS</a>,
+<a href="doku-generatoren-im-vergleich.html">Doku-Generatoren</a> und der Übersicht
+<a href="software-fuer-ein-grosses-wissensprojekt.html">Software für ein großes Wissensprojekt</a>).
+Wie selbst betriebene CMS technisch mit sechs- und siebenstelligen Beständen
+umgehen – Partitioning, Connection-Pooler, Lese-Kopien, ausgelagerte Suche,
+Vorschalt-Caches –, vertieft die Seite
+<a href="cms-millionen-artikel.html">Wie CMS mit Millionen Artikeln umgehen</a>.
+Für einen selbstgebauten Stack mit eigenem Anwendungs-Server spielt zudem die
+Wahl der Programmiersprache und des Webframeworks eine zentrale Rolle, dargestellt
+auf <a href="webframeworks-im-vergleich.html">Webframeworks im Vergleich</a>.
+Der eigentliche eigene Weg dieses Projekts ist aber kein bestimmtes Programm,
+sondern die geregelte Zusammenarbeit von Mensch und KI – beschrieben unter
+<a href="co-wiki.html">Co-Wiki: Mensch &amp; KI</a> und <a href="llm-wiki.html">LLM Wiki</a>.</p>
+<h2 id="quellen"><a class="header" href="#quellen">Quellen</a></h2>
+<ul>
+<li><a href="https://www.writethedocs.org/guide/docs-as-code/">Write the Docs – Docs as Code</a></li>
+<li><a href="https://antora.org/">Antora – Startseite</a></li>
+<li><a href="https://docs.antora.org/antora/latest/">Antora – Dokumentation</a></li>
+<li><a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></li>
+<li><a href="https://gohugo.io/">Hugo – offizielle Website</a></li>
+<li><a href="https://css-tricks.com/comparing-static-site-generator-build-times/">CSS-Tricks – Comparing Static Site Generator Build Times</a></li>
+<li><a href="https://backstage.io/docs/features/techdocs/">Backstage – TechDocs</a></li>
+<li><a href="https://www.mediawiki.org/wiki/Manual:MediaWiki_architecture">MediaWiki – Manual: MediaWiki architecture</a></li>
+<li><a href="https://www.mediawiki.org/wiki/Extension:CirrusSearch">MediaWiki – Extension: CirrusSearch</a></li>
+<li><a href="https://wikiba.se/">Wikibase</a></li>
+<li><a href="https://www.semantic-mediawiki.org/">Semantic MediaWiki</a></li>
+<li><a href="https://opensearch.org/">OpenSearch – Startseite und Lizenz (Apache 2.0)</a></li>
+<li><a href="https://docs.opensearch.org/latest/">OpenSearch – Dokumentation</a></li>
+<li><a href="https://docs.opensearch.org/latest/vector-search/ai-search/index/">OpenSearch – AI und Vektor-Suche</a></li>
+<li><a href="https://github.com/infiniflow/ragflow">RAGFlow – GitHub</a></li>
+<li><a href="https://docs.strapi.io/">Strapi – Dokumentation</a></li>
+<li><a href="https://directus.com/docs/">Directus – Dokumentation</a></li>
+<li><a href="https://www.meilisearch.com/docs/learn/resources/known_limitations">Meilisearch – Known limitations</a></li>
+<li><a href="https://www.meilisearch.com/blog/sharding-replication">Meilisearch – Blog: Sharding und Replication</a></li>
+<li><a href="https://clickhouse.com/resources/engineering/scale-vector-search-postgres">ClickHouse – Scaling vector search with Postgres</a></li>
+<li><a href="https://www.crunchydata.com/blog/hnsw-indexes-with-postgres-and-pgvector">Crunchy Data – HNSW-Indizes mit Postgres und pgvector</a></li>
+<li><a href="https://arxiv.org/abs/2501.09136">A Survey on Agentic RAG (arXiv:2501.09136)</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="urheberrecht-und-duplicate-content.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="wikis-im-vergleich.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="urheberrecht-und-duplicate-content.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="wikis-im-vergleich.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

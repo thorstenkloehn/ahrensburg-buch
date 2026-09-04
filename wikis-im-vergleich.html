@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Wiki-Programme im Vergleich - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="wiki-programme-im-vergleich"><a class="header" href="#wiki-programme-im-vergleich">Wiki-Programme im Vergleich</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>Ein <strong>Wiki</strong> ist ein Programm, mit dem viele Menschen gemeinsam ein großes
+Nachschlagewerk schreiben. Jede Seite lässt sich von jedem ändern, und jede
+Änderung wird gespeichert – man kann also jederzeit zurückspringen. Das
+bekannteste Wiki ist die Wikipedia.</p>
+<p>Diese Seite vergleicht die wichtigsten offenen Wiki-Programme an den Maßstäben
+aus <a href="software-fuer-ein-grosses-wissensprojekt.html">Software für ein großes Wissensprojekt</a>.
+Fast alle hier genannten Programme sind <strong>Open Source</strong> (Bauplan öffentlich,
+gratis nutzbar). Die Ausnahme unter den ernsthaften Kandidaten ist Outline, das
+nur „quelloffen einsehbar" ist. Confluence, das nur zum Vergleich genannt wird,
+ist ebenfalls nicht quelloffen. Zu beiden mehr weiter unten.</p>
+<blockquote>
+<p>Fachwörter wie <em>Open Source</em>, <em>Schnittstelle</em>, <em>REST-API</em>, <em>GraphQL</em>,
+<em>Datenbank</em>, <em>Git</em> oder <em>Node.js</em> sind in
+<a href="software-fuer-ein-grosses-wissensprojekt.html#fachw%C3%B6rter-kurz-erkl%C3%A4rt">Software für ein großes Wissensprojekt</a>
+in einer kurzen Liste erklärt.</p>
+</blockquote>
+<h2 id="die-kandidaten-kurz-vorgestellt"><a class="header" href="#die-kandidaten-kurz-vorgestellt">Die Kandidaten kurz vorgestellt</a></h2>
+<h3 id="mediawiki--das-programm-hinter-wikipedia"><a class="header" href="#mediawiki--das-programm-hinter-wikipedia">MediaWiki – das Programm hinter Wikipedia</a></h3>
+<ul>
+<li><strong>Herkunft:</strong> Seit 2002, geschrieben in der Sprache PHP. Betreibt Wikipedia mit
+vielen Millionen Seiten – der Beweis, dass es riesige Mengen verträgt.</li>
+<li><strong>Speicher:</strong> Datenbank. Am besten getestet mit MySQL/MariaDB; PostgreSQL wird
+seit Version 1.7 unterstützt, gilt aber als „zweite Wahl" (weniger Leute testen
+es).</li>
+<li><strong>Sicherungsdatei:</strong> Eingebauter <strong>XML-Export</strong>. Das ist das Standard-Format
+zum Weitergeben von Wiki-Inhalten. Es enthält die Seiten und ihre gesamte
+Änderungsgeschichte samt den <strong>Benutzernamen der Autoren</strong>, <strong>aber keine
+Nutzerkonten, Passwörter, E-Mail-Adressen oder Bilder</strong>. Für sehr große Wikis
+läuft ein vollständiger Export nicht über den Browser, sondern über ein
+Sicherungs-Skript (<code>dumpBackup.php</code>); das Ergebnis ist trotzdem eine offene
+XML-Datei.</li>
+<li><strong>KI-Zugang:</strong> Umfangreiche Schnittstelle (die „Action-API" und eine neuere
+REST-API). KI-Werkzeuge können Seiten lesen und schreiben.</li>
+<li><strong>Gemeinschaft:</strong> Sehr groß, von der Wikimedia-Stiftung getragen. Höchster
+Reifegrad.</li>
+<li><strong>Haken:</strong> Aufwendig einzurichten und umzugestalten. Eigene Wiki-Schreibweise
+(nicht das verbreitete Notizformat Markdown). Wirkt technisch altbacken.</li>
+</ul>
+<h3 id="xwiki--das-baukasten-wiki"><a class="header" href="#xwiki--das-baukasten-wiki">XWiki – das „Baukasten-Wiki"</a></h3>
+<ul>
+<li><strong>Herkunft:</strong> Erste Versionen ab 2003/2004, Version 1.0 im Jahr 2007;
+geschrieben in Java. Wird von der Firma XWiki SAS und einer aktiven
+Gemeinschaft gepflegt, mit etwa monatlichem Erscheinungsrhythmus (Version 18.x
+im Jahr 2026).</li>
+<li><strong>Speicher:</strong> Datenbank – <strong>PostgreSQL</strong>, MySQL/MariaDB und weitere werden
+gleichwertig unterstützt.</li>
+<li><strong>Sicherungsdatei:</strong> <strong>XAR-Export</strong> – ein Archiv-Format speziell für XWiki
+(eine ZIP-Datei voller XML-Dateien), das sich auch über die Schnittstelle
+abrufen lässt. Inhalte sind von den Nutzerkonten getrennt.</li>
+<li><strong>KI-Zugang:</strong> Vollständige <strong>REST-API</strong> zum Lesen <strong>und</strong> Schreiben von Seiten.
+Damit kommen Claude Code, Copilot und ähnliche Werkzeuge gut zurecht.</li>
+<li><strong>Gemeinschaft:</strong> Kleiner als bei MediaWiki, aber stabil und seit rund zwei
+Jahrzehnten aktiv. Von Behörden und Unternehmen im Alltag eingesetzt.</li>
+<li><strong>Haken:</strong> Sehr mächtig, dadurch komplex. Braucht mehr Arbeitsspeicher (Java).</li>
+<li><strong>Besonders:</strong> Feine Rechteverwaltung je Seite und Bereich; man kann eigene
+strukturierte Datenblätter bauen.</li>
+</ul>
+<h3 id="wikijs--das-moderne-hübsche-wiki"><a class="header" href="#wikijs--das-moderne-hübsche-wiki">Wiki.js – das moderne, hübsche Wiki</a></h3>
+<ul>
+<li><strong>Herkunft:</strong> Geschrieben in JavaScript (Node.js, einer Umgebung für
+JavaScript-Programme auf dem Server). Zeitgemäßes Aussehen, angenehmer Editor.</li>
+<li><strong>Speicher:</strong> Datenbank – <strong>PostgreSQL empfohlen</strong>, auch MySQL, MariaDB, MS SQL
+Server oder die kleine Datei-Datenbank SQLite.</li>
+<li><strong>Sicherungsdatei:</strong> Besonders praktisch – Wiki.js kann alle Seiten
+<strong>automatisch als Markdown-Dateien in ein Git-Lager schreiben</strong> (Git = die
+Versionsverwaltung, die auch dieses Wiki nutzt). Damit hat man jederzeit alle
+Texte als einfache, gut lesbare Dateien außerhalb der Datenbank – ideal für
+Weitergabe und für KI-Werkzeuge.</li>
+<li><strong>KI-Zugang:</strong> Schnittstelle über <strong>GraphQL</strong> (ein Abfrage-System für Daten,
+flexibler als eine REST-API, aber mit demselben Zweck). Über den Git-Ordner
+kommen KI-Werkzeuge auch direkt an die Texte.</li>
+<li><strong>Gemeinschaft:</strong> Vorhanden, aber kleiner. <strong>Wichtiger Haken:</strong> Die
+Weiterentwicklung stockte länger – Version 2 wurde kaum noch verbessert,
+Version 3 blieb lange im Test. Vor einer Entscheidung den aktuellen Stand
+prüfen.</li>
+</ul>
+<h3 id="bookstack--das-aufgeräumte-team-wiki"><a class="header" href="#bookstack--das-aufgeräumte-team-wiki">BookStack – das aufgeräumte Team-Wiki</a></h3>
+<ul>
+<li><strong>Herkunft:</strong> PHP (mit dem Framework Laravel), sehr freie MIT-Lizenz. Wird von
+einem kleinen Kernteam sehr zuverlässig gepflegt.</li>
+<li><strong>Speicher:</strong> Datenbank – <strong>nur MySQL/MariaDB</strong> (kein PostgreSQL).</li>
+<li><strong>Sicherungsdatei:</strong> Export je Seite, Kapitel oder Buch als <strong>Markdown</strong>, HTML,
+PDF oder reiner Text. Ein Export des <strong>kompletten</strong> Wikis in <strong>eine</strong> Datei ist
+nicht eingebaut, lässt sich aber über die Schnittstelle nachrüsten.</li>
+<li><strong>KI-Zugang:</strong> Saubere <strong>REST-API</strong>.</li>
+<li><strong>Gemeinschaft:</strong> Klein, aber sehr aktiv und verlässlich; gute Anleitungen.</li>
+<li><strong>Struktur:</strong> Inhalte liegen in Regalen, die Bücher enthalten; Bücher gliedern
+sich optional in Kapitel mit Seiten. Das ist einsteigerfreundlich, aber
+weniger frei als bei MediaWiki oder XWiki.</li>
+<li><strong>Haken:</strong> Auf einige tausend Seiten ausgelegt, nicht auf Wikipedia-Größe.</li>
+</ul>
+<h3 id="dokuwiki--das-wiki-ganz-ohne-datenbank"><a class="header" href="#dokuwiki--das-wiki-ganz-ohne-datenbank">DokuWiki – das Wiki ganz ohne Datenbank</a></h3>
+<ul>
+<li><strong>Herkunft:</strong> Seit 2004, PHP, GPLv2. Sehr schlank.</li>
+<li><strong>Speicher:</strong> <strong>Keine Datenbank</strong> – jede Seite ist eine einfache Textdatei im
+Ordner. Damit ist die „datenbank-neutrale Sicherung" automatisch erfüllt: Man
+kopiert einfach den Ordner.</li>
+<li><strong>Sicherungsdatei:</strong> Der Seiten-Ordner selbst; zusätzlich Export je Seite.</li>
+<li><strong>KI-Zugang:</strong> Fest eingebaut sind eine ältere Fernsteuer-Schnittstelle
+(XML-RPC) und seit 2024 zusätzlich eine überarbeitete, modernere (JSON-RPC).
+KI-Werkzeuge können die Textdateien auch direkt öffnen.</li>
+<li><strong>Gemeinschaft:</strong> Groß und langlebig, viele Zusatzbausteine.</li>
+<li><strong>Haken:</strong> Eigene Schreibweise (nicht Markdown ab Werk). Bei zehntausenden
+Dateien und vielen gleichzeitigen Autoren wird das Datei-Prinzip langsam und
+unübersichtlich.</li>
+</ul>
+<h3 id="neuere-alternativen-outline-und-docmost"><a class="header" href="#neuere-alternativen-outline-und-docmost">Neuere Alternativen: Outline und Docmost</a></h3>
+<p>Beide sehen zeitgemäß aus (ähnlich dem Notiz-Programm Notion) und brauchen
+<strong>PostgreSQL</strong> sowie zusätzlich <strong>Redis</strong> (ein schneller Zwischenspeicher, der
+häufig gebrauchte Daten bereithält). Unterschied bei der Lizenz:</p>
+<ul>
+<li><strong>Docmost</strong> – echte Open-Source-Lizenz (AGPL-3.0).</li>
+<li><strong>Outline</strong> – nur „quelloffen einsehbar" (Lizenz BSL 1.1): Man darf es
+selbst betreiben, aber nicht als eigenen Bezahldienst anbieten; erst nach einer
+Frist (für die jeweilige Version Mitte 2030) wird der Code zu Apache 2.0 und
+damit voll frei. Für dieses Projekt ist das ein Nachteil.</li>
+</ul>
+<p>Beide sind noch jung und haben kleinere Gemeinschaften als MediaWiki oder XWiki.</p>
+<h3 id="nur-zum-vergleich-confluence"><a class="header" href="#nur-zum-vergleich-confluence">Nur zum Vergleich: Confluence</a></h3>
+<p><strong>Confluence</strong> von der Firma Atlassian ist das bekannteste Firmen-Wiki, aber
+<strong>kein Open Source</strong> und kostenpflichtig. Für dieses Projekt fällt es damit
+raus – es dient hier nur als Messlatte für den Funktionsumfang.</p>
+<h2 id="vergleichstabelle"><a class="header" href="#vergleichstabelle">Vergleichstabelle</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Programm</th><th>Lizenz (offen?)</th><th>Speicher</th><th>PostgreSQL?</th><th>Export in lesbarer Form</th><th>Schnittstelle für KI</th><th>Für 10.000+ Seiten</th><th>Gemeinschaft</th></tr></thead><tbody>
+<tr><td><strong>MediaWiki</strong></td><td>Ja (GPLv2 o. später)</td><td>Datenbank</td><td>Ja (zweite Wahl)</td><td>Ja – XML-Export (mit Autor-Namen, ohne Konten/Passwörter/Bilder)</td><td>REST- und Action-API</td><td>Ja (Wikipedia-Größe)</td><td>Sehr groß</td></tr>
+<tr><td><strong>XWiki</strong></td><td>Ja (LGPL 2.1 o. später)</td><td>Datenbank</td><td>Ja (gleichwertig)</td><td>Ja – XAR (ZIP mit XML)</td><td>Volle REST-API (lesen + schreiben)</td><td>Ja</td><td>Mittel, stabil</td></tr>
+<tr><td><strong>Wiki.js</strong></td><td>Ja (AGPL-3.0)</td><td>Datenbank</td><td>Ja (empfohlen)</td><td>Ja – alle Seiten als Markdown per Git</td><td>GraphQL + Git-Ordner</td><td>Wahrscheinlich, kaum erprobt</td><td>Klein, Entwicklung stockte</td></tr>
+<tr><td><strong>BookStack</strong></td><td>Ja (MIT)</td><td>Datenbank</td><td>Nein (nur MySQL)</td><td>Teilweise – je Seite/Buch, nicht das Ganze</td><td>REST-API</td><td>Bis einige tausend</td><td>Klein, sehr aktiv</td></tr>
+<tr><td><strong>DokuWiki</strong></td><td>Ja (GPLv2)</td><td>Dateien, keine Datenbank</td><td>–</td><td>Ja – der Seiten-Ordner selbst</td><td>XML-RPC, seit 2024 JSON-RPC im Kern</td><td>Nur begrenzt</td><td>Groß, langlebig</td></tr>
+<tr><td><strong>Docmost</strong></td><td>Ja (AGPL-3.0, EE-Zusätze)</td><td>Datenbank</td><td>Ja (Pflicht)</td><td>Export je Seite/Bereich</td><td>REST-API</td><td>Noch wenig erprobt</td><td>Klein, jung</td></tr>
+<tr><td><strong>Outline</strong></td><td>Eingeschränkt (BSL 1.1)</td><td>Datenbank</td><td>Ja (Pflicht)</td><td>Export je Sammlung</td><td>REST-API</td><td>Wenig belegt</td><td>Mittel</td></tr>
+</tbody></table>
+</div>
+<h2 id="empfehlung-für-dieses-projekt"><a class="header" href="#empfehlung-für-dieses-projekt">Empfehlung für dieses Projekt</a></h2>
+<ol>
+<li><strong>XWiki</strong> – bester Gesamtpasser: PostgreSQL gleichwertig, vollständige
+Schreib-Schnittstelle, XAR-Export, seit rund zwei Jahrzehnten stabil. Preis
+dafür: höherer Betriebsaufwand.</li>
+<li><strong>MediaWiki</strong> – wenn maximale Größe und die größte Gemeinschaft zählen. Der
+XML-Export (mit Autor-Namen, aber ohne Konten, Passwörter oder E-Mail-Adressen)
+passt gut zum Ziel „jeder kann alles herunterladen". Preis dafür: sperrige
+Einrichtung, keine Markdown-Texte.</li>
+<li><strong>Wiki.js</strong> – am angenehmsten zu bedienen und der Git-Export ist genau richtig
+für die KI-Zusammenarbeit. Nur wegen der stockenden Entwicklung mit Vorsicht;
+vorher aktuellen Stand prüfen.</li>
+<li><strong>DokuWiki / BookStack</strong> – gut für einen überschaubaren Anfang, aber nicht für
+das Endziel von zehntausenden Artikeln.</li>
+</ol>
+<p>Wer den heutigen datei-basierten Aufbau behalten will, sollte statt eines Wikis
+die <a href="doku-generatoren-im-vergleich.html">Doku-Generatoren im Vergleich</a> ansehen.
+Auch die datei-basierten Vertreter unter den <a href="cms-im-vergleich.html">CMS</a> kommen
+als Alternative in Frage.</p>
+<h2 id="quellen"><a class="header" href="#quellen">Quellen</a></h2>
+<ul>
+<li><a href="https://www.wikimatrix.org/compare/bookstack+wiki-js+dokuwiki+mediawiki+xwiki+wackowiki">WikiMatrix – Vergleich von Wiki-Programmen</a></li>
+<li><a href="https://www.mediawiki.org/wiki/Manual:PostgreSQL">MediaWiki – Handbuch: PostgreSQL</a></li>
+<li><a href="https://www.mediawiki.org/wiki/Help:Export">MediaWiki – Hilfe: Export</a></li>
+<li><a href="https://www.mediawiki.org/wiki/Manual:Importing_XML_dumps">MediaWiki – Handbuch: XML-Dumps importieren</a></li>
+<li><a href="https://xwiki.com/en/Blog/XWikiAvailableUnderLGPL">XWiki wird unter LGPL verfügbar (XWiki-Blog)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/XWiki">XWiki bei Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/DokuWiki">DokuWiki bei Wikipedia</a></li>
+<li><a href="https://docs.requarks.io/storage/git">Wiki.js – Git-Speicher (Dokumentation)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wiki.js">Wiki.js bei Wikipedia</a></li>
+<li><a href="https://www.bookstackapp.com/docs/user/export-import/">BookStack – Inhalte exportieren und importieren</a></li>
+<li><a href="https://www.bookstackapp.com/docs/admin/requirements/">BookStack – Systemvoraussetzungen</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BookStack">BookStack bei Wikipedia</a></li>
+<li><a href="https://blog.elest.io/docmost-vs-outline-which-self-hosted-notion-alternative-in-2026/">Docmost vs. Outline (elest.io-Blog)</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="wissenssysteme-im-vergleich.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="cms-im-vergleich.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="wissenssysteme-im-vergleich.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="cms-im-vergleich.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

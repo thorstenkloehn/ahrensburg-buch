@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Stadtwerdung 1949 - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="stadtwerdung-1949-vom-gutsdorf-zur-modernen-stadt"><a class="header" href="#stadtwerdung-1949-vom-gutsdorf-zur-modernen-stadt">Stadtwerdung 1949: Vom Gutsdorf zur modernen Stadt</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>Die Ernennung zur Stadt am <strong>18. Januar 1949</strong> markiert einen der wichtigsten Meilensteine in der <a href="geschichte-der-stadt-ahrensburg.html">Geschichte der Stadt Ahrensburg</a>. Innerhalb weniger Jahre nach Ende des Zweiten Weltkriegs wuchs die vormalige Landgemeinde durch die Aufnahme von Flüchtlingen und Vertriebenen rasant an. Mit der Verleihung der Stadtrechte und dem darauffolgenden Bauboom wandelte sich der ländlich geprägte Guts- und Villenort zu einem pulsierenden Mittelzentrum im Kreis Stormarn.</p>
+<hr />
+<h2 id="der-weg-zur-landgemeinde"><a class="header" href="#der-weg-zur-landgemeinde">Der Weg zur Landgemeinde</a></h2>
+<p>Die Vorgeschichte führt vom Dorf Woldenhorn über das Gut Ahrensburg zur selbstständigen Landgemeinde. Ausführlicher behandeln das die Seiten <a href="geschichte-der-stadt-ahrensburg.html">Geschichte der Stadt Ahrensburg</a>, <a href="schloss-ahrensburg.html">Schloss Ahrensburg</a> und <a href="die-stadtteile-im-portraet.html">Die Stadtteile im Porträt</a>.</p>
+<hr />
+<h2 id="pläne-vor-dem-zweiten-weltkrieg"><a class="header" href="#pläne-vor-dem-zweiten-weltkrieg">Pläne vor dem Zweiten Weltkrieg</a></h2>
+<p>Schon vor dem Zweiten Weltkrieg gab es Bestrebungen, Ahrensburg zur Stadt zu erheben. Verwirklicht wurden sie erst nach Kriegsende (siehe auch <a href="ahrensburg-ns-zeit.html">Ahrensburg in der NS-Zeit</a>).</p>
+<hr />
+<h2 id="wachstum-nach-dem-zweiten-weltkrieg"><a class="header" href="#wachstum-nach-dem-zweiten-weltkrieg">Wachstum nach dem Zweiten Weltkrieg</a></h2>
+<p>Flüchtlinge und Vertriebene ließen die Bevölkerung nach Kriegsende stark wachsen. 17.775 Menschen lebten 1949 in Ahrensburg, als die Stadtrechte verliehen wurden – fast die Hälfte von ihnen hatte erst wenige Jahre zuvor als Flüchtling oder Vertriebene eine neue Heimat gefunden. Weitere Zahlen enthält die Seite <a href="demografie.html">Demografie und Bevölkerungsentwicklung</a>.</p>
+<hr />
+<h2 id="der-18-januar-1949-feierliche-verleihung-der-stadtrechte"><a class="header" href="#der-18-januar-1949-feierliche-verleihung-der-stadtrechte">Der 18. Januar 1949: Feierliche Verleihung der Stadtrechte</a></h2>
+<p>Am <strong>18. Januar 1949</strong> war es soweit: Die Landesregierung von Schleswig-Holstein verlieh der Gemeinde Ahrensburg offiziell das Recht, die Bezeichnung <strong>„Stadt“</strong> zu führen. Ahrensburg blieb dabei als kreisangehörige Stadt fest im Kreis Stormarn verankert.</p>
+<p>Ein historisches Detail ragt an diesem Tag besonders heraus: Die Ernennungsurkunde nahm die amtierende Bürgermeisterin <strong>Dr. med. Erika Keck</strong> (1900–1990) entgegen. Keck, die 1948 durch die britische Militärregierung ernannt worden war und bis 1950 amtierte, gilt als die <strong>erste hauptamtliche Bürgermeisterin einer Stadt in der Nachkriegsgeschichte Deutschlands</strong> (siehe auch die Bürgermeister-Chronik unter <a href="buergermeister-und-stadtvertretung.html">Bürgermeister und Stadtverordnetenversammlung</a>). Später setzte sie ihr politisches Engagement fort und wurde 1951 die erste Kreispräsidentin in Schleswig-Holstein.</p>
+<p>Mit der Stadterhebung entstand auch der Wunsch nach einem repräsentativen Symbol, was schließlich zur Gestaltung des heutigen <a href="stadtwappen.html">Stadtwappens</a> führte.</p>
+<hr />
+<h2 id="die-nachkriegsfolgen-wohnungsbau-erp-mittel-und-aufschwung"><a class="header" href="#die-nachkriegsfolgen-wohnungsbau-erp-mittel-und-aufschwung">Die Nachkriegsfolgen: Wohnungsbau, ERP-Mittel und Aufschwung</a></h2>
+<p>Mit der Stadtwerdung begann eine Phase intensiver städtebaulicher Entwicklung, um die akute Wohnungsnot zu lindern und Arbeitsplätze zu schaffen:</p>
+<ol>
+<li><strong>Siedlungsbau (1948–1955):</strong> Zunächst entstanden Nebenerwerbssiedlungen (unter anderem am Hagen). Ab 1950 wurden mit massiver Förderung durch das <em>European Recovery Program (ERP)</em> (Marshallplan) moderne Wohnblocks errichtet.</li>
+<li><strong>Bildung und Infrastruktur:</strong> Neue Schulen, Kindergärten und Sportanlagen wurden gebaut, um den vielen Familien gerecht zu werden.</li>
+<li><strong>Wirtschaftskraft:</strong> Durch die Erschließung neuer <a href="gewerbegebiete.html">Gewerbegebiete</a> (wie dem Gewerbegebiet Nord / Beimoor) siedelten sich innovative Industrie- und Dienstleistungsunternehmen an.</li>
+<li><strong>Verkehrsanpassung:</strong> Um dem wachsenden Verkehr Herr zu werden, erfolgten später der Bau des Innenstadtrings und die Eisenbahnuntertunnelung.</li>
+</ol>
+<hr />
+<h2 id="bedeutung-heute-75-jahre-stadtrecht"><a class="header" href="#bedeutung-heute-75-jahre-stadtrecht">Bedeutung heute: 75 Jahre Stadtrecht</a></h2>
+<p>Heute ist Ahrensburg mit über 34.000 Einwohnerinnen und Einwohnern die <strong>größte Stadt im Kreis Stormarn</strong> und ein florierender Wirtschafts- und Wohnstandort in der Metropolregion Hamburg.</p>
+<p>Im Jahr <strong>2024</strong> feierte die Stadt das <strong>75-jährige Jubiläum der Stadtrechtsverleihung</strong> (1949–2024). Das Jubiläum erinnerte an die bemerkenswerte Gemeinschaftsleistung der Nachkriegszeit, als aus Alteingesessenen und Vertriebenen eine lebendige Stadtgesellschaft entstand.</p>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ahrensburg-ns-zeit.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="familie-rantzau.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ahrensburg-ns-zeit.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="familie-rantzau.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

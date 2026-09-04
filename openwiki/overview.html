@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Überblick - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<blockquote>
+<p>Kopie der generierten OpenWiki-Seite <code>openwiki/overview.md</code>. Das Original erzeugt der
+OpenWiki-Workflow; diese Kopie unter <code>src/</code> wird manuell nachgezogen und kann veraltet sein.
+Sie beschreibt das Repository, nicht die Stadt Ahrensburg.</p>
+</blockquote>
+<h1 id="ahrensburg-knowledge-base-overview"><a class="header" href="#ahrensburg-knowledge-base-overview">Ahrensburg Knowledge Base Overview</a></h1>
+<p>This repository is a German-language <a href="https://rust-lang.github.io/mdBook/">mdBook</a> knowledge base about the town of Ahrensburg in Schleswig-Holstein, Germany. It is pure content — Markdown pages, no application code. The generated site is published to <a href="https://wissen-ahrensburg.de">https://wissen-ahrensburg.de</a>.</p>
+<h2 id="purpose"><a class="header" href="#purpose">Purpose</a></h2>
+<p>The project collects articles about Ahrensburg's history, geography, culture, everyday life, infrastructure, and economy. It is intended as a freely usable, editorially reviewed knowledge base. Content is AI-assisted and editorially reviewed, licensed under CC BY-SA 4.0.</p>
+<h2 id="key-facts"><a class="header" href="#key-facts">Key facts</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody>
+<tr><td>Build tool</td><td>mdBook (Rust binary)</td></tr>
+<tr><td>Content language</td><td>German (<code>de</code>)</td></tr>
+<tr><td>Output</td><td>Static HTML site</td></tr>
+<tr><td>Hosting</td><td>GitHub Pages</td></tr>
+<tr><td>Custom domain</td><td><code>wissen-ahrensburg.de</code></td></tr>
+<tr><td>License</td><td>CC BY-SA 4.0</td></tr>
+<tr><td>Author</td><td>Thorsten Klöhn</td></tr>
+<tr><td>Content pages</td><td>43 Markdown files under <code>src/</code></td></tr>
+</tbody></table>
+</div>
+<h2 id="repository-entry-points"><a class="header" href="#repository-entry-points">Repository entry points</a></h2>
+<ul>
+<li><code>book.toml</code> — mdBook configuration, including the <code>mdbook-mermaid</code> preprocessor and Mermaid theme support.</li>
+<li><code>src/SUMMARY.md</code> — table of contents; a page is only built if it is linked here.</li>
+<li><code>src/*.md</code> — content pages in German.</li>
+<li><code>src/openwiki/*.md</code> — manual copies of the generated <code>openwiki/</code> pages so they appear in the book.</li>
+<li><code>package.json</code> — contains the deploy script that uses <code>gh-pages</code>.</li>
+<li><code>docs/</code> — operational runbooks and verification screenshots, not built into the book.</li>
+<li><code>raw/</code> — human draft area (gitignored, except README + template).</li>
+<li><code>.claude/</code> — agent skills and subagent definitions for the editorial pipeline.</li>
+</ul>
+<h2 id="important-conventions"><a class="header" href="#important-conventions">Important conventions</a></h2>
+<ul>
+<li><strong>German content.</strong> All prose in <code>src/</code> is German.</li>
+<li><strong>AI transparency notice.</strong> Every content page opens and closes with the italic AI transparency notice required by Art. 50 of the EU AI Act. <code>datenschutz.md</code> is the legitimate exception.</li>
+<li><strong>Internal links</strong> use relative <code>.md</code> paths; mdBook rewrites them to <code>.html</code>.</li>
+<li><strong>SUMMARY.md controls inclusion.</strong> Pages not listed in <code>src/SUMMARY.md</code> are not rendered into the book.</li>
+<li><strong>Co-Wiki workflow.</strong> The <code>co-wiki.md</code> page explains how humans and AI collaborate to create content, supported by agent definitions under <code>.claude/</code>.</li>
+<li><strong>Manual OpenWiki copies.</strong> <code>openwiki/*.md</code> are generated by the OpenWiki workflow; <code>src/openwiki/*.md</code> are hand-maintained copies for the book and must be re-synced when the originals change.</li>
+</ul>
+<pre class="mermaid">flowchart TD
+    root[(&quot;Ahrensburg knowledge base&quot;)] --&gt; gesch[&quot;Geschichte &amp; Allgemeines&quot;]
+    root --&gt; sehen[&quot;Sehenswürdigkeiten &amp; Kultur&quot;]
+    root --&gt; alltag[&quot;Alltag &amp; Leben&quot;]
+    root --&gt; natur[&quot;Natur &amp; Freizeit&quot;]
+    root --&gt; infra[&quot;Infrastruktur &amp; Wirtschaft&quot;]
+    root --&gt; wiki[&quot;Wie dieses Wiki entsteht&quot;]
+    root --&gt; sonst[&quot;Sonstiges&quot;]
+    root --&gt; ow[&quot;OpenWiki&quot;]
+    gesch --&gt; geschichte[&quot;Geschichte der Stadt&quot;]
+    gesch --&gt; ortsname[&quot;Ortsname&quot;]
+    gesch --&gt; ns[&quot;NS-Zeit&quot;]
+    gesch --&gt; stadtwerdung[&quot;Stadtwerdung 1949&quot;]
+    gesch --&gt; familien[&quot;Schlossherren-Familien&quot;]
+    gesch --&gt; geo[&quot;Geografie&quot;]
+    sehen --&gt; schloss[&quot;Schloss Ahrensburg&quot;]
+    sehen --&gt; kirche[&quot;Schlosskirche&quot;]
+    sehen --&gt; musik[&quot;Musik &amp; Theater&quot;]
+    alltag --&gt; stadtteile[&quot;Stadtteile&quot;]
+    alltag --&gt; vereine[&quot;Vereinsleben&quot;]
+    alltag --&gt; gesundheit[&quot;Gesundheit&quot;]
+    natur --&gt; tunneltal[&quot;Ahrensburger Tunneltal&quot;]
+    natur --&gt; wander[&quot;Wander- &amp; Radwege&quot;]
+    infra --&gt; verkehr[&quot;Verkehrsanbindung&quot;]
+    infra --&gt; verwaltung[&quot;Stadtverwaltung&quot;]
+    wiki --&gt; cowiki[&quot;Co-Wiki&quot;]
+    wiki --&gt; software[&quot;Software-Vergleiche&quot;]
+    sonst --&gt; impressum[&quot;Impressum&quot;]
+    sonst --&gt; datenschutz[&quot;Datenschutz&quot;]
+    ow --&gt; ow_overview[&quot;overview.md&quot;]
+    ow --&gt; ow_architecture[&quot;architecture.md&quot;]
+    ow --&gt; ow_sourcemap[&quot;source-map.md&quot;]
+</pre>
+<p><em>Top-level content domains of the Ahrensburg knowledge base. Each branch maps to a section in <code>src/SUMMARY.md</code>.</em></p>
+<h2 id="sister-projects"><a class="header" href="#sister-projects">Sister projects</a></h2>
+<p>The main page links to related projects under the <code>wissen-ahrensburg.de</code> domain:</p>
+<ul>
+<li>Dokument: <a href="https://dokument.wissen-ahrensburg.de/">https://dokument.wissen-ahrensburg.de/</a></li>
+<li>Mediawiki: <a href="https://mediawiki.wissen-ahrensburg.de/">https://mediawiki.wissen-ahrensburg.de/</a></li>
+<li>Rustbuch: <a href="https://rustbuch.wissen-ahrensburg.de/">https://rustbuch.wissen-ahrensburg.de/</a></li>
+<li>Anfänger: <a href="https://anfaenger.wissen-ahrensburg.de/">https://anfaenger.wissen-ahrensburg.de/</a></li>
+<li>Moodle: <a href="https://moodle.wissen-ahrensburg.de/">https://moodle.wissen-ahrensburg.de/</a></li>
+</ul>
+<h2 id="quick-commands"><a class="header" href="#quick-commands">Quick commands</a></h2>
+<ul>
+<li><code>mdbook build</code> — render <code>src/</code> to <code>book/</code>.</li>
+<li><code>mdbook serve</code> — live-reloading preview at <a href="http://localhost:3000">http://localhost:3000</a>.</li>
+<li><code>npm run ver</code> — deploy <code>book/</code> to GitHub Pages (<code>gh-pages</code> branch).</li>
+</ul>
+<p>Full deploy sequence: <code>npm install</code> → <code>mdbook build</code> → <code>npm run ver</code>.</p>
+<h2 id="related-pages"><a class="header" href="#related-pages">Related pages</a></h2>
+<ul>
+<li><a href="architecture.html"><code>architecture.md</code></a> — build pipeline, mdBook config, and deploy flow.</li>
+<li><a href="source-map.html"><code>source-map.md</code></a> — per-file map of the repository.</li>
+</ul>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../software-fuer-ein-grosses-wissensprojekt.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../openwiki/architecture.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../software-fuer-ein-grosses-wissensprojekt.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../openwiki/architecture.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../mermaid.min.js"></script>
+        <script src="../mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

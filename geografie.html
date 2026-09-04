@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Geografie - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="geografie-von-ahrensburg"><a class="header" href="#geografie-von-ahrensburg">Geografie von Ahrensburg</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>Ahrensburg ist die größte Stadt des Kreises Stormarn in Schleswig-Holstein und gehört zur Metropolregion Hamburg. Die Stadt zeichnet sich durch ihre abwechslungsreiche eiszeitliche Geestlandschaft, ausgedehnte Buchenwälder, Tunneltäler und wertvolle Schutzgebiete aus.</p>
+<hr />
+<h2 id="geografische-lage-und-nachbarschaft"><a class="header" href="#geografische-lage-und-nachbarschaft">Geografische Lage und Nachbarschaft</a></h2>
+<p>Ahrensburg liegt im südöstlichen Schleswig-Holstein, rund 20 Kilometer nordöstlich des Hamburger Stadtzentrums und etwa 30 Kilometer südwestlich von Lübeck.</p>
+<ul>
+<li><strong>Geografische Koordinaten:</strong> 53° 40′ 30″ N, 10° 14′ 30″ O</li>
+<li><strong>Höhenlage:</strong> ca. 30 bis 65 m über NHN (Kernstadt ca. 42 m über NHN)</li>
+<li><strong>Nachbargemeinden:</strong>
+<ul>
+<li><em>Norden:</em> Ammersbek, Delingsdorf</li>
+<li><em>Osten:</em> Hammoor, Todendorf, Großhansdorf, Siek</li>
+<li><em>Süden:</em> Braak, Stapelfeld sowie die Hamburger Stadtteile Rahlstedt und Volksdorf</li>
+<li><em>Westen:</em> Ammersbek</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="naturraum-geologie-und-relief"><a class="header" href="#naturraum-geologie-und-relief">Naturraum, Geologie und Relief</a></h2>
+<p>Die Landschaft um Ahrensburg ist Teil der <strong>Südholsteinischen Geest</strong> und wurde entscheidend durch die letzte Eiszeit – die <strong>Weichsel-Kaltzeit</strong> vor rund 15.000 bis 12.000 Jahren – geformt.</p>
+<pre><code>                    ┌─────────────────────────┐
+                    │  WEICHSEL-KALTZEIT      │
+                    │  (vor ca. 15.000 Jahren) │
+                    └────────────┬────────────┘
+                                 │
+         ┌───────────────────────┼───────────────────────┐
+         ▼                       ▼                       ▼
+┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐
+│  TUNNELTÄLER     │   │   ENDMORÄNEN     │   │  GEESTRÜCKEN &amp;   │
+│ Schmelzwasserrin-│   │ Zusammenge-      │   │  SANDERSCHÜTTUNG │
+│ nen unter Eis    │   │ schobenes Relief │   │ Sandig-lehmige,  │
+│ (z.B. Tunneltal) │   │ (z.B. Hagenberg) │   │ wellige Böden    │
+└──────────────────┘   └──────────────────┘   └──────────────────┘
+</code></pre>
+<h3 id="glaziäre-prägung-tunneltäler-und-schmelzwasserrinnen"><a class="header" href="#glaziäre-prägung-tunneltäler-und-schmelzwasserrinnen">Glaziäre Prägung (Tunneltäler und Schmelzwasserrinnen)</a></h3>
+<p>Als das skandinavische Inlandeis taute, schürften gewaltige Schmelzwasserströme unter hohem Druck tiefe Rinnen in den gefrorenen Untergrund.</p>
+<ul>
+<li>Das bekannteste Beispiel ist das <a href="ahrensburger-tunneltal.html">Ahrensburger Tunneltal</a>, das sich als markante, teils über 20 Meter tief eingeschnittene Senke von Rahlstedt bis in das Stadtgebiet zieht.</li>
+<li>Zurückbleibendes Toteis schmolz zeitverzögert ab und hinterließ Moor- und Seensenken (wie die Hoisdorfer Teiche und Verlandungsseen).</li>
+</ul>
+<h3 id="moränen-und-erhebungen"><a class="header" href="#moränen-und-erhebungen">Moränen und Erhebungen</a></h3>
+<p>Außerhalb der Tunneltäler dominieren wellige Grund- und Endmoränenzüge mit sandig-lehmigen Böden:</p>
+<ul>
+<li><strong>Hagenberg / Buchenberg</strong> Erhebungen im Forst Hagen und am Rande der Geest (bis ca. 65 m über NHN).</li>
+<li><strong>Wartenberge:</strong> Eine eiszeitliche Stauchmoräne im Übergangsbereich zum Tunneltal.</li>
+</ul>
+<hr />
+<h2 id="gewässernetz-und-hydrogeografie"><a class="header" href="#gewässernetz-und-hydrogeografie">Gewässernetz und Hydrogeografie</a></h2>
+<p>Ahrensburg liegt im Einzugsgebiet des Flusssystems der <strong>Alster</strong> (und damit der Elbe / Nordsee). Nahe der östlichen Stadtgrenze verläuft die Hauptwasserscheide zur Ostsee (Trave).</p>
+<ul>
+<li><strong>Fließgewässer:</strong> Die <a href="gewaesser-und-seen.html">Hunnau</a>, die <a href="gewaesser-und-seen.html">Ahrensburger Aue</a>, die <a href="gewaesser-und-seen.html">Bredenbek</a> und die <a href="gewaesser-und-seen.html">Wandse</a> entwässern das Stadtgebiet.</li>
+<li><strong>Stillgewässer &amp; Teiche:</strong> Der <a href="gewaesser-und-seen.html">Bredenbeker Teich</a> (ca. 35 ha Stausee), der Schloss- und Mühlenteich um das <a href="schloss-ahrensburg.html">Schloss Ahrensburg</a> sowie die Hoisdorfer Teichkette.</li>
+</ul>
+<p>Ausführliche Details zu allen Flüssen, Teichen und Wasserscheiden beschreibt der Artikel <a href="gewaesser-und-seen.html">Gewässer und Seen in Ahrensburg</a>.</p>
+<hr />
+<h2 id="klima"><a class="header" href="#klima">Klima</a></h2>
+<p>Ahrensburg hat ein gemäßigtes, maritim beeinflusstes Übergangsklima mit milden Wintern und mäßig warmen Sommern.</p>
+<ul>
+<li><strong>Jahresmitteltemperatur:</strong> ca. 8,5 bis 9,2 °C</li>
+<li><strong>Wärmster Monat:</strong> Juli (Monatsmittel ca. 17,5 °C)</li>
+<li><strong>Kältester Monat:</strong> Januar (Monatsmittel ca. 0,5 bis 1,2 °C)</li>
+<li><strong>Niederschlag:</strong> Der Jahresniederschlag liegt bei ca. 750–800 mm und verteilt sich relativ gleichmäßig über das Jahr, mit leichten Maxima im Hochsommer (Konvektionsregen) und Spätherbst.</li>
+</ul>
+<hr />
+<h2 id="waldgebiete-parks-und-grünflächen"><a class="header" href="#waldgebiete-parks-und-grünflächen">Waldgebiete, Parks und Grünflächen</a></h2>
+<p>Mit einem Waldanteil von rund 18 % gehört Ahrensburg zu den waldreicheren Städten der Hamburger Metropolregion.</p>
+<ul>
+<li><strong>Forst Hagen:</strong> Großes Waldgebiet im Süden mit ausgedehnten Buchenmischwäldern, Altholzbeständen und gut ausgebauten <a href="wander-und-radwege.html">Wanderwegen</a>.</li>
+<li><strong>Forst Beimoor (Beimoorwald):</strong> Waldgebiet im Norden der Stadt, naturnah bewirtschaftet mit Feuchtbiotopen.</li>
+<li><strong>Schlosspark:</strong> Historischer englischer Landschaftsgarten rund um das <a href="schloss-ahrensburg.html">Schloss Ahrensburg</a> mit Solitärbäumen und Gräfte.</li>
+<li><strong>Aalfangpark &amp; Grünzüge:</strong> Innerstädtische Grünverbindungen entlang der Bachtäler.</li>
+</ul>
+<hr />
+<h2 id="naturschutz-und-biodiversität"><a class="header" href="#naturschutz-und-biodiversität">Naturschutz und Biodiversität</a></h2>
+<p>Rund um die Stadt liegt ein zusammenhängender Schutzgebietskomplex von über 1.000 Hektar:</p>
+<ul>
+<li><strong><a href="naturschutzgebiete.html">NSG Stellmoor–Ahrensburger Tunneltal</a>:</strong> Feuchtgebiet, Moorfrosch- und Vogelhabitat, weltweit bekannte archäologische Grabungsstätte.</li>
+<li><strong><a href="naturschutzgebiete.html">NSG Höltigbaum</a>:</strong> Halboffene Weidelandschaft („Wilde Weiden“) mit Glanrindern und Steppenvegetation auf ehemaligem Militärgelände.</li>
+<li><strong><a href="naturschutzgebiete.html">NSG Heidkoppelmoor</a>:</strong> Seltene Moorflora mit Sonnentau, Wollgras und heimischen Orchideen.</li>
+<li><strong><a href="naturschutzgebiete.html">NSG Ammersbek-Niederung</a>:</strong> Naturnahe Auenlandschaft und Rastgebiet für Zugvögel.</li>
+</ul>
+<hr />
+<h2 id="stadtteile-und-siedlungsstruktur"><a class="header" href="#stadtteile-und-siedlungsstruktur">Stadtteile und Siedlungsstruktur</a></h2>
+<p>Ahrensburg gliedert sich historisch und siedlungsgeografisch in mehrere Stadtteile und Wohnquartiere:</p>
+<ul>
+<li><strong>Ahrensburg (Zentrum / ehem. Woldenhorn):</strong> Historischer Kern mit Schloss, Schlosskirche, Rathaus und Fußgängerzone.</li>
+<li><strong>Ahrensfelde:</strong> Dörflich geprägter Ortsteil im Norden.</li>
+<li><strong>Am Hagen / Siedlung Hagen:</strong> Waldnahes Wohngebiet im Südwesten.</li>
+<li><strong>Gartenholz (inkl. Kremerberg):</strong> Wohn- und Mischgebiet im Norden mit eigenem Bahn-Haltepunkt.</li>
+<li><strong>Gewerbegebiet Nord / Beimoor:</strong> Wirtschaftlicher Schwerpunkt im Nordosten.</li>
+<li><strong>Erlenhof:</strong> Modernes Wohnquartier im Westen.</li>
+<li><strong>Wulfsdorf:</strong> Ländlich-ökologisch geprägter Ortsteil an der Grenze zu Hamburg-Volksdorf.</li>
+</ul>
+<p>Eine detaillierte Übersicht aller Stadtviertel findet sich im Artikel <a href="die-stadtteile-im-portraet.html">Die Stadtteile im Porträt</a>.</p>
+<hr />
+<h2 id="themenübersicht-zur-ahrensburger-geografie"><a class="header" href="#themenübersicht-zur-ahrensburger-geografie">Themenübersicht zur Ahrensburger Geografie</a></h2>
+<p>Vertiefende Artikel im Wiki:</p>
+<ul>
+<li><a href="gewaesser-und-seen.html">Gewässer und Seen in Ahrensburg</a> – Flüsse, Bäche, Teiche, Kanäle und Wasserscheiden</li>
+<li><a href="naturschutzgebiete.html">Naturschutzgebiete</a> – Höltigbaum, Tunneltal, Heidkoppelmoor und Ammersbek-Niederung</li>
+<li><a href="fauna-und-flora.html">Fauna und Flora</a> – Wälder, Moore, Knicklandschaft und Tierwelt</li>
+<li><a href="ahrensburger-tunneltal.html">Ahrensburger Tunneltal und die Ahrensburger Kultur</a> – Eiszeitgeologie und Steinzeitarchäologie</li>
+<li><a href="die-stadtteile-im-portraet.html">Die Stadtteile im Porträt</a> – Siedlungsgeografie und Stadtbezirke</li>
+<li><a href="demografie.html">Demografie und Bevölkerungsentwicklung</a> – Einwohnerentwicklung, Altersstruktur und Zensusdaten</li>
+<li><a href="naherholungsgebiete.html">Naherholungsgebiete</a> – Ausflugsziele und Naturerleben</li>
+</ul>
+<hr />
+<h2 id="weblinks"><a class="header" href="#weblinks">Weblinks</a></h2>
+<ul>
+<li><a href="https://www.ahrensburg.de/Stadt-Politik/Stadtportr%C3%A4t/Zahlen-Fakten/">Stadt Ahrensburg – Zahlen, Daten, Fakten</a></li>
+<li><a href="https://www.stormarn.de/">Kreis Stormarn – Geografie und Naturraum</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="demografie.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="gewaesser-und-seen.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="demografie.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="gewaesser-und-seen.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
