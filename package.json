@@ -1,0 +1,16 @@
+{
+  "name": "ahrensburg-buch",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "ver": "gh-pages -d book --nojekyll --cname wissen-ahrensburg.de --no-history"
+  },
+  "dependencies": {
+    "gh-pages": "^6.3.0",
+    "github-pages": "^3.0.2"
+  }
+}

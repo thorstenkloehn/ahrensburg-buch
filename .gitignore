@@ -1,0 +1,12 @@
+book/
+node_modules/
+package-lock.json
+
+# .agents/ mirrors .claude/agents + .claude/skills for other agent runners. It IS checked in
+# (byte-identical copy; re-sync after changing .claude/ — see docs/agent-notes.md §6). Root AGENTS.md is not mirrored.
+
+# raw/ drafts are deliberately NOT versioned — deleting one is permanent.
+# Only the folder's README and template are tracked.
+raw/*
+!raw/README.md
+!raw/_vorlage.md
