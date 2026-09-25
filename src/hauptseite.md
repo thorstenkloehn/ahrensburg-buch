@@ -55,6 +55,7 @@ Weitere freie Wissens- und Lernprojekte im selben Verbund:
 * [Mediawiki Ahrensburg](https://mediawiki.wissen-ahrensburg.de/)
 * [Anfänger-Anleitungen](https://anfaenger.wissen-ahrensburg.de/) - [Github Projekt](https://github.com/thorstenkloehn/anfaenger.git)
 * [Admin Handbuch](https://benutzerhandbuch.wissen-ahrensburg.de/)
+* [Installieren](https://installieren.wissen-ahrensburg.de/)
 
 ---
 
