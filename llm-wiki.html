@@ -1,0 +1,500 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>LLM Wiki - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="llm-wiki"><a class="header" href="#llm-wiki">LLM Wiki</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>Diese Seite erklärt drei Dinge. Zuerst geht es um die Grundlagen: Was ist ein
+<strong>LLM</strong> (großes Sprachmodell, die Technik hinter Chat-KI), was kann es gut, was
+nicht, und wie stellt man gute Fragen. Danach geht es um ein bestimmtes Muster,
+das der KI-Fachmann Andrej Karpathy im April 2026 vorgeschlagen hat: das
+<strong>LLM-Wiki</strong>. Zum Schluss steht, wie genau dieses Ahrensburg-Wiki dieses Muster
+anwendet. Vorwissen aus dem Bereich des maschinellen Lernens ist nicht nötig.</p>
+<h2 id="was-ist-ein-llm-sprachmodelle-verstehen"><a class="header" href="#was-ist-ein-llm-sprachmodelle-verstehen">Was ist ein LLM? (Sprachmodelle verstehen)</a></h2>
+<p><strong>LLM</strong> ist die Abkürzung für <em>Large Language Model</em>, auf Deutsch „großes
+Sprachmodell". Ein solches Programm erzeugt Text Stück für Stück. Es fügt immer
+das nächste Sprach-Bruchstück an, das am wahrscheinlichsten passt – Fachleute
+nennen das <em>Next-Token-Prediction</em>, also „Vorhersage des nächsten Textbausteins".
+Wichtig dabei: Das Modell <strong>schlägt nichts in einer Antwort-Datenbank nach</strong>, es
+<strong>erzeugt</strong> die Antwort neu. Deshalb kommt bei derselben Frage manchmal eine
+andere Antwort heraus – ein kleiner Zufallsanteil ist eingebaut.</p>
+<p>Ein LLM hat aus sehr vielen Büchern, Webseiten, Programmtexten und Anleitungen
+gelernt. Dabei hat es vor allem <strong>Sprachmuster</strong> aufgenommen, keinen sauber
+sortierten Faktenspeicher. Das erklärt auch eine unangenehme Eigenschaft: Das
+Modell antwortet selbst dann souverän und flüssig, wenn es etwas gar nicht weiß.
+Ein hilfreiches Bild ist: ein <strong>belesener Assistent mit gutem Sprachgefühl und
+unzuverlässigem Gedächtnis</strong>.</p>
+<p>Wie es dazu kommt, dass ein LLM Dinge überzeugend erfindet (sogenannte
+Halluzinationen), ist ausführlich in
+<a href="neue-artikel-erstellen.html">Neue Artikel aus Rohfassungen erstellen</a> beschrieben.</p>
+<h3 id="begriffe-az"><a class="header" href="#begriffe-az">Begriffe A–Z</a></h3>
+<p>Diese Wörter tauchen im Zusammenhang mit Sprachmodellen immer wieder auf.</p>
+<div class="table-wrapper"><table><thead><tr><th>Begriff</th><th>Kurz erklärt</th></tr></thead><tbody>
+<tr><td><strong>Agent</strong></td><td>Ein LLM, das mehrere Schritte hintereinander abarbeitet, Werkzeuge benutzt und Zwischenergebnisse selbst bewertet.</td></tr>
+<tr><td><strong>Fine-Tuning</strong></td><td>Nachtraining eines Modells auf eigene Daten. Aufwendig und selten der erste Schritt.</td></tr>
+<tr><td><strong>Halluzination</strong></td><td>Eine erfundene, aber überzeugend formulierte Angabe.</td></tr>
+<tr><td><strong>Knowledge Cutoff</strong></td><td>Stichtag der Trainingsdaten. Was später passiert ist, kennt das Modell nur mit einer Suchfunktion.</td></tr>
+<tr><td><strong>Kontextfenster</strong></td><td>Die Textmenge, die das Modell gleichzeitig verarbeiten kann – Frage, Anhänge und Antwort zusammen.</td></tr>
+<tr><td><strong>Multimodal</strong></td><td>Das Modell verarbeitet nicht nur Text, sondern auch Bilder, PDFs oder Audio.</td></tr>
+<tr><td><strong>Prompt</strong></td><td>Die Eingabe an das Modell: Frage, Anweisung, Text oder Datei.</td></tr>
+<tr><td><strong>RAG</strong></td><td>„Erst nachschlagen, dann antworten": Passende Dokumente werden gesucht und dem Prompt beigelegt.</td></tr>
+<tr><td><strong>System-Prompt</strong></td><td>Eine vorab gesetzte Rolle und Verhaltensregel für das Modell.</td></tr>
+<tr><td><strong>Temperature</strong></td><td>Ein Zufallsregler: niedrig = vorhersehbar, hoch = sprunghaft.</td></tr>
+<tr><td><strong>Token</strong></td><td>Die kleinste Verarbeitungseinheit, meist ein Wortteil.</td></tr>
+<tr><td><strong>Tool / Function Calling</strong></td><td>Das Modell darf externe Werkzeuge aufrufen, etwa Suche, Rechner oder interne Systeme.</td></tr>
+</tbody></table>
+</div>
+<p>Als <strong>grobe Faustregel</strong> wird oft „ungefähr ¾ Wort je Token" genannt. Diese Regel
+stammt aus dem englischen Sprachraum; im Deutschen fällt das Verhältnis wegen der
+langen zusammengesetzten Wörter ungünstiger aus. Die Zahl ist also nur ein grober
+Anhaltspunkt, kein genauer Umrechnungsfaktor.</p>
+<p>Eine kürzere Fachwort-Tabelle mit Schwerpunkt auf der Technik dahinter steht in
+<a href="software-fuer-ein-grosses-wissensprojekt.html">Software für ein großes Wissensprojekt</a>.</p>
+<h2 id="wofür-taugt-ein-llm-stärken-und-grenzen"><a class="header" href="#wofür-taugt-ein-llm-stärken-und-grenzen">Wofür taugt ein LLM? (Stärken und Grenzen)</a></h2>
+<p><strong>Gut geeignet</strong> sind Sprachmodelle für Aufgaben, bei denen es auf Formulierung
+und Struktur ankommt:</p>
+<ul>
+<li>Texte umformulieren, kürzen, zusammenfassen oder übersetzen.</li>
+<li>Erste Entwürfe schreiben: Mails, Protokolle, Gliederungen, Textbausteine.</li>
+<li>Fachtexte, Verträge oder Programmcode in einfacher Sprache erklären.</li>
+<li>Unordentliche Notizen und Daten in eine übersichtliche Form bringen.</li>
+<li>Ideen sammeln, Gegenargumente finden, als Sparringspartner dienen.</li>
+</ul>
+<p><strong>Schlecht geeignet</strong> sind sie überall dort, wo es auf geprüfte Genauigkeit
+ankommt:</p>
+<ul>
+<li>Exakte Fakten, Zahlen, Zitate oder Rechtsstände ohne Quelle.</li>
+<li>Rechnen und Zählen ohne ein echtes Werkzeug.</li>
+<li>Aktuelle Ereignisse ohne Zugriff auf eine Suche.</li>
+<li>Entscheidungen mit rechtlichen, medizinischen oder personellen Folgen.</li>
+<li>Aufgaben, deren Ergebnis am Ende niemand prüft.</li>
+</ul>
+<p>Die einfache Faustregel dazu: <strong>Der Nutzen steigt mit der Fähigkeit, das Ergebnis
+selbst zu beurteilen.</strong> Wer ein Thema gut kennt, erkennt Fehler sofort und spart
+viel Zeit. Wer es nicht kennt, übernimmt die Fehler ungeprüft.</p>
+<h2 id="wie-man-llms-besser-nutzt-prompting-basics"><a class="header" href="#wie-man-llms-besser-nutzt-prompting-basics">Wie man LLMs besser nutzt (Prompting-Basics)</a></h2>
+<p>Unabhängig vom Einsatzzweck gilt: Die Qualität der Antwort hängt stark von der
+Eingabe ab. Ein paar Grundregeln helfen:</p>
+<ul>
+<li><strong>Kontext mitgeben:</strong> wer fragt, für wen ist das Ergebnis, was ist vorher
+passiert.</li>
+<li><strong>Aufgabe konkret benennen</strong> statt „mach was mit dem Text".</li>
+<li><strong>Format vorgeben:</strong> Länge, Ton, Tabelle oder Fließtext.</li>
+<li><strong>Beispiele zeigen:</strong> ein gutes und ein schlechtes.</li>
+<li><strong>Iterieren:</strong> die Antwort nachschärfen, statt jedes Mal neu anzufangen.</li>
+<li><strong>Eigenes Material anhängen:</strong> angehängte Dokumente sind zuverlässiger als das
+Gedächtnis des Modells.</li>
+</ul>
+<p>Ein Beispiel macht den Unterschied deutlich. Schwacher Prompt: „Schreib eine Mail
+wegen des Termins." Besserer Prompt: „Kurze, freundliche Kundenmail. Der Workshop
+am 14.10. verschiebt sich krankheitsbedingt auf November. Zwei Alternativtermine
+anbieten. Höchstens 120 Wörter, Sie-Form."</p>
+<h2 id="das-llm-wiki-eine-idee-von-andrej-karpathy"><a class="header" href="#das-llm-wiki-eine-idee-von-andrej-karpathy">Das LLM-Wiki: eine Idee von Andrej Karpathy</a></h2>
+<p>Am 4. April 2026 veröffentlichte der KI-Fachmann Andrej Karpathy einen kurzen
+Text mit dem Namen <code>llm-wiki.md</code> als sogenannten GitHub-Gist – eine kurze,
+öffentlich einsehbare Notiz auf GitHub, einer Plattform, auf der Programmiererinnen
+und Programmierer ihren Code austauschen. Das ist <strong>kein Programm</strong>, sondern eine
+Ideen- und Musterbeschreibung in Prosa, gedacht zum Einbauen in einen KI-Agenten.</p>
+<p>Ein herkömmliches <strong>RAG-System</strong> sucht für eine konkrete Frage passende Stellen
+in seinen Unterlagen und formuliert daraus eine Antwort. Das LLM-Wiki verfolgt
+ein anderes Ziel: Aus ausgewählten Unterlagen entsteht schrittweise ein
+redigierter Bestand aus miteinander verknüpften Markdown-Seiten. Spätere Fragen
+können auf diesen bereits geordneten Bestand zurückgreifen. Neue Quellen führen
+nicht zu einem kompletten Neubeginn, sondern zu gezielten Ergänzungen und
+Korrekturen.</p>
+<p>Der praktische Unterschied liegt damit weniger im Dateiformat als in der
+Pflegearbeit. RAG ist vor allem ein Verfahren zum Auffinden von Belegstellen;
+ein LLM-Wiki hält zusätzlich fest, wie die Redaktion diese Belege eingeordnet
+hat. Dadurch bleibt Wissen über mehrere Arbeitssitzungen erhalten. Zugleich kann
+eine falsche Einordnung dauerhaft weiterwirken, weshalb Quellenbezug,
+Versionsgeschichte und menschliche Prüfung unverzichtbar sind.</p>
+<p>Karpathys Text verweist außerdem auf einen alten Gedanken: den „Memex", ein
+1945 von Vannevar Bush beschriebenes ideales Wissensgerät.</p>
+<h3 id="bausteine-und-redaktioneller-betrieb"><a class="header" href="#bausteine-und-redaktioneller-betrieb">Bausteine und redaktioneller Betrieb</a></h3>
+<p>Für eine Umsetzung müssen vier Aufgaben getrennt geregelt sein:</p>
+<ol>
+<li><strong>Quellen bewahren:</strong> Originale wie PDFs, Notizen oder Datensätze bleiben
+unverändert, damit jede Aussage später überprüft werden kann.</li>
+<li><strong>Wissen ordnen:</strong> Themenseiten fassen belegte Aussagen zusammen und
+verweisen untereinander. Eine Übersichtsseite erleichtert den Einstieg.</li>
+<li><strong>Änderungen dokumentieren:</strong> Neue, geänderte und verworfene Aussagen werden
+mit Zeitpunkt und Anlass nachvollziehbar festgehalten.</li>
+<li><strong>Arbeitsregeln festlegen:</strong> Eine eigene Anleitung bestimmt Seitenaufbau,
+Quellenstandard, Zuständigkeiten und Freigabe. In diesem Repository erfüllen
+<code>AGENTS.md</code> und <code>CLAUDE.md</code> diese Funktion.</li>
+</ol>
+<p>Im Alltag wechseln sich drei Tätigkeiten ab. Bei der <strong>Aufnahme</strong> einer Quelle
+werden nur die betroffenen Seiten ergänzt. Bei einer <strong>Recherchefrage</strong> sucht
+der Agent zuerst im geordneten Bestand und führt die Antwort zu den Belegen
+zurück. Eine regelmäßige <strong>Bestandsprüfung</strong> sucht schließlich nach
+Widersprüchen, veralteten Angaben und verwaisten Seiten. Karpathys Gist nennt
+für diese Tätigkeiten die englischen Kurzbezeichnungen <em>ingest</em>, <em>query</em> und
+<em>lint</em>; die hier beschriebene Rollen- und Freigabeverteilung ist die Umsetzung
+dieses Projekts.</p>
+<p>Eine einfache Übersichtsdatei und Volltextsuche können für einen überschaubaren
+Bestand genügen. Erst wenn Navigation und Trefferqualität messbar nachlassen,
+lohnt sich zusätzliche Suchtechnik. Eine allgemeingültige Seitenzahl als Grenze
+gibt es nicht; Dokumentlänge, Verlinkung und Modellkontext sind ebenso wichtig.</p>
+<p>Es gibt bereits fertige Programme, die diese Idee umsetzen – etwa das frei
+lizenzierte Community-Werkzeug <code>nashsu/llm_wiki</code> (GNU GPL v3.0), das Dokumente
+automatisch vernetzt und unveränderte Dateien überspringt. Es ist eines von
+mehreren und nicht „der Standard".</p>
+<h2 id="risiken-und-grenzen"><a class="header" href="#risiken-und-grenzen">Risiken und Grenzen</a></h2>
+<p><strong>Halluzinationen und Fehlerfortpflanzung.</strong> Ein LLM erfindet gelegentlich
+überzeugend klingende Angaben. Quellenangaben eines Modells sind nur etwas wert,
+wenn sie geprüft wurden. Beim LLM-Wiki kommt eine besondere Gefahr hinzu, die als
+<strong>Error Drift</strong> („Fehler-Abdrift") bezeichnet wird: Ein einmaliges Missverständnis
+wandert in eine Wiki-Seite und breitet sich still weiter aus, während das Wiki
+weiterhin sauber und geordnet aussieht. Bei klassischem RAG kann sich ein solcher
+Fehler bei der nächsten Frage von selbst korrigieren, weil wieder am Original
+begonnen wird – im LLM-Wiki bleibt er eingegraben. Gegenmittel sind eine strikte
+Trennung von Entwurf und Freigabe sowie <strong>Quellentreue</strong>: Jede Seite verweist auf
+ihre Rohquellen. Der verwandte Risikokomplex <strong>Model Collapse</strong> ist in
+<a href="neue-artikel-erstellen.html">Neue Artikel aus Rohfassungen erstellen</a> beschrieben.</p>
+<p><strong>Skalierung und Kontextlimit.</strong> Ab einer gewissen Größe – nach Erfahrungsberichten
+einige hundert Seiten – kann der Agent nicht mehr alle Seiten gleichzeitig
+überblicken. Er übersieht Seiten, erzeugt Dubletten und verpasst Querverweise.
+Der übliche Behelf ist ein Master-Index mit einzeiligen Zusammenfassungen.</p>
+<p><strong>Wartungsaufwand und Veralten.</strong> Ohne regelmäßige Lint-Läufe veralten Aussagen
+unbemerkt. Nach einem Erfahrungsbericht fallen alle paar Wochen einige Minuten
+bis eine halbe Stunde für Widerspruchsprüfung, Vereinheitlichung der Begriffe und
+Aufräumen an – weniger als reine Handarbeit, aber nicht wartungsfrei.</p>
+<p><strong>Nachvollziehbarkeit.</strong> Man arbeitet ein bis zwei Schritte von der Quelle
+entfernt – mit der Interpretation des Modells statt mit dem Original. Die Frage
+„woher kommt das?" wird dadurch schwerer zu beantworten.</p>
+<p><strong>Kurz genannt:</strong></p>
+<ul>
+<li><strong>Datenschutz:</strong> Vertrauliche und personenbezogene Daten gehören ohne Freigabe
+nicht an externe Modell-Anbieter (siehe <a href="datenschutz.html">Datenschutz</a>).</li>
+<li><strong>Bias:</strong> Trainingsdaten enthalten Verzerrungen.</li>
+<li><strong>Scheinsicherheit:</strong> Ein sicherer, flüssiger Ton sagt nichts darüber aus, ob
+die Aussage stimmt.</li>
+<li><strong>Verantwortung:</strong> Wer einen Text weitergibt, hat ihn geschrieben – „die KI
+war's" zählt nicht.</li>
+</ul>
+<h2 id="offene-fragen-der-fachwelt"><a class="header" href="#offene-fragen-der-fachwelt">Offene Fragen der Fachwelt</a></h2>
+<p>Seit Karpathys Veröffentlichung wird das Muster diskutiert. Einige Punkte sind
+grundsätzlich:</p>
+<ul>
+<li><strong>„Nur eine umbenannte Cache-Schicht"?</strong> In der Debatte wird eingewandt, das
+Muster benenne bekannte Cache-Probleme (Deduplizierung, Erkennen veralteter
+Einträge) nur neu.</li>
+<li><strong>Wo liegt die Quelle der Wahrheit?</strong> Ungelöst ist, ob das LLM ausschließlich
+aus unveränderten Rohquellen „kompiliert" oder ob Menschen auch direkt im Wiki
+schreiben. Sobald beides passiert, gibt es kein sauberes Neu-Kompilieren mehr –
+genau dieser Mischfall trifft auf dieses Projekt zu (siehe unten).</li>
+<li><strong>Abdrift durch Personalisierung.</strong> Ein noch nicht begutachteter Fachaufsatz
+vom April 2026 argumentiert, dass persönliche Wiki-Gedächtnisse je nach Nutzer
+unterschiedlich viel behalten und dadurch widersprechende Belege verdrängen
+können.</li>
+<li><strong>Technische Detailfragen:</strong> Formate ohne Verlust von Tabellen und Links
+umwandeln, Texte sinnvoll zerteilen, exakte Suchtreffer für Fachbegriffe,
+Versionierung, satzgenaue Quellenangaben, Umgang mit widersprüchlichen Seiten,
+ob schreibende Agenten direkt speichern dürfen oder nur Vorschläge einreichen.</li>
+</ul>
+<h2 id="rechtlicher-rahmen-knapp"><a class="header" href="#rechtlicher-rahmen-knapp">Rechtlicher Rahmen (knapp)</a></h2>
+<p>Diese Seite ist keine Rechtsberatung. Vier Punkte sind aber wichtig:</p>
+<ul>
+<li><strong>Urheberrecht an KI-Texten.</strong> Nach § 2 Abs. 2 des deutschen
+Urheberrechtsgesetzes (UrhG) sind Werke „nur persönliche geistige
+Schöpfungen". Dass hinter einer solchen Schöpfung ein Mensch stehen muss, ist
+herrschende Meinung, steht aber nicht wörtlich im Gesetz. Nach dieser
+Auffassung genießen rein KI-erzeugte Texte ohne schöpferische menschliche
+Prägung keinen Schutz; erst eine substantielle menschliche Bearbeitung
+begründet ein eigenes Urheberrecht, das bloße Formulieren eines Prompts genügt
+dafür nicht.</li>
+<li><strong>Text und Data Mining (§ 44b UrhG).</strong> Das automatisierte Auswerten
+rechtmäßig zugänglicher Werke ist zulässig, sofern der Rechtsinhaber sich diese
+Nutzung nicht vorbehalten hat; bei online zugänglichen Werken wirkt ein solcher
+Vorbehalt nur, wenn er in maschinenlesbarer Form erfolgt. Ob das <strong>Training</strong>
+von KI-Modellen unter diese Schranke fällt und ob ein Vorbehalt in normaler
+Sprache „maschinenlesbar" ist, ist Gegenstand von Rechtsstreitigkeiten.</li>
+<li><strong>Freie Lizenz und Share-Alike.</strong> Dieses Wiki steht unter der Lizenz
+CC BY-SA 4.0. „BY" verlangt die Namensnennung der Autoren, „SA" (<em>Share-Alike</em>)
+verlangt, dass abgeleitete Werke unter derselben Lizenz stehen. Ungeklärt ist,
+ob eine Zwei-Satz-Zusammenfassung durch ein LLM schon ein „abgeleitetes Werk"
+ist und wie man Dutzende Autoren einer Quelle korrekt nennt.</li>
+<li><strong>Kennzeichnungspflicht.</strong> Der Transparenzhinweis am Anfang und Ende jeder
+Seite setzt Artikel 50 der EU-Verordnung über Künstliche Intelligenz
+(EU AI Act) um.</li>
+</ul>
+<p>Mehr zum Aufbau dieses Projekts steht im
+<a href="openwiki/overview.html">Überblick</a>.</p>
+<h2 id="wie-dieses-wiki-das-muster-nutzt"><a class="header" href="#wie-dieses-wiki-das-muster-nutzt">Wie dieses Wiki das Muster nutzt</a></h2>
+<p>Das Wiki wissen-ahrensburg.de ist selbst ein Co-Wiki nach diesem Muster: Die
+Inhalte liegen als Markdown-Dateien, gebaut mit dem Programm mdBook, ohne
+Datenbank; die Versionsgeschichte übernimmt das Werkzeug <strong>Git</strong>. Die drei
+Schichten haben hier eine direkte Entsprechung:</p>
+<div class="table-wrapper"><table><thead><tr><th>Karpathys Muster</th><th>In diesem Projekt</th></tr></thead><tbody>
+<tr><td>Rohquellen (read-only)</td><td><code>raw/&lt;thema&gt;.md</code> – menschliche Rohfassungen, außerhalb des gebauten Buchs</td></tr>
+<tr><td>Wiki / Ausgabe</td><td><code>src/*.md</code> und das Inhaltsverzeichnis <code>src/SUMMARY.md</code></td></tr>
+<tr><td>Schema</td><td><code>CLAUDE.md</code>, <code>AGENTS.md</code>, die Agenten-Profile im Ordner <code>.claude/</code> und der Ordner <code>openwiki/</code></td></tr>
+<tr><td><code>index.md</code></td><td><code>src/SUMMARY.md</code> als Inhaltsverzeichnis; <code>openwiki/source-map.md</code> als technische Repository-Karte</td></tr>
+<tr><td>Ingest / Query / Lint</td><td>die Redaktionspipeline aus sieben spezialisierten <code>redaktion-*</code>-Agenten (Forscher, Architekt, Schreiberling, Faktenchecker, Lektor, Verlinker, Aktualisierer); die ereignisgesteuerte Pflege übernimmt der Aktualisierer</td></tr>
+</tbody></table>
+</div>
+<p>Diese Rollen und der Ablauf sind in <a href="co-wiki.html">Co-Wiki: Mensch &amp; KI</a> und in
+<a href="neue-artikel-erstellen.html">Neue Artikel aus Rohfassungen erstellen</a> beschrieben.</p>
+<p>Zwei Abweichungen vom reinen Muster seien ehrlich benannt. Erstens nutzt dieses
+Projekt <strong>beides</strong> – eine RAG-Recherche in der Entwurfsphase und das dauerhafte
+Markdown-Wiki –, und Menschen schreiben direkt in <code>src/</code>, nicht nur der Agent
+(der oben erwähnte Mischfall). Zweitens ist Karpathys Wiki als persönliches
+Gedächtnis für eine Person gedacht, während dieses hier ein öffentliches,
+redaktionell geprüftes Nachschlagewerk unter freier Lizenz ist; die Abdrift
+durch Personalisierung wird durch Mehr-Augen-Prinzip und Belegpflicht gedämpft.</p>
+<p>Dieses Projekt wird auch im Abschnitt „Sonderfall: LLM-Wiki / Co-Wiki" von
+<a href="software-fuer-ein-grosses-wissensprojekt.html">Software für ein großes Wissensprojekt</a>
+eingeordnet; dort ist außerdem beschrieben, wie viele Seiten das Programm mdBook
+verträgt – dieselbe Skalierungsfrage wie beim Kontextlimit des LLM-Wikis.</p>
+<h2 id="verwandte-seiten"><a class="header" href="#verwandte-seiten">Verwandte Seiten</a></h2>
+<ul>
+<li><a href="co-wiki.html">Co-Wiki: Mensch &amp; KI</a></li>
+<li><a href="neue-artikel-erstellen.html">Neue Artikel aus Rohfassungen erstellen</a></li>
+<li><a href="software-fuer-ein-grosses-wissensprojekt.html">Software für ein großes Wissensprojekt</a></li>
+<li><a href="wissenssysteme-im-vergleich.html">Wissenssysteme im Vergleich</a></li>
+<li><a href="openwiki/overview.html">Überblick</a></li>
+</ul>
+<h2 id="quellen"><a class="header" href="#quellen">Quellen</a></h2>
+<ul>
+<li><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Andrej Karpathy: „llm-wiki.md" (GitHub Gist, 4. April 2026)</a></li>
+<li><a href="https://github.com/nashsu/llm_wiki">nashsu: „llm_wiki" (GitHub-Repository mit README)</a></li>
+<li><a href="https://www.codecentric.de/wissens-hub/blog/wissensmanagement-mit-ki-andrej-karpathys-llm-wiki">codecentric: „Wissensmanagement mit KI – Andrej Karpathys llm-wiki"</a></li>
+<li><a href="https://arxiv.org/abs/2604.12034">Stefan Miteski: „Memory as Metabolism: A Design for Companion Knowledge Systems" (arXiv:2604.12034, 13. April 2026)</a></li>
+<li><a href="https://dejure.org/gesetze/UrhG/44b.html">§ 44b UrhG – Text und Data Mining (dejure.org)</a></li>
+<li><a href="https://cms.law/de/deu/legal-updates/Text-und-Data-Mining-nach-dem-neuen-Urheberrecht">CMS Law: „Text und Data Mining nach dem neuen Urheberrecht"</a></li>
+<li><a href="https://www.uni-bremen.de/urheberrecht/leitfragen/11-inhalte-dritter-rechtssicher-mit-ki-verwenden/antwort-inhalte-dritter-zum-training-von-ki">Universität Bremen: „Inhalte Dritter zum Training von KI"</a></li>
+</ul>
+<h3 id="weiterführendes"><a class="header" href="#weiterführendes">Weiterführendes</a></h3>
+<ul>
+<li><a href="https://pub.towardsai.net/i-built-karpathys-llm-wiki-twice-once-as-code-once-as-a-md-heres-what-each-one-gives-up-08b31170999a">Towards AI: „I built Karpathy's LLM Wiki twice"</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="neue-artikel-erstellen.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="wissen-speichern.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="neue-artikel-erstellen.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="wissen-speichern.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

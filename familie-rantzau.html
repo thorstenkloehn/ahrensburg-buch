@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Die Familie Rantzau als Schlossherren - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="die-familie-rantzau-als-schlossherren-von-ahrensburg"><a class="header" href="#die-familie-rantzau-als-schlossherren-von-ahrensburg">Die Familie Rantzau als Schlossherren von Ahrensburg</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<hr />
+<p>Die adlige Familie Rantzau war die erste Adelsfamilie, der das Gut Ahrensburg gehörte. Fast zwei Jahrhunderte lang, von 1567 bis 1759, war der Ort in ihrer Hand. Keine andere Familie hat Ahrensburg so nachhaltig geprägt: Ihr verdankt die heutige Stadt ihren Namen, ihr Wahrzeichen <a href="schloss-ahrensburg.html">Schloss Ahrensburg</a>, die <a href="schlosskirche-ahrensburg.html">Schlosskirche Ahrensburg</a> und eine der ältesten Sozialstiftungen der Region.</p>
+<h2 id="wer-waren-die-rantzaus"><a class="header" href="#wer-waren-die-rantzaus">Wer waren die Rantzaus?</a></h2>
+<p>Die Rantzaus waren ein weit verzweigtes holsteinisches Adelsgeschlecht. Der für Ahrensburg wichtige Zweig stammte vom Gut Deutsch-Nienhof. Mehrere Familienmitglieder standen im 16. Jahrhundert in dänischen Diensten, denn die Herzogtümer Schleswig und Holstein wurden damals vom dänischen König regiert. Aus diesem Umfeld kamen die beiden Brüder, mit denen die Ahrensburger Geschichte der Familie beginnt: der Feldherr Daniel Rantzau (1529–1569) und sein jüngerer Bruder Peter Rantzau (1535–1602).</p>
+<p>Mit dem bekannten Statthalter und Humanisten Heinrich Rantzau (1526–1598) aus der Breitenburger Linie waren die beiden verwandt; über den genauen Grad der Verwandtschaft geben die Quellen keine sichere Auskunft, vermutlich handelte es sich um einen Cousin.</p>
+<h2 id="daniel-rantzau-erhält-die-herrschaft-1567"><a class="header" href="#daniel-rantzau-erhält-die-herrschaft-1567">Daniel Rantzau erhält die Herrschaft (1567)</a></h2>
+<p>Nach der Reformation gelangte der frühere Reinfelder Klosterbesitz an den dänischen König. Dieser übertrug die Herrschaft 1567 an Daniel Rantzau. Nach Daniels Tod ging der Ahrensburger Besitz an seinen Bruder Peter über.</p>
+<h2 id="peter-rantzau-15691602"><a class="header" href="#peter-rantzau-15691602">Peter Rantzau (1569–1602)</a></h2>
+<p>Peter Rantzau übernahm die Ländereien 1569 und machte Ahrensburg zum Mittelpunkt seiner örtlichen Bautätigkeit.</p>
+<p>Unter Peter Rantzau verschwand die alte Burg endgültig. Ihre Ruine lag rund drei Kilometer südlich; sie wurde abgebrochen und das Baumaterial für den neuen Sitz wiederverwendet. Mit den Steinen übertrugen die Rantzaus auch den Namen der Burg auf ihr neues Herrenhaus – aus Arnesvelde wurde „Ahrensburg". Diese Namensableitung wird teils auch dem Feldherrn Daniel Rantzau zugeschrieben. Zur Burg Arnesvelde als Namensgeberin siehe <a href="stadtwappen.html">Wappen und Flagge</a>.</p>
+<p>Wichtig ist dabei eine oft verwechselte Unterscheidung: Den Namen Ahrensburg trug zunächst nur das adlige <em>Gut</em>, und das schon ab dem 16. Jahrhundert. Das <em>Dorf</em> dagegen hieß weiterhin Woldenhorn – erst am 7. Juni 1867 wurde daraus eine eigenständige preußische Landgemeinde, und die Gemeindevertretung beschloss bei dieser Gelegenheit, künftig ebenfalls den Namen Ahrensburg zu führen. Diese Umbenennung des Dorfes war also nicht das Werk der Rantzaus. Ausführliche Details dazu bietet der Artikel <a href="ortsname-ahrensburg.html">Der Ortsname: Von „Arnesvelde“ zu Ahrensburg</a> sowie die <a href="geschichte-der-stadt-ahrensburg.html">Geschichte der Stadt Ahrensburg</a>.</p>
+<h2 id="schloss-kirche-und-gottesbuden"><a class="header" href="#schloss-kirche-und-gottesbuden">Schloss, Kirche und Gottesbuden</a></h2>
+<p>In dem knappen Jahrzehnt zwischen 1594 und Peter Rantzaus Tod 1602 entstanden drei Bauwerke, die den Ort bis heute prägen.</p>
+<p>Das <strong>Herrenhaus</strong>, das heutige Schloss Ahrensburg, ist ein Renaissance-Wasserschloss. Der Baukörper wirkt fast wie ein Würfel: Drei Flügel gruppieren sich um einen gemeinsamen Kern, an dessen Ecken vier schmale Türme aufragen; die Giebel schwingen in geschwungenen Linien nach oben, und ursprünglich lag das ganze Gebäude auf einer von Wasser umgebenen Insel. Bauherr war Peter Rantzau; sein Bruder Daniel, dem der Bau mitunter zugeschrieben wird, hatte den Besitz nie betreten. Das genaue Baujahr ist unsicher – die Quellen nennen mal „um 1585", mal „um 1595"; sicher ist nur eine lange Bauzeit im letzten Viertel des 16. Jahrhunderts. Einzelheiten zu Architektur und späteren Umbauten stehen auf der Seite <a href="schloss-ahrensburg.html">Schloss Ahrensburg</a>.</p>
+<p>Zum Bauensemble gehören außerdem die <strong>Schlosskirche</strong> und die <strong><a href="gottesbuden.html">Gottesbuden</a></strong>. Kirche, Herrenhaus und Sozialstiftung prägen den Ort bis heute; die verlinkten Seiten beschreiben die einzelnen Bauten näher.</p>
+<h2 id="stiftung-und-soziale-verpflichtung"><a class="header" href="#stiftung-und-soziale-verpflichtung">Stiftung und soziale Verpflichtung</a></h2>
+<p>Eine Stiftung sicherte den Unterhalt der Gottesbuden. An Peter Rantzaus Namen erinnert heute auch das „Peter-Rantzau-Haus".</p>
+<h2 id="gutsherrschaft-und-frondienste"><a class="header" href="#gutsherrschaft-und-frondienste">Gutsherrschaft und Frondienste</a></h2>
+<p>Wirtschaftlich lebte die Herrschaft vom eigenen Gutsbetrieb. Die Bauern der vier Dörfer waren an Hof und Gutsherrn gebunden: Sie durften nicht einfach wegziehen und mussten unbezahlte Arbeitsdienste für den Gutsherrn leisten (sogenannte Frondienste). Nach dem Dreißigjährigen Krieg verschärften die Rantzaus diese Bindung und verlangten mehr und längere Arbeitsdienste; wiederholt kam es zu Bauernaufständen. Genaue Zahlen zu Abgaben und Diensten sind nicht überliefert.</p>
+<h2 id="niedergang-und-finanzkrisen"><a class="header" href="#niedergang-und-finanzkrisen">Niedergang und Finanzkrisen</a></h2>
+<p>Insgesamt beherbergte das Herrenhaus bis ins 18. Jahrhundert sieben Generationen der Familie Rantzau. Die genaue Namensfolge der Besitzer zwischen Peter Rantzau und dem letzten Gutsherrn ist nur lückenhaft überliefert und lässt sich hier nicht sicher darstellen.</p>
+<p>Ab dem 17. Jahrhundert geriet der Ahrensburger Besitz mehrfach in finanzielle Not, auch als Folge des Dreißigjährigen Krieges. Über Erbgang und Heirat kam das Gut schließlich an Detlev Rantzau aus einem anderen Zweig der Familie Rantzau (der Putloser Linie). Unter ihm erlebte es einen letzten wirtschaftlichen Aufschwung. Nach Detlev Rantzaus Tod 1746 war der hoch verschuldete Besitz für die Familie nicht mehr zu halten und wurde Mitte des 18. Jahrhunderts zum Verkauf angeboten.</p>
+<h2 id="verkauf-an-schimmelmann-1759"><a class="header" href="#verkauf-an-schimmelmann-1759">Verkauf an Schimmelmann (1759)</a></h2>
+<p>Im Mai 1759 kaufte der aus Vorpommern stammende Kaufmann Heinrich Carl von Schimmelmann das verschuldete Gut für 180.000 Reichstaler. Damit endete nach fast zwei Jahrhunderten die Herrschaft der Rantzaus über Ahrensburg. Wie es unter <a href="familie-schimmelmann.html">den Schimmelmanns</a> weiterging, beschreibt auch die Seite <a href="schloss-ahrensburg.html">Schloss Ahrensburg</a>.</p>
+<h2 id="was-von-der-rantzau-zeit-erhalten-ist"><a class="header" href="#was-von-der-rantzau-zeit-erhalten-ist">Was von der Rantzau-Zeit erhalten ist</a></h2>
+<p>Vom <strong>Schloss</strong> sind der Baukörper und die drei geschweiften Renaissance-Giebel im Kern erhalten. Schimmelmann verzichtete auf einen geplanten Umbau, ließ aber 1759 den Wassergraben zuschütten, die roten Backsteinfassaden weiß tünchen und das Innere im Zeitgeschmack neu gestalten. Die <strong>Schlosskirche</strong> besitzt noch ihren Bau von 1594 bis 1596; der Innenraum wurde nach Zerstörungen im Großen Nordischen Krieg (1700–1721) barock erneuert, das Rantzau-Grabdenkmal damals von schwedischen Truppen schwer beschädigt. Welche Grabdenkmäler der Familie heute noch erhalten sind, ist nicht im Einzelnen dokumentiert. Auch die <strong><a href="gottesbuden.html">Gottesbuden</a></strong> bestehen fort und werden weiterhin sozial genutzt. Einzelheiten stehen auf den Seiten <a href="schloss-ahrensburg.html">Schloss Ahrensburg</a> und <a href="schlosskirche-ahrensburg.html">Schlosskirche Ahrensburg</a>.</p>
+<h2 id="wikipedia-als-quelle"><a class="header" href="#wikipedia-als-quelle">Wikipedia als Quelle</a></h2>
+<p>Teile dieses Artikels wurden aus der deutschsprachigen Wikipedia übernommen und für dieses Wiki bearbeitet (gekürzt, neu gegliedert und sprachlich überarbeitet). Autoren der Vorlagen jeweils laut Versionsgeschichte des jeweiligen Artikels; die Ursprungstexte stehen unter <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">CC BY-SA 4.0</a>, diese Seite steht unter derselben Lizenz.</p>
+<ul>
+<li><a href="https://de.wikipedia.org/wiki/Rantzau_(Adelsgeschlecht)">Rantzau (Adelsgeschlecht)</a></li>
+<li><a href="https://de.wikipedia.org/wiki/Daniel_Rantzau">Daniel Rantzau</a></li>
+<li><a href="https://de.wikipedia.org/wiki/Peter_Rantzau">Peter Rantzau</a></li>
+<li><a href="https://de.wikipedia.org/wiki/Ahrensburg">Ahrensburg</a> (Abschnitt zur Umbenennung des Dorfes Woldenhorn 1867)</li>
+<li><a href="https://de.wikipedia.org/wiki/Schloss_Ahrensburg">Schloss Ahrensburg</a> (Abschnitt zur Baubeschreibung)</li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="stadtwerdung-1949.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="familie-schimmelmann.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="stadtwerdung-1949.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="familie-schimmelmann.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
