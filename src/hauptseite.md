@@ -57,6 +57,7 @@ Weitere freie Wissens- und Lernprojekte im selben Verbund:
 * [Admin Handbuch](https://benutzerhandbuch.wissen-ahrensburg.de/)
 * [Installieren](https://installieren.wissen-ahrensburg.de/)
 * [Digitale Dokumentation und Wissenssysteme](https://thorsten.wissen-ahrensburg.de)
+* [CMS](https://wissen.wissen-ahrensburg.de/doc)
 ---
 
 *Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).*
