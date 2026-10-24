@@ -9,8 +9,7 @@
   "scripts": {
     "ver": "gh-pages -d book --nojekyll --cname wissen-ahrensburg.de --no-history"
   },
-  "dependencies": {
-    "gh-pages": "^6.3.0",
-    "github-pages": "^3.0.2"
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
