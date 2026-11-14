@@ -261,7 +261,8 @@ also kein Framework und keine Datenbank im Betrieb. Für rund sechzig
 Artikel plus die Zusammenarbeit mit KI ist das die passende Grundlage. Es
 gibt keine eigenen Cookies, kein Tracking, keine Registrierung und keine
 Bearbeitung durch Besucher; die Versionsgeschichte steckt in Git, die
-Lizenz ist CC BY-SA 4.0, der ganze Textbestand ist frei kopierbar. Ein
+eigenen Texte stehen unter CC BY-SA 4.0. Bei Kopien sind die Lizenzbedingungen
+und die Herkunftshinweise zu beachten; fremde Zitate sind nicht mitlizenziert. Ein
 Vektorspeicher mit RAG kommt nur in der Entwurfsphase zum Einsatz, wenn
 die KI recherchiert; dauerhaft gespeichert wird immer das Markdown-Wiki.
 Wie dieser Aufbau bei starkem Wachstum aussähe, steht auf

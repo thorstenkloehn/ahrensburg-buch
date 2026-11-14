@@ -8,7 +8,7 @@ Bekannt wurde das Tal weit über die Region hinaus durch die Steinzeit-Funde von
 
 ## Wie das Tal entstand
 
-Gegen Ende der letzten Eiszeit (fachlich „Weichsel-Kaltzeit") war die Gegend um Ahrensburg von mächtigen Gletschern aus Skandinavien bedeckt; das Eis wird bei Ahrensburg auf rund 300 Meter Dicke geschätzt. Unter dem Eis floss Schmelzwasser unter hohem Druck ab und riss dabei eine unregelmäßige Rinne in den Untergrund – ein solches Tal nennt man „Tunneltal". Als sich die Gletscher zurückzogen, blieben im Tal einzelne Eisreste liegen (sogenanntes Toteis). Wo dieses Eis schließlich schmolz, entstanden langgestreckte Seen; der bekannteste reichte vom Hof Stellmoor bis in die Gegend des heutigen Bahnhofs Ahrensburg-Ost. In der darauf folgenden Warmzeit verlandeten die Seen allmählich, und an der Oberfläche bildeten sich Niedermoore. Beim Hof Stellmoor entstand eine Wasserscheide, sodass das Wasser seither nach zwei Seiten abfließt. Von Rahlstedt bis Ahrensburg erstreckt sich das Tal über eine Länge von rund sieben Kilometern; seine Breite schwankt zwischen etwa 200 Metern an den engsten und rund zwei Kilometern an den weitesten Stellen. Am Rand des Gebiets liegen weitere eiszeitliche Landschaftsformen, etwa die Wartenberge – ein von den Gletschern zusammengeschobener Höhenzug (eine sogenannte Stauchmoräne).
+Der Name „Tunneltal" beschreibt den Ursprung der Geländeform: Wasser floss unter dem Gletschereis und trug Boden ab. Im heutigen Tal liegen auch Moorflächen; sie entstanden später durch die Verlandung von Gewässern. Die sichtbare Landschaft verbindet damit Spuren der Weichsel-Kaltzeit mit jüngeren Veränderungen. Das unten verlinkte Faltblatt zum Alfred-Rust-Wanderweg erläutert die örtliche Geologie ausführlicher.
 
 ## Die Landschaft und ihr Schutz heute
 
@@ -52,7 +52,7 @@ Das Tunneltal ist für Ahrensburg identitätsstiftend. Seit 1976 zeigt das Stadt
 
 ## Weblinks
 
-**Amtliche und frei lizenzierte Quellen**
+**Quellen und Hintergrund**
 
 - [Faltblatt „Alfred-Rust-Wanderweg im Stellmoor-Ahrensburger Tunneltal" (Landesamt für Natur und Umwelt SH)](https://umweltanwendungen.schleswig-holstein.de/Natura2000/pdf/bis/alfred_rust_wanderweg_im_stellmoor_ahrensburger_tunneltal.pdf)
 - [Stadt Ahrensburg: „Tunneltal"](https://www.ahrensburg.de/Wirtschaft-Tourismus/Tourismus/Naherholung/Tunneltal/)

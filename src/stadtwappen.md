@@ -54,17 +54,17 @@ Ein Gemeindewappen wurde am 28. Februar 1938 genehmigt. Die heute verwendete Fas
 
 ## Rechtlicher Status & Verwendung
 
-Das Stadtwappen und die Stadtflagge sind geschützte Hoheitszeichen nach § 2 der Hauptsatzung der Stadt Ahrensburg sowie dem Kommunalrecht des Landes Schleswig-Holstein:
+Wappen, Flagge und Siegel sind in [§ 1 der Hauptsatzung der Stadt Ahrensburg](https://www.ahrensburg.de/media/custom/2603_1227_1.PDF?1531379840=) geregelt:
 
 * **Amtliche Führung:** Die Führung des Wappens auf Siegeln, Urkunden und amtlichen Bekanntmachungen ist ausschließlich der [Stadtverwaltung](stadtverwaltung.md) und den städtischen Organen vorbehalten.
-* **Nutzung durch Dritte:** Privatpersonen, Vereine, Parteien oder Wirtschaftsunternehmen dürfen das Stadtwappen nur mit ausdrücklicher schriftlicher Genehmigung der Stadtverwaltung nutzen, um Verwechslungen mit amtlichen Mitteilungen auszuschließen.
+* **Nutzung durch Dritte:** Nach § 1 Absatz 1 der Hauptsatzung bedarf die Verwendung des Stadtwappens durch Dritte der Genehmigung der Bürgermeisterin oder des Bürgermeisters. Für eine geplante Nutzung sollte die Stadtverwaltung angesprochen werden.
 
 ---
 
 ## Quellen & Nachweise
 
-1. **Kommunale Wappenrolle Schleswig-Holstein:** Landesarchiv Schleswig-Holstein, Datenblatt Stadt Ahrensburg (Wappen-ID 374).
-2. **Hauptsatzung der Stadt Ahrensburg:** § 2 (Wappen, Flagge, Dienstsiegel).
+1. **[Kommunale Wappenrolle Schleswig-Holstein](https://efi2.schleswig-holstein.de/wr/wr.asp?Aktion=Datenblatt&ID=374):** Landesarchiv Schleswig-Holstein, Datenblatt Stadt Ahrensburg (Wappen-ID 374).
+2. **[Hauptsatzung der Stadt Ahrensburg](https://www.ahrensburg.de/media/custom/2603_1227_1.PDF?1531379840=):** § 1 (Wappen, Flagge, Siegel).
 3. **Archäologisches Landesmuseum Schloss Gottorf:** Dokumentation zu den Grabungen von Alfred Rust im Ahrensburger Tunneltal.
 
 ---
@@ -80,7 +80,7 @@ Das Stadtwappen und die Stadtflagge sind geschützte Hoheitszeichen nach § 2 de
 
 ## Hinweis zu den amtlichen Zitaten
 
-Die wörtlich wiedergegebenen Blasonierungen von Wappen und Flagge sind amtliche Werke (§ 5 UrhG) und über die [Kommunale Wappenrolle Schleswig-Holstein](#quellen--nachweise) belegt.
+Die Beschreibungen werden hier zur Erklärung der amtlich festgelegten Hoheitszeichen wiedergegeben. Ihr Wortlaut ist in der oben verlinkten Kommunalen Wappenrolle nachgewiesen; § 1 der Hauptsatzung enthält die entsprechenden amtlichen Festlegungen. Die Ausnahme für amtliche Werke nach [§ 5 UrhG](https://www.gesetze-im-internet.de/urhg/__5.html) ist keine allgemeine Freigabe sämtlicher Inhalte oder Abbildungen der Wappenrolle.
 
 ---
 

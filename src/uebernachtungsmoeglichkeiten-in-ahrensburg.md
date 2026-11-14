@@ -10,7 +10,7 @@
 ## Pensionen
 
 - Pension MAKI: Eine familiär geführte Pension in einer ruhigen Wohngegend, die für ihre persönliche Atmosphäre und die entspannte Umgebung geschätzt wird. Adresse: Theodor-Storm-Straße 30, 22926 Ahrensburg, Telefon: 0173 6866449
-- [Fischers Pension Ahrensburg Fischers Pension Ahrensburg](https://fischerspension.wixsite.com/fischerspension): Eine unkomplizierte und zweckmäßige Unterkunft, besonders für Kurzaufenthalte geeignet. Adresse: Kurt-Fischer-Straße 23D, 22926 Ahrensburg, Telefon: 04102 9878210
+- [Fischers Pension Ahrensburg](https://fischerspension.wixsite.com/fischerspension): Eine unkomplizierte und zweckmäßige Unterkunft, besonders für Kurzaufenthalte geeignet. Adresse: Kurt-Fischer-Straße 23D, 22926 Ahrensburg, Telefon: 04102 9878210
 
 ## Fremdenzimmer
 

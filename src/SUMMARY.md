@@ -5,6 +5,7 @@
 [LLM Wiki](llm-wiki.md)
 [Wissen speichern](wissen-speichern.md)
 [Urheberrecht und Duplicate Content](urheberrecht-und-duplicate-content.md)
+    - [Urheberrechtliche Prüfroutine & Skills](urheberrecht-pruefroutine-und-skills.md)
 [Wissenssysteme im Vergleich](wissenssysteme-im-vergleich.md)
 [Wiki-Programme im Vergleich](wikis-im-vergleich.md)
 [CMS im Vergleich](cms-im-vergleich.md)
@@ -43,8 +44,8 @@
     - [Wochenmarkt](wochenmarkt.md)
     - [Gastronomie-Führer](gastronomie-fuehrer.md)
         - [Restaurant](restaurant.md)
-    - [Übernachtungsmöglichkeiten in Ahrensburg](uebernachtungsmoeglichkeiten-in-ahrensburg-2.md)
-    - [Einkaufen in Ahrensburg](einkaufen-in-ahrensburg-2.md)
+    - [Übernachtungsmöglichkeiten in Ahrensburg](uebernachtungsmoeglichkeiten-in-ahrensburg.md)
+    - [Einkaufen in Ahrensburg](einkaufen-in-ahrensburg.md)
     - [Kirchen und religiöse Gemeinschaften](kirchen-und-religioese-gemeinschaften.md)
     - [Seniorentreff](seniorentreff.md)
     - [Gesundheit](gesundheit.md)
@@ -63,8 +64,6 @@
 
 # Sonstiges
 
-- [Einkaufen in Ahrensburg](einkaufen-in-ahrensburg.md)
-- [Übernachtungsmöglichkeiten in Ahrensburg](uebernachtungsmoeglichkeiten-in-ahrensburg.md)
 - [Datenschutz](datenschutz.md)
 - [Impressum](impressum.md)
 

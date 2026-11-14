@@ -111,7 +111,26 @@ Mehrere Ahrensburger Schulen und Einrichtungen tragen die Namen bedeutender hist
 
 ## Wikipedia als Quelle
 
-Biografische Angaben dieser Seite wurden aus der deutschsprachigen Wikipedia übernommen und für dieses Wiki bearbeitet (gekürzt, neu gegliedert und sprachlich überarbeitet): aus dem Artikel [Ahrensburg](https://de.wikipedia.org/wiki/Ahrensburg) (Abschnitt „Persönlichkeiten") sowie aus den Wikipedia-Artikeln der einzelnen hier genannten Personen. Autoren jeweils laut Versionsgeschichte des jeweiligen Artikels; die Ursprungstexte stehen unter [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de), diese Seite steht unter derselben Lizenz.
+Biografische Angaben dieser Seite wurden aus der deutschsprachigen Wikipedia übernommen und für dieses Wiki bearbeitet (gekürzt, neu gegliedert und sprachlich überarbeitet): aus dem Artikel [Ahrensburg](https://de.wikipedia.org/wiki/Ahrensburg) (Abschnitt „Persönlichkeiten") sowie aus den Personenartikeln. Autoren jeweils laut Versionsgeschichte des jeweiligen Artikels; die Ursprungstexte stehen unter [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de), diese Seite steht unter derselben Lizenz.
+
+Verwendete Wikipedia-Vorlagen:
+- [Ahrensburg](https://de.wikipedia.org/wiki/Ahrensburg) (Abschnitt „Persönlichkeiten")
+- [Waldemar Bonsels](https://de.wikipedia.org/wiki/Waldemar_Bonsels)
+- [Elise Bartels (Politikerin, 1862)](https://de.wikipedia.org/wiki/Elise_Bartels_(Politikerin,_1862))
+- [Adeline von Schimmelmann](https://de.wikipedia.org/wiki/Adeline_von_Schimmelmann)
+- [Jan Plewka](https://de.wikipedia.org/wiki/Jan_Plewka)
+- [Angelika Klüssendorf](https://de.wikipedia.org/wiki/Angelika_Kl%C3%BCssendorf)
+- [Peter Rantzau](https://de.wikipedia.org/wiki/Peter_Rantzau)
+- [Heinrich Carl von Schimmelmann](https://de.wikipedia.org/wiki/Heinrich_Carl_von_Schimmelmann)
+- [Ernst Heinrich von Schimmelmann](https://de.wikipedia.org/wiki/Ernst_Heinrich_von_Schimmelmann)
+- [Erika Keck](https://de.wikipedia.org/wiki/Erika_Keck)
+- [Manfred Samusch](https://de.wikipedia.org/wiki/Manfred_Samusch)
+- [Jonathan Meese](https://de.wikipedia.org/wiki/Jonathan_Meese)
+- [Jan Wagner (Schriftsteller)](https://de.wikipedia.org/wiki/Jan_Wagner_(Schriftsteller))
+- [Dagmar Berghoff](https://de.wikipedia.org/wiki/Dagmar_Berghoff)
+- [Katharina Brauren](https://de.wikipedia.org/wiki/Katharina_Brauren)
+- [Wolfgang Kieling](https://de.wikipedia.org/wiki/Wolfgang_Kieling)
+- [Alfred Rust (Prähistoriker)](https://de.wikipedia.org/wiki/Alfred_Rust_(Pr%C3%A4historiker))
 
 ---
 

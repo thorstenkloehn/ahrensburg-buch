@@ -2,16 +2,78 @@
 
 *Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).*
 
-Die Stadtteile im Porträt in Ahrensburg: 
+Die Stadt Ahrensburg setzt sich aus historisch gewachsenen Ortslagen, eingemeindeten Dörfern sowie planmäßig entwickelten Wohn- und Gewerbequartieren zusammen. Diese Mischung aus historischem Altort, waldnahen Siedlungen und modernen Neubaugebieten verleiht Ahrensburg seinen vielseitigen Charakter zwischen lebendiger Kleinstadt und naturnahem Wohnstandort in der Metropolregion Hamburg.
 
-* **Ahrensburg (Zentrum)**: Das Zentrum ist das historische und kommerzielle Herz der Stadt. Hier befinden sich das bekannte Schloss Ahrensburg, die Fußgängerzone mit zahlreichen Geschäften, das Rathaus sowie die zentrale U-Bahn-Haltestelle. Das Zentrum ist geprägt von einer Mischung aus Altbauten, modernen Gebäuden und vielfältigen Einkaufsmöglichkeiten.
-* **Ahrensfelde**: Ursprünglich ein eigenständiges Dorf, liegt Ahrensfelde heute nördlich des Zentrums. Der Stadtteil hat seinen dörflichen Charakter bewahrt, mit vielen Einfamilienhäusern, alten Höfen und viel Grün. Die Umgebung ist ruhig und familienfreundlich.
-* **Am Hagen / Siedlung Hagen / Waldgut Hagen**: Dieses Gebiet im Südwesten von Ahrensburg ist naturnah und zeichnet sich durch große Waldflächen und geschützte Forstgebiete aus. Die Siedlung Hagen bietet Wohnraum in ruhiger Lage, während das Waldgut Hagen als Naherholungsgebiet dient.
-* **Beimoor / Gewerbegebiet Nord**: Nordöstlich des Stadtzentrums gelegen, umfasst dieser Stadtteil sowohl Wohngebiete als auch ein großes Gewerbegebiet. Hier befinden sich zahlreiche Unternehmen, Handwerksbetriebe und Einkaufsmöglichkeiten. Die Wohngebiete sind modern und familienfreundlich.
-* **Gartenholz (inkl. Kremerberg)**: Im Norden der Stadt gelegen, ist Gartenholz ein gemischtes Wohn- und Gewerbegebiet. Der Regionalbahn-Haltepunkt Ahrensburg-Gartenholz sorgt für eine gute Verkehrsanbindung. Die Bebauung ist vielfältig, von Einfamilienhäusern bis zu Mehrfamilienhäusern.
-* **Erlenhof-Süd**: Dieses neue Wohngebiet westlich der Lübecker Straße entstand ab etwa 2014. Es bietet moderne Wohnhäuser, Spielplätze und Grünflächen. Die Infrastruktur ist auf Familien und junge Menschen ausgerichtet.
-* **Woldenhorn**: Der historische Altort, ursprünglich Woldenhorn genannt, bildet das Zentrum der Stadt. Hier finden sich viele denkmalgeschützte Gebäude und das kulturelle Herz Ahrensburgs.
-* **Wulfsdorf**: Südwestlich an der Grenze zu Hamburg gelegen, ist Wulfsdorf teils dörflich geprägt, teils in das städtische Gefüge eingebunden. Es gibt landwirtschaftliche Betriebe, alte Höfe und neue Wohngebiete. Die Nähe zu Hamburg macht den Stadtteil besonders attraktiv für Pendler.
+---
+
+## Die Quartiere und Stadtteile im Überblick
+
+### Zentrum und historischer Kern (ehemals Woldenhorn)
+
+Das Zentrum ist das administrative, kulturelle und geschäftliche Herz Ahrensburgs:
+- **Charakter:** Lebendige Innenstadt mit der zentralen Fußgängerzone (Große Straße, Rondeel, Hagener Allee), Wochenmarkt am Rathausplatz und historischem Schlossbezirk.
+- **Sehenswürdigkeiten:** [Schloss Ahrensburg](schloss-ahrensburg.md) mit Schlosspark, die Renaissance-[Schlosskirche](schlosskirche-ahrensburg.md) und die historischen [Gottesbuden](gottesbuden.md).
+- **Infrastruktur:** Sitz der [Stadtverwaltung](stadtverwaltung.md), [City Center Ahrensburg](einkaufen-in-ahrensburg.md), Fachgeschäfte sowie der Bahnhof Ahrensburg mit Regionalbahn- und Regionalexpress-Anbindung (siehe [Verkehrsanbindung](verkehrsanbindung.md)).
+
+### Gartenholz und Kremerberg
+
+Gartenholz liegt im Norden des Stadtgebiets und entstand ab den 1990er Jahren als ambitioniertes städtebauliches Entwicklungsprojekt:
+- **Charakter:** Familienfreundliches Wohnquartier mit einer Mischung aus Reihenhäusern, Einfamilienhäusern und barrierearmen Geschosswohnungsbauten.
+- **Infrastruktur:** Eigener Haltepunkt der Regionalbahnlinie RB 81 (*Ahrensburg-Gartenholz*), Grundschule, Kindertagesstätten, Nahversorgungszentrum und großzügige Grünzüge wie die Familienwiese (siehe [Spielplätze](spielplaetze.md)).
+
+### Am Hagen und Siedlung Hagen
+
+Das Quartier Am Hagen erstreckt sich im Südwesten der Stadt entlang des ausgedehnten Hagener Forsts:
+- **Charakter:** Sehr ruhige, durchgrünte Wohnlage mit überwiegender Einzel- und Doppelhausbebauung in direkter Nachbarschaft zu weitläufigen Waldgebieten.
+- **Freizeitwert:** Unmittelbarer Zugang zu Wander-, Reit- und Radwegen im [Hagener Forst](naherholungsgebiete.md) und zu Sportanlagen.
+
+### Ahrensfelde
+
+Ahrensfelde liegt nordöstlich des Stadtzentrums und war historisch ein eigenständiges Dorf, das seine Identität bis heute pflegt:
+- **Charakter:** Ausgeprägt dörfliches Erscheinungsbild mit reetgedeckten Bauernhöfen, landwirtschaftlichen Betrieben, Pferdekoppeln und aufgelockerter Wohnbebauung.
+- **Gemeinschaft:** Aktive Dorfgemeinschaft, Dorfteich und direkte Anbindung an die freie Feldmark in Richtung der Stormarner Schweiz.
+
+### Erlenhof (Nord und Süd)
+
+Das Quartier Erlenhof stellt das jüngste große Stadterweiterungsgebiet Ahrensburgs dar und wurde ab etwa 2014 westlich der Lübecker Straße entwickelt:
+- **Charakter:** Modernes, energieeffizientes Quartier mit nachhaltiger Wärmeinfrastruktur, Spielstraßen, Spielplätzen und breiten Grünkorridoren.
+- **Zielgruppe:** Vor allem bei jungen Familien und Zuziehenden aus der Region beliebt; verfügt über eigene Kitas, Spielbereiche und Dienstleistungsangebote.
+
+### Wulfsdorf
+
+Wulfsdorf liegt am südwestlichen Stadtrand direkt an der Landesgrenze zu Hamburg (Volksdorf / Wohldorf-Ohlstedt):
+- **Charakter:** Bekannt durch das [Gut Wulfsdorf](fauna-und-flora.md) (ökologischer Landbau und Hofladen) und das Wohnprojekt Allmende Wulfsdorf (ökologisches und genossenschaftliches Mehrgenerationenwohnen).
+- **Lagevorteil:** Idyllische Lage zwischen Naturschutzgebieten und sehr gute Pendleranbindung über die Hamburger U-Bahn.
+
+### Beimoor und Gewerbegebiete (Nord und West)
+
+Nordöstlich und westlich der Wohngebiete konzentrieren sich Ahrensburgs Gewerbezonen:
+- **Bedeutung:** Heimat zahlreicher mittelständischer Industrie-, Dienstleistungs- und Technologiebetriebe ([Wichtige Unternehmen & Arbeitgeber](wichtige-unternehmen-arbeitgeber.md)).
+- **Lage:** Schnelle Erreichbarkeit über die Anschlussstelle Ahrensburg an der Bundesautobahn A 1 (siehe [Gewerbegebiete](gewerbegebiete.md)).
+
+---
+
+## Vergleichende Stadtteilübersicht
+
+| Stadtteil / Lage | Hauptnutzung | Verkehrsanbindung | Besonderheiten |
+|---|---|---|---|
+| **Zentrum** | Wohnen, Einzelhandel, Verwaltung | Bahnhof Ahrensburg, U1 Ahrensburg West | Schloss, Schlosskirche, Wochenmarkt |
+| **Gartenholz** | Wohnen, Nahversorgung | Haltepunkt Ahrensburg-Gartenholz, Bus | Familienwiese, integrierte Grundschule |
+| **Am Hagen** | Wohnen im Grünen | Buslinien, Nähe zu U1 | Waldrandlage am Hagener Forst |
+| **Ahrensfelde** | Wohnen, Landwirtschaft | Buslinie, Landstraße | Historischer Dorfkern, Höfe, Pferdehaltung |
+| **Erlenhof** | Modernes Wohnen | Busanbindung, Anbindung an B 75 | Energetische Neubaustandards, Familieninfrastruktur |
+| **Wulfsdorf** | Ökologisches Wohnen, Landwirtschaft | U1 (Buchenkamp / Volksdorf nah), Bus | Gut Wulfsdorf, Allmende-Projekt |
+| **Beimoor** | Gewerbe, Industrie, Handwerk | A 1 (AS Ahrensburg), Bus | Arbeitsplatzschwerpunkt, Logistik |
+
+---
+
+## Verwandte Themen
+
+- [Geschichte der Stadt Ahrensburg](geschichte-der-stadt-ahrensburg.md)
+- [Verkehrsanbindung](verkehrsanbindung.md)
+- [Gewerbegebiete](gewerbegebiete.md)
+- [Spielplätze](spielplaetze.md)
+- [Einkaufen in Ahrensburg](einkaufen-in-ahrensburg.md)
 
 ---
 

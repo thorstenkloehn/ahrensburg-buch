@@ -161,27 +161,23 @@ mehreren und nicht „der Standard".
 
 ## Risiken und Grenzen
 
-**Halluzinationen und Fehlerfortpflanzung.** Ein LLM erfindet gelegentlich
-überzeugend klingende Angaben. Quellenangaben eines Modells sind nur etwas wert,
-wenn sie geprüft wurden. Beim LLM-Wiki kommt eine besondere Gefahr hinzu, die als
-**Error Drift** („Fehler-Abdrift") bezeichnet wird: Ein einmaliges Missverständnis
-wandert in eine Wiki-Seite und breitet sich still weiter aus, während das Wiki
-weiterhin sauber und geordnet aussieht. Bei klassischem RAG kann sich ein solcher
-Fehler bei der nächsten Frage von selbst korrigieren, weil wieder am Original
-begonnen wird – im LLM-Wiki bleibt er eingegraben. Gegenmittel sind eine strikte
-Trennung von Entwurf und Freigabe sowie **Quellentreue**: Jede Seite verweist auf
-ihre Rohquellen. Der verwandte Risikokomplex **Model Collapse** ist in
+**Halluzinationen und Fehlerfortpflanzung.** Wird eine falsche Modellantwort
+gespeichert und später als Quelle verwendet, können weitere Artikel den Fehler
+übernehmen. Für dieses Wiki folgt daraus: Belege am Original prüfen, Entwürfe
+vor der Freigabe kontrollieren und nach einer Korrektur auch verlinkte Seiten
+durchsehen. Ein erneuter Quellenabruf bei RAG kann helfen, gewährleistet aber
+keine richtige Antwort. Der verwandte Risikokomplex **Model Collapse** ist in
 [Neue Artikel aus Rohfassungen erstellen](neue-artikel-erstellen.md) beschrieben.
 
-**Skalierung und Kontextlimit.** Ab einer gewissen Größe – nach Erfahrungsberichten
-einige hundert Seiten – kann der Agent nicht mehr alle Seiten gleichzeitig
-überblicken. Er übersieht Seiten, erzeugt Dubletten und verpasst Querverweise.
-Der übliche Behelf ist ein Master-Index mit einzeiligen Zusammenfassungen.
+**Skalierung und Kontextlimit.** Wie viele Seiten ein Agent gleichzeitig
+verarbeiten kann, hängt von Textlänge, Modell und Arbeitsweise ab. Ein Index
+mit kurzen Seitenbeschreibungen erleichtert die gezielte Auswahl. Fehlende
+Querverweise und doppelte Artikel müssen dennoch geprüft werden.
 
-**Wartungsaufwand und Veralten.** Ohne regelmäßige Lint-Läufe veralten Aussagen
-unbemerkt. Nach einem Erfahrungsbericht fallen alle paar Wochen einige Minuten
-bis eine halbe Stunde für Widerspruchsprüfung, Vereinheitlichung der Begriffe und
-Aufräumen an – weniger als reine Handarbeit, aber nicht wartungsfrei.
+**Wartungsaufwand und Veralten.** Die Redaktion muss Änderungen an Quellen,
+Widersprüche und veraltete Angaben regelmäßig prüfen. Der Zeitbedarf hängt
+vom Umfang und der Änderungsrate des Bestands ab; eine belastbare Messung für
+dieses Projekt liegt nicht vor.
 
 **Nachvollziehbarkeit.** Man arbeitet ein bis zwei Schritte von der Quelle
 entfernt – mit der Interpretation des Modells statt mit dem Original. Die Frage
@@ -238,9 +234,11 @@ Diese Seite ist keine Rechtsberatung. Vier Punkte sind aber wichtig:
   Sprache „maschinenlesbar" ist, ist Gegenstand von Rechtsstreitigkeiten.
 - **Freie Lizenz und Share-Alike.** Dieses Wiki steht unter der Lizenz
   CC BY-SA 4.0. „BY" verlangt die Namensnennung der Autoren, „SA" (*Share-Alike*)
-  verlangt, dass abgeleitete Werke unter derselben Lizenz stehen. Ungeklärt ist,
-  ob eine Zwei-Satz-Zusammenfassung durch ein LLM schon ein „abgeleitetes Werk"
-  ist und wie man Dutzende Autoren einer Quelle korrekt nennt.
+  verlangt die lizenzgerechte Weitergabe von Bearbeitungen. Ob eine
+  Zusammenfassung geschützte Gestaltung übernimmt, hängt vom Einzelfall ab;
+  ihre Satzanzahl entscheidet das nicht. Für Wikipedia-Texte erläutert
+  [Wikipedia:Weiternutzung](https://de.wikipedia.org/wiki/Wikipedia:Weiternutzung)
+  die dort vorgesehenen Möglichkeiten der Autorennennung.
 - **Kennzeichnungspflicht.** Der Transparenzhinweis am Anfang und Ende jeder
   Seite setzt Artikel 50 der EU-Verordnung über Künstliche Intelligenz
   (EU AI Act) um.

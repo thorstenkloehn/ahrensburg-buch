@@ -12,7 +12,7 @@ Im Unterschied zu kurzlebigen Nachrichtenseiten konzentriert sich dieses Wissens
 
 * **Nachhaltiger Mehrwert statt News-Stress:** Hier finden Sie gut recherchierte Hintergrundinformationen, historische Zusammenhänge und Orientierungswissen, das auch in vielen Jahren noch gültig ist.
 * **Langfristige Auffindbarkeit & Tiefe:** Ein strukturiertes Nachschlagewerk für alteingesessene Bürger, Neuzugezogene, Kulturinteressierte und Besucher gleichermaßen.
-* **Open Knowledge (Freies Wissen):** Alle Texte stehen unter der freien Lizenz [Creative Commons Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/) und können frei gelesen, geteilt und weiterverarbeitet werden.
+* **Open Knowledge (Freies Wissen):** Die eigenen redaktionellen Texte stehen unter [Creative Commons Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/). Bei der Weiternutzung sind die Lizenzbedingungen und die Herkunftshinweise der jeweiligen Seite zu beachten. Fremde Zitate und verlinkte Angebote sind von dieser Freigabe nicht erfasst.
 
 ---
 

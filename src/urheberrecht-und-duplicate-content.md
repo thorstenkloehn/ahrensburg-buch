@@ -8,7 +8,7 @@ Diese Seite beantwortet drei Fragen, die bei einem KI-gestützten Wiki schnell a
 
 Das ist der wichtigste Punkt für ein Lexikon. Geschützt ist die **konkrete Ausdrucksform** eines Textes – Wortwahl, Satzbau, Gliederung –, sofern sie eine gewisse Eigenständigkeit erreicht. Das Gesetz nennt das „Schöpfungshöhe"; § 2 Abs. 2 UrhG verlangt „persönliche geistige Schöpfungen". **Nicht** geschützt sind die zugrunde liegenden Tatsachen, Zahlen, Daten, Ereignisse und Ideen. Das entspricht der allgemeinen Auffassung in der juristischen Literatur.
 
-Vereinfacht gesagt: Die Einwohnerzahl Ahrensburgs ist eine bloße Tatsache und hat keine Schöpfungshöhe – aber *wie* eine Website sie in Sätze fasst, sehr wohl. Das Baujahr des Schlosses oder der Name einer Straße gehören niemandem; solche Angaben darf man aus jeder Quelle entnehmen und frei verwenden. Geschützt ist allein die fremde Formulierung.
+Einzelne Angaben wie ein Baujahr oder ein Straßenname sind für sich genommen keine geschützten Sprachwerke. Eine Darstellung kann dagegen durch ihre individuelle Gestaltung geschützt sein. Bei der Übernahme ganzer Tabellen oder größerer Datensammlungen können zusätzlich Rechte an Datenbanken betroffen sein; die freie Nutzbarkeit einzelner Fakten erlaubt daher keine beliebige Übernahme vollständiger Bestände (siehe [§ 87b UrhG](https://www.gesetze-im-internet.de/urhg/__87b.html)).
 
 Deshalb brauchen viele Seiten dieses Wikis gar keinen Herkunftshinweis: Wo sich lediglich einzelne Tatsachen mit einem Wikipedia-Artikel überschneiden, der Text aber eigenständig formuliert ist, entsteht keine Bearbeitung – und damit auch keine Attributionspflicht.
 
@@ -16,13 +16,13 @@ Deshalb brauchen viele Seiten dieses Wikis gar keinen Herkunftshinweis: Wo sich 
 
 Die Prüfung ist ein **manueller redaktioneller Durchgang**, kein automatischer Scanner. Sie gehört zum [Co-Wiki-Prozess](co-wiki.md): Die KI liefert Entwürfe, ein Mensch prüft und gibt frei, die KI veröffentlicht nie eigenständig. Neue und überarbeitete Artikel durchlaufen dabei eine Redaktionspipeline aus mehreren spezialisierten Rollen – darunter ein Faktenchecker und ein Lektor.
 
-Am 3. September 2026 wurden auf diese Weise **alle Inhaltsseiten** des Wikis noch einmal gezielt daraufhin durchgesehen, ob irgendwo fremder Text wörtlich übernommen wurde. Ergebnis: keine wörtliche Übernahme. Wo Seiten sich eng an eine Vorlage angelehnt hatten, wurden sie neu formuliert und mit einem Herkunftshinweis versehen (Beispiele weiter unten).
+Die Prüfung vom 14. November 2026 verbindet ein Screening aller Markdown-Seiten mit gezielten externen Quellenvergleichen. Dabei wurden unter anderem unbelegte Wortzitate entfernt und ein quellenaher Absatz zur Entstehung des Tunneltals neu aufgebaut. Umfang, Befunde und Grenzen dokumentiert der Prüfbericht im Repository unter `docs/urheberrecht-pruefung-2026-11-14.md`. Ein solcher Durchgang kann unbekannte Vorlagen oder nicht zugängliche Quellen nicht vollständig ausschließen.
 
 Eine **automatisierte Ähnlichkeitsprüfung** – etwa ein Abgleich neuer Absätze gegen bekannte Quellen vor jeder Veröffentlichung – ist bisher **nicht** eingebaut. Sie wäre ein denkbarer Ausbau; der Ist-Zustand ist die Kontrolle durch Menschen.
 
 ### Worauf die Redaktion achtet
 
-- **Wörtlichkeit:** Stimmt eine Formulierung auffällig genau mit einer bekannten Quelle überein? Dann wird sie umgeschrieben oder als Zitat kenntlich gemacht.
+- **Wörtlichkeit:** Auffällige Übereinstimmungen werden im Zusammenhang geprüft. Eine feste Wortzahl entscheidet nicht über den Schutz. Eine bloße Kennzeichnung als Zitat schafft noch keine Nutzungserlaubnis.
 - **Quellenangabe:** Ist belegt, woher eine Information stammt? Der Faktenchecker markiert jede Aussage als belegt, abweichend oder unbelegt.
 - **Paraphrase mit zu wenig Abstand:** Auch das bloße Umstellen von Sätzen bei gleichem Aufbau kann zu nah am Original sein. Dann wird der Abschnitt aus eigenständig recherchierten Quellen neu aufgebaut.
 
@@ -36,7 +36,7 @@ Die folgenden Prompts werden in diesem Wiki für den redaktionellen Durchgang ei
   „Überprüfe alle Inhalte dieses Wikis daraufhin, ob sie fremdes Urheberrecht verletzen – wörtliche Übernahmen, eng angelehnte Paraphrasen, übersetzte Passagen. Gib eine Liste der auffälligen Seiten mit Fundstelle, vermuteter Quelle und Schweregrad." Die folgenden Prompts arbeiten die Treffer dann einzeln ab.
 
 - **Wörtliche Übernahme finden:**
-  „Vergleiche den folgenden Entwurf Absatz für Absatz mit dem Artikel *[Titel/URL]*. Markiere jede Stelle, an der Wortwahl oder Satzbau auffällig nah am Original liegen – etwa mehr als vier aufeinanderfolgende Wörter identisch oder nur trivial umgestellt. Gib je Fund den Entwurfssatz, die Vorlage und einen Umformulierungsvorschlag."
+  „Vergleiche den folgenden Entwurf Absatz für Absatz mit dem Artikel *[Titel/URL]*. Markiere auffällige Übereinstimmungen in Wortwahl, Satzbau und Gliederung. Unterscheide individuelle Formulierungen von Fakten und üblichen Wendungen. Gib je Fund die Fundstellen, die Begründung und einen Vorschlag für eine eigenständige Darstellung. Eine Wortzahl ist keine rechtliche Grenze."
 
 - **Faktenüberschneidung von Textbearbeitung unterscheiden:**
   „Dieser Abschnitt überschneidet sich thematisch mit *[Quelle]*. Entscheide begründet: reine Tatsachenüberschneidung – gleiche Zahlen und Ereignisse, aber eigenständige Formulierung, also kein Herkunftshinweis nötig – oder übernommene Struktur bzw. Formulierung, also Herkunftshinweis nötig?"
@@ -67,22 +67,22 @@ Einige ältere Seiten enthalten noch bearbeitete Wikipedia-Inhalte. Dort dokumen
 
 Die Seite zur [Verkehrsanbindung](verkehrsanbindung.md) war ursprünglich eine enge Verdichtung des Verkehrs-Abschnitts aus dem Wikipedia-Artikel über Ahrensburg. Sie wurde vollständig neu formuliert. Dabei fiel auch ein Sachfehler auf: Die Regionalexpress-Linie war als „RE 8" bezeichnet, richtig ist „RE 80".
 
-Beim selben Urheberrechts-Durchgang zeigte sich zudem, dass eine Angabe im Wikipedia-Artikel selbst nicht stimmte: die Sitzverteilung der Ahrensburger Stadtvertretung von 2023. Die eigene Recherche ergab Grüne 9, CDU 9, SPD 6, WAB 4, FDP 3 – der Wikipedia-Wert war falsch. Eigenständiges Nacharbeiten schützt also nicht nur vor Urheberrechtsproblemen, es verbessert oft auch die Qualität.
+Bei solchen Überarbeitungen sollten auch die Fakten anhand von Primärquellen geprüft werden. Eigenständige Formulierungen gewährleisten weder richtige Zahlen noch einen aktuellen Sachstand.
 
 ## Geschützte Quellen und amtliche Werke
 
 Nicht jede Quelle im Internet ist frei nutzbar. Proprietäre regionale Facharchive und Lexika stehen oft unter dem Schutz „alle Rechte vorbehalten" und bieten keine freie Lizenz. Für dieses Wiki gilt deshalb die strikte Richtlinie: niemals Text aus solchen geschützten Vorlagen übernehmen, eng paraphrasieren oder übersetzen. Fremde urheberrechtlich geschützte Inhalte dürfen keinesfalls in Artikel einfließen.
 
-Anders liegt der Fall bei **amtlichen Werken** nach [§ 5 UrhG](https://www.gesetze-im-internet.de/urhg/__5.html). Gesetze, Verordnungen, Erlasse und amtliche Bekanntmachungen genießen keinen Urheberrechtsschutz. Deshalb darf zum Beispiel die amtliche Wappenbeschreibung – die *Blasonierung*, die heraldische Fachbeschreibung eines Wappens – wörtlich zitiert werden; sie ist gemeinfrei und über die Kommunale Wappenrolle Schleswig-Holsteins belegt. Wichtig: § 5 betrifft nur das Urheberrecht am Text. Die *Verwendung* eines Wappens als Hoheitszeichen ist davon unabhängig kommunalrechtlich geregelt (mehr dazu auf der Seite [Wappen und Flagge](stadtwappen.md)).
+Für **amtliche Werke** gelten die Voraussetzungen von [§ 5 UrhG](https://www.gesetze-im-internet.de/urhg/__5.html). Absatz 1 erfasst unter anderem Gesetze und amtliche Bekanntmachungen. Bei anderen amtlichen Werken nach Absatz 2 gelten zusätzlich Vorgaben zu Änderungen und Quellenangaben. Eine Veröffentlichung auf einer Behördenwebsite genügt für sich allein nicht: Auch dort können geschützte Texte oder Bilder stehen. Die auf [Wappen und Flagge](stadtwappen.md) wiedergegebenen amtlichen Beschreibungen sind durch die Hauptsatzung und die Kommunale Wappenrolle belegt. Die Nutzung der Hoheitszeichen ist gesondert zu beurteilen.
 
 ## Freie Lizenzen verstehen: CC BY-SA
 
-Dieses Wiki steht vollständig unter der [Lizenz CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) (siehe [Impressum](impressum.md)). Die beiden Kürzel bedeuten:
+Die eigenen redaktionellen Texte dieses Wikis werden unter [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) angeboten (siehe [Impressum](impressum.md)). Fremde Zitate und externe Angebote sind dadurch nicht mitlizenziert. Die beiden Kürzel bedeuten:
 
-- **BY (Namensnennung):** Wer Inhalte weiternutzt, muss die Urheber angemessen nennen, die Lizenz angeben und auf sie verlinken und kenntlich machen, dass etwas geändert wurde. Dieser Änderungshinweis ist in der Version 4.0 ausdrücklich verpflichtend.
+- **BY (Namensnennung):** Bei der Weitergabe sind die vorgeschriebenen Herkunfts- und Lizenzangaben zu erhalten. Wer Änderungen vornimmt, muss diese kennzeichnen und vorhandene Änderungshinweise bewahren.
 - **SA (Share-Alike, „Weitergabe unter gleichen Bedingungen"):** Bearbeitungen müssen wieder unter CC BY-SA 4.0 gestellt werden. Dieses „Copyleft" – die Pflicht, Abgeleitetes unter derselben freien Lizenz weiterzugeben – hält die Inhalte dauerhaft frei.
 
-Praktischer Nebeneffekt: Weil Wikipedia und dieses Wiki dieselbe Lizenz verwenden, passt die Weiternutzung in beide Richtungen ohne Lizenzkonflikt zusammen. Die Share-Alike-Bedingung ist damit automatisch erfüllt.
+Dieselbe Lizenz erleichtert die Weiternutzung, erfüllt ihre Bedingungen aber nicht automatisch. Für übernommene Inhalte bleiben die jeweiligen Herkunfts-, Lizenz- und Änderungshinweise erforderlich; maßgeblich ist der [Lizenztext, Abschnitt 3](https://creativecommons.org/licenses/by-sa/4.0/legalcode.de#s3).
 
 ## Zitatrecht: Fachquellen sauber einbauen
 
@@ -104,10 +104,11 @@ Eigenständige Texte geben Suchmaschinen und Lesenden einen Grund, diese Seite n
 
 Sie fasst öffentlich zugängliche Informationen allgemeinverständlich zusammen; die rechtlichen Aussagen sind vereinfacht und als solche gekennzeichnet („nach allgemeiner Auffassung", „vereinfacht gesagt"). Ein Hinweis zur Rechtslage: Der früher für die „freie Benutzung" einschlägige § 24 UrhG a. F. ist seit dem 7. Juni 2021 aufgehoben; die Frage des nötigen Abstands zu einer Vorlage richtet sich heute nach [§ 23 UrhG](https://www.gesetze-im-internet.de/urhg/__23.html), der einen „hinreichenden Abstand" zum benutzten Werk verlangt.
 
-Stand: 3. September 2026. Angaben ohne Gewähr; Gesetze, Gerichtsentscheidungen und die Praxis von Suchmaschinen können sich ändern. Verbindliche Auskünfte gibt nur eine fachkundige Rechtsberatung. Weitere Angaben zu Betreiber und Lizenz stehen im [Impressum](impressum.md), Hinweise zur Datenverarbeitung unter [Datenschutz](datenschutz.md).
+Stand der urheberrechtlichen Überarbeitung: 14. November 2026. Eine vollständige rechtliche Freigabe ist damit nicht verbunden. Weitere Angaben zu Betreiber und Lizenz stehen im [Impressum](impressum.md), Hinweise zur Datenverarbeitung unter [Datenschutz](datenschutz.md).
 
 ## Verwandte Seiten
 
+- [Urheberrechtliche Prüfroutine & Skills](urheberrecht-pruefroutine-und-skills.md)
 - [Co-Wiki: Mensch & KI](co-wiki.md)
 - [Neue Artikel aus Rohfassungen erstellen](neue-artikel-erstellen.md)
 - [Wissen speichern](wissen-speichern.md)

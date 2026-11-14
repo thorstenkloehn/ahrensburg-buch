@@ -14,7 +14,7 @@ Ahrensburg ist ein bedeutender Wirtschaftsstandort in Schleswig-Holstein und beh
 * **Rosenhof Seniorenwohnanlagen** – Rund 1.700 Beschäftigte deutschlandweit; Hauptsitz und Ursprung des Unternehmens liegen in Ahrensburg.
 * **SOEX Group (Textilrecycling)** – Rund 1.350 Mitarbeitende weltweit; einer der größeren Akteure im internationalen Textilrecycling.
 
-Diese Unternehmen bieten attraktive Arbeitsplätze und vielfältige Karrieremöglichkeiten in Ahrensburg und Umgebung. Die Stadt zeichnet sich durch eine starke Wirtschaft, innovative Unternehmen und eine hohe Lebensqualität aus – ideale Voraussetzungen für Fachkräfte und Berufseinsteiger.
+Die Bandbreite der ansässigen Unternehmen – von mittelständischen Spezialisten bis hin zu internationalen Konzernniederlassungen – macht Ahrensburg zu einem bedeutenden Beschäftigungszentrum im Kreis Stormarn und in der Metropolregion Hamburg. Weitere Gewerbeflächen und Entwicklungsschwerpunkte beschreibt der Artikel [Gewerbegebiete](gewerbegebiete.md).
 
 ---
 

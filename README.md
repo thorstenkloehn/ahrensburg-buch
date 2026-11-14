@@ -20,6 +20,7 @@ dieser Ansatz über **OpenWiki** genutzt (Ordner [`openwiki/`](openwiki/), Agent
 - [Gehostete KI-Code-Wiki-Dienste](#gehostete-ki-code-wiki-dienste)
 - [Vergleich der Ansätze](#vergleich-der-ansätze)
 - [Nutzung in diesem Repository](#nutzung-in-diesem-repository)
+- [Agenten-Skills in diesem Projekt](#agenten-skills-in-diesem-projekt)
 - [Weiterführend](#weiterführend)
 
 ## Worum geht es?
@@ -216,6 +217,17 @@ Zeile 5 (die mdBook-Wissensdatenbank über Ahrensburg, KI-assistiert verfasst).
   OpenWiki-Workflow aktualisiert `openwiki/`, **nicht** diese Kopien – bei Änderungen an den
   Originalen von Hand nachziehen. Verifikations-Screenshots liegen unter
   [`docs/verification/`](docs/verification/).
+
+## Agenten-Skills in diesem Projekt
+
+Für Coding- und Redaktions-Agenten (Claude Code, Antigravity/agy, Codex) sind im Repository dedizierte **Skills** hinterlegt (gespiegelt unter `.claude/skills/` und `.agents/skills/`):
+
+| Skill | Pfad | Beschreibung |
+|---|---|---|
+| **`co-wiki`** | [`.claude/skills/co-wiki/SKILL.md`](.claude/skills/co-wiki/SKILL.md) / [`.agents/skills/co-wiki/SKILL.md`](.agents/skills/co-wiki/SKILL.md) | Das Co-Wiki-Modell dieses Repos: Mensch-KI-Zusammenarbeit, die vier Arbeitsmodelle, Docs-as-Code (mdBook), MCP/RAG, Multi-Agenten-Redaktionspipeline (`redaktion-*`) und Event-Driven Documentation. |
+| **`urheberrecht-pruefung`** | [`.claude/skills/urheberrecht-pruefung/SKILL.md`](.claude/skills/urheberrecht-pruefung/SKILL.md) / [`.agents/skills/urheberrecht-pruefung/SKILL.md`](.agents/skills/urheberrecht-pruefung/SKILL.md) | Systematischer Audit-Leitfaden zur Prüfung aller Inhaltsseiten (`src/*.md`) auf wörtliche Textübernahmen, enge Paraphrasen (§ 23 UrhG), Schutz regionaler Quellen und Einhaltung der CC BY-SA 4.0-Lizenzbedingungen bei Wikipedia-Inhalten. |
+
+Weitere operative Richtlinien und die Rollenverteilung der Redaktions-Subagenten finden sich in [`AGENTS.md`](AGENTS.md) und [`CLAUDE.md`](CLAUDE.md).
 
 ## Weiterführend
 
