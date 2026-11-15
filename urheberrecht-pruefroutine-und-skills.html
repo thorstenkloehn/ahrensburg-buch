@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Urheberrechtliche Prüfroutine &amp; Skills - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="anleitung-urheberrecht-prüfen--intervalle-workflow-und-skills"><a class="header" href="#anleitung-urheberrecht-prüfen--intervalle-workflow-und-skills">Anleitung: Urheberrecht prüfen – Intervalle, Workflow und Skills</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>In einem kollaborativen Wissensprojekt wie dem Ahrensburg-Wiki, in dem Menschen und KI-Agenten gemeinsam recherchieren, entwerfen und aktualisieren (siehe <a href="co-wiki.html">Co-Wiki</a>), ist die rechtliche Absicherung von Inhalten eine fortlaufende Aufgabe. Um Urheberrechtsverletzungen, unvollständige Lizenzangaben oder unbelegte Textübernahmen zuverlässig zu verhindern, folgt die Redaktion einer festen Prüfroutine mit zwei spezialisierten KI-Skills.</p>
+<p>Diese Anleitung erklärt, <strong>wie oft</strong> geprüft werden soll, <strong>welche Skill</strong> in welcher Phase zum Einsatz kommt und wie der Prüfablauf Schritt für Schritt funktioniert.</p>
+<hr />
+<h2 id="die-prüf--und-redaktions-skills-im-Überblick"><a class="header" href="#die-prüf--und-redaktions-skills-im-Überblick">Die Prüf- und Redaktions-Skills im Überblick</a></h2>
+<p>Für die rechtliche, textliche und technische Qualitätssicherung stehen im Repository acht spezialisierte KI-Skills (sowie ein Co-Wiki-Grundlagen-Skill) zur Verfügung:</p>
+<h3 id="1-rechtliche--textliche-prüf-skills"><a class="header" href="#1-rechtliche--textliche-prüf-skills">1. Rechtliche &amp; Textliche Prüf-Skills</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Kriterium</th><th>Skill: <code>/urheberrecht-pruefung</code></th><th>Skill: <code>/urheberrechtliche-fachpruefung</code></th><th>Skill: <code>/duplicate-content-pruefung</code></th><th>Skill: <code>/dsgvo-und-persoenlichkeitsrecht</code></th></tr></thead><tbody>
+<tr><td><strong>Hauptzweck</strong></td><td>Schnelles Screening, Verdachtsliste, Erkennung von formalen Mängeln und direkte Textbereinigung.</td><td>Vertiefte redaktionelle Rechteprüfung, vollständiger Primärquellenabgleich, Nachweis der Rechtekette.</td><td>Interne Redundanzen und Textdopplungen aufspüren; Single-Source-of-Truth und Querverweise etablieren.</td><td>Prüfung auf personenbezogene Daten Lebender (DSGVO), Äußerungsrecht bei lokalen Betrieben und Pflichtseiten.</td></tr>
+<tr><td><strong>Prüftiefe</strong></td><td>Screening nach Zitaten, Wikipedia-Bausteinen, ungenauen Pauschalformulierungen und Bildverweisen.</td><td>Vollständiges Seiteninventar mit Prüfsummen (SHA-256), Einzelfallmatrix und Schrankenprüfung (§§ 2, 5, 23, 51, 87a UrhG).</td><td>Absatzweiser Ähnlichkeitsabgleich (<code>scripts/find_duplicate_content.py</code>, Jaccard ≥ 50 %).</td><td>Scan nach privaten Kontaktdaten, Klarnamen Nicht-Öffentlicher und werblichen Superlativen.</td></tr>
+<tr><td><strong>Ausgabe</strong></td><td>Arbeitsbericht mit Fundstellen, Schweregraden (Niedrig/Mittel/Hoch) und sofortigen Korrekturen.</td><td>Förmlicher Prüfbericht unter <code>docs/urheberrechtliche-fachpruefung-JJJJ-MM-TT.md</code> mit Veröffentlichungsempfehlung.</td><td>Analysebericht mit Dopplungs-Paaren, Bestimmung der Hauptseite und Entflechtungs-Diffs.</td><td>Risikobericht (DSGVO / APR / UWG) mit Empfehlungen zur Neutralisierung oder Anonymisierung.</td></tr>
+<tr><td><strong>Typischer Einsatz</strong></td><td>Routine-Check vor dem Veröffentlichen und bei einzelnen Textüberarbeitungen.</td><td>Periodisches Gesamtaudit und Revisionsprüfung vor größeren Meilensteinen.</td><td>Redaktionelle Bereinigung vor Deploys zur Vermeidung von SEO-Kannibalisierung.</td><td>Bei Artikeln über Vereine, Gastronomie, Praxen, Unternehmen und Persönlichkeiten.</td></tr>
+</tbody></table>
+</div>
+<h3 id="2-technische--redaktionelle-workflow-skills"><a class="header" href="#2-technische--redaktionelle-workflow-skills">2. Technische &amp; Redaktionelle Workflow-Skills</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Skill</th><th>Automatisierte Aufgabe &amp; Skript-Unterstützung</th><th>Wann einsetzen?</th></tr></thead><tbody>
+<tr><td><strong><code>/wiki-konventions-check</code></strong></td><td>Führt <code>scripts/check_wiki_conventions.py</code> aus: Prüft <code>SUMMARY.md</code>-Vollständigkeit, EU-AI-Act-Transparenzhinweise (oben/unten), interne Links/Anker, Stormarn-Lexikon-Zusatz (<code>© Kreisarchiv Stormarn</code>) und Wikipedia-Blöcke.</td><td>Vor jedem Commit oder Pull Request.</td></tr>
+<tr><td><strong><code>/deploy-und-sync</code></strong></td><td>Synchronisiert den Mirror (<code>.claude/</code> → <code>.agents/</code>), prüft <code>src/openwiki/</code> auf Drift, führt <code>mdbook build</code> sowie den CNAME-only-Diff-Check gegen <code>origin/gh-pages</code> aus.</td><td>Vor und nach jedem Web-Deploy (<code>npm run ver</code>).</td></tr>
+<tr><td><strong><code>/raw-zu-artikel</code></strong></td><td>Steuert die 6-stufige Multi-Agenten-Redaktionspipeline (<code>forscher</code> → <code>architekt</code> → <code>schreiber</code> → <code>faktenchecker</code> + <code>lektor</code> → <code>verlinker</code>) für menschliche Rohentwürfe unter <code>raw/&lt;thema&gt;.md</code>.</td><td>Wenn ein neuer Rohentwurf in <code>raw/</code> ausgearbeitet werden soll.</td></tr>
+<tr><td><strong><code>/aktualitaet-und-fakten-check</code></strong></td><td>Scannt bestehende Artikel auf veraltende Angaben („aktuell/derzeit", Öffnungszeiten, Buslinien, Politik, vergangene Jahreszahlen) sowie tote externe Links und erstellt punktgenaue Delta-Updates.</td><td>Regelmäßige Bestandspflege oder bei lokalen Änderungen in Ahrensburg.</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="das-3-stufen-modell-wie-oft-soll-geprüft-werden"><a class="header" href="#das-3-stufen-modell-wie-oft-soll-geprüft-werden">Das 3-Stufen-Modell: Wie oft soll geprüft werden?</a></h2>
+<p>Die Prüfhäufigkeit richtet sich nach dem Arbeitsstand im Redaktionszyklus:</p>
+<pre><code>[Stufe 1: Autor &amp; KI] ---&gt; [Stufe 2: Vor-Veröffentlichung] ---&gt; [Stufe 3: Periodisches Audit]
+ Bei jedem neuen Text        Vor jedem Web-Deploy (Push)           Alle 3 bis 6 Monate
+ Selbstcheck &amp; Herkunft      /urheberrecht-pruefung               /urheberrechtliche-fachpruefung
+</code></pre>
+<h3 id="stufe-1-laufend-bei-jeder-inhaltsänderung-selbstcheck"><a class="header" href="#stufe-1-laufend-bei-jeder-inhaltsänderung-selbstcheck">Stufe 1: Laufend bei jeder Inhaltsänderung (Selbstcheck)</a></h3>
+<p>Jedes Mal, wenn ein neuer Artikel entworfen (z. B. aus einer Rohfassung unter <code>raw/</code>) oder eine bestehende Seite erweitert wird:</p>
+<ul>
+<li><strong>Herkunftsdeklaration:</strong> Stammen Textteile oder Gliederungen aus der Wikipedia?<br />
+<em>(Sofort den standardisierten Attribution-Block gemäß <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode.de">CC BY-SA 4.0</a> mit Link auf den Artikel, Lizenz und Bearbeitungshinweis setzen).</em></li>
+<li><strong>Hinreichender Abstand (<a href="https://www.gesetze-im-internet.de/urhg/__23.html">§ 23 UrhG</a>):</strong> Fremde Regionalquellen (Broschüren, städtische Webseiten, Vereinsberichte) nur als Faktenbasis nutzen – niemals Wortketten oder Satzbau übernehmen.</li>
+<li><strong>Echte Zitate (<a href="https://www.gesetze-im-internet.de/urhg/__51.html">§ 51 UrhG</a>):</strong> Wörtliche Zitate nur ausnahmsweise als Beleg für Werturteile oder historische Aussagen verwenden, immer in Anführungszeichen setzen und mit genauer Primärquelle nachweisen.</li>
+</ul>
+<h3 id="stufe-2-vor-jeder-veröffentlichung--jedem-deploy-screening"><a class="header" href="#stufe-2-vor-jeder-veröffentlichung--jedem-deploy-screening">Stufe 2: Vor jeder Veröffentlichung / jedem Deploy (Screening)</a></h3>
+<p>Bevor Änderungen per <code>npm run ver</code> auf die öffentliche Website (<code>gh-pages</code>) übertragen werden:</p>
+<ul>
+<li><strong>Befehl / Slash-Command:</strong> <code>/urheberrecht-pruefung</code></li>
+<li><strong>Aufgabe der Skill:</strong>
+<ul>
+<li>Durchsucht alle geänderten oder neu hinzugefügten Dateien im <code>src/</code>-Ordner.</li>
+<li>Prüft, ob alle Wikipedia-Abschnitte vollständig sind und keine unbegründeten Pauschalfreigaben (z. B. „Text ist frei kopierbar“) enthalten sind.</li>
+<li>Sucht nach versehentlich eingebetteten Bildern (<code>![]()</code>), für die keine gesonderten Bildrechte nachgewiesen sind.</li>
+</ul>
+</li>
+<li><strong>Korrektur:</strong> Auffällige Passagen werden direkt redaktionell neutralisiert oder präzisiert.</li>
+</ul>
+<h3 id="stufe-3-periodisch-alle-3-bis-6-monate-vollständige-fachprüfung"><a class="header" href="#stufe-3-periodisch-alle-3-bis-6-monate-vollständige-fachprüfung">Stufe 3: Periodisch alle 3 bis 6 Monate (Vollständige Fachprüfung)</a></h3>
+<p>In regelmäßigen Abständen sowie vor großen Buch-Veröffentlichungen:</p>
+<ul>
+<li><strong>Befehl / Slash-Command:</strong> <code>/urheberrechtliche-fachpruefung</code></li>
+<li><strong>Aufgabe der Skill:</strong>
+<ul>
+<li>Erstellt ein lückenloses Inventar aller Seiten inklusive SHA-256-Dateihashes.</li>
+<li>Gleicht die Inhalte systematisch gegen bekannte Primärquellen und Schutzgesetze ab.</li>
+<li>Prüft die Aktualität und Erreichbarkeit aller verlinkten Lizenz- und Quellennachweise.</li>
+<li>Speichert das datierte Audit als Nachweis redaktioneller Sorgfalt außerhalb des Buchs unter <code>docs/urheberrechtliche-fachpruefung-JJJJ-MM-TT.md</code>.</li>
+<li>Spricht eine begründete Veröffentlichungsempfehlung nach dem vorgegebenen Entscheidungsraster aus.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="welches-sprachmodell-llm-soll-man-am-besten-nutzen"><a class="header" href="#welches-sprachmodell-llm-soll-man-am-besten-nutzen">Welches Sprachmodell (LLM) soll man am besten nutzen?</a></h2>
+<p>Die Wahl des richtigen Sprachmodells hat erheblichen Einfluss auf die Qualität, Zuverlässigkeit und Kosten der Prüfung. Nicht jede Prüfaufgabe erfordert das teuerste Modell – aber komplexe juristische Abwägungen scheitern oft an zu kleinen Modellen.</p>
+<h3 id="1-das-gestufte-modellkonzept-tiered-selection"><a class="header" href="#1-das-gestufte-modellkonzept-tiered-selection">1. Das gestufte Modellkonzept (Tiered Selection)</a></h3>
+<p>In der Redaktionspraxis empfiehlt sich eine Aufteilung in zwei aktuelle Modellklassen (Stand Ende 2026):</p>
+<ul>
+<li><strong>Denkstarke Frontier- &amp; Reasoning-Modelle (<code>Fable</code> / <code>Opus 5.5</code> / <code>Gemini 4 Argon &amp; Carbon</code> / <code>GPT-6 Astra &amp; Sol</code>):</strong><br />
+Für vertiefte Textanalysen, Schutzschrankenprüfung (§ 23 vs. § 2 UrhG) und das Verfassen des formellen Fachberichts. Sie verfügen über eingebautes adaptives Reasoning (Deep Thinking), erfassen feine semantische Nuancen, erkennen versteckte Paraphrasen und neigen nicht zu voreiligen Pauschalentwarnungen.</li>
+<li><strong>Schnelle, token-effiziente Ausführungs- &amp; Subagenten-Modelle (<code>Sonnet 5.5</code> / <code>Haiku 5.5</code> / <code>Gemini 4 Hydrogen &amp; 3.8 Flash</code> / <code>GPT-6 Luna</code>):</strong><br />
+Für das regelmäßige Vorab-Screening, das Auffinden formaler Mängel (fehlender Wikipedia-Block, verwaiste Anführungszeichen) und die schnelle Ausführung automatisierter Prüfskripte für Duplicate Content.</li>
+</ul>
+<hr />
+<h3 id="2-aktuelle-modell-matrix-nach-prüfaufgabe-generation-ende-2026"><a class="header" href="#2-aktuelle-modell-matrix-nach-prüfaufgabe-generation-ende-2026">2. Aktuelle Modell-Matrix nach Prüfaufgabe (Generation Ende 2026)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Prüfaufgabe &amp; Skill</th><th>Empfohlene Modellklasse</th><th>Aktuelle Top-Modelle (Stand Ende 2026)</th><th>Warum dieses Modell?</th></tr></thead><tbody>
+<tr><td><strong>Vertiefte Fachprüfung</strong><br><code>/urheberrechtliche-fachpruefung</code></td><td><strong>Frontier / Deep Reasoning</strong></td><td><strong>Anthropic:</strong> Claude Fable 5.2 / Claude Opus 5.5<br><strong>Google:</strong> Gemini 4 Carbon / Gemini 4 Argon<br><strong>OpenAI:</strong> GPT-6 Astra / GPT-6.1 Sol</td><td>Höchste Urteilskraft durch adaptives Denken; trennt präzise zwischen gemeinfreien Fakten und geschützter Sprachgestaltung (<a href="https://www.gesetze-im-internet.de/urhg/__23.html">§ 23 UrhG</a>); erstellt fundierte, konsistente Prüfberichte.</td></tr>
+<tr><td><strong>Ganzheitlicher Repository-Scan</strong><br>(alle 65+ Seiten gleichzeitig)</td><td><strong>1M+ Unified Context</strong></td><td><strong>Google:</strong> Gemini 4 Argon / Carbon (1M Kontext)<br><strong>Anthropic:</strong> Claude Opus 5.5 / Sonnet 5.5 (1M Kontext)</td><td>Hält das gesamte <code>src/</code>-Verzeichnis samt Primärquellen, Lizenztexten und Gesetzen in einem einzigen 1-Millionen-Token-Kontextfenster – ohne Informationsverlust.</td></tr>
+<tr><td><strong>Routine-Screening vor Deploy</strong><br><code>/urheberrecht-pruefung</code></td><td><strong>Balanced Workhorse</strong></td><td><strong>Anthropic:</strong> Claude Sonnet 5.5<br><strong>Google:</strong> Gemini 4 Hydrogen / Gemini 3.8 Flash<br><strong>OpenAI:</strong> GPT-6.1 Sol / GPT-6 Luna</td><td>Optimales Verhältnis aus Geschwindigkeit, Kosten und Textverständnis; findet unvollständige Lizenzblöcke oder unzulässige Pauschalbehauptungen in Sekunden.</td></tr>
+<tr><td><strong>Interne Textdopplungen</strong><br><code>/duplicate-content-pruefung</code></td><td><strong>High-Speed / Subagent</strong></td><td><strong>Google:</strong> Gemini 3.8 Flash / Gemini 4 Hydrogen<br><strong>Anthropic:</strong> Claude Haiku 5.5<br><strong>OpenAI:</strong> GPT-6 Luna</td><td>Extrem schnelle Skriptausführung und Datenextraktion; verarbeitet Zeilennummern präzise und verdichtet redundante Passagen zu schlanken Querverweisen.</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h3 id="3-Überblick-der-aktuellen-hersteller-generationen-2026"><a class="header" href="#3-Überblick-der-aktuellen-hersteller-generationen-2026">3. Überblick der aktuellen Hersteller-Generationen (2026)</a></h3>
+<ul>
+<li><strong>Google DeepMind (Gemini 4 &amp; 3.8):</strong>
+<ul>
+<li><strong>Gemini 4 Carbon &amp; Gemini 4 Argon:</strong> Die Flaggschiff-Modelle für komplexe Mehr-Schritt-Analysen, tiefe Dokumentenprüfung und lange Begründungsketten.</li>
+<li><strong>Gemini 4 Hydrogen &amp; Gemini 3.8 Flash:</strong> Hocheffiziente Ausführungsmodelle mit einstellbarer Denktiefe (Thinking-Level) – ideal für schnelle Agenten-Durchläufe und Subagenten.</li>
+</ul>
+</li>
+<li><strong>Anthropic (Claude 5-Serie):</strong>
+<ul>
+<li><strong>Claude Fable 5.2 &amp; Claude Opus 5.5:</strong> Die Spitzenmodelle für anspruchsvolle Wissensarbeit und komplexe juristisch-redaktionelle Abgleiche (durchgängig mit 1M-Token-Kontext und 128K Output).</li>
+<li><strong>Claude Sonnet 5.5 &amp; Claude Haiku 5.5:</strong> Schnelle Alltags- und Subagenten-Modelle für Vorab-Screenings und Lektoratsläufe.</li>
+</ul>
+</li>
+<li><strong>OpenAI (GPT-6-Serie):</strong>
+<ul>
+<li><strong>GPT-6 Astra &amp; GPT-6.1 Sol:</strong> Haben die frühere GPT-5- und o3/o4-Generation abgelöst und vereinen tiefes eingebettetes Reasoning mit zuverlässiger Werkzeugnutzung.</li>
+<li><strong>GPT-6 Luna:</strong> Die schnelle, kostenschonende Variante für Routine-Prüfungen.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="4-wichtige-konfigurationen-für-die-prüfung"><a class="header" href="#4-wichtige-konfigurationen-für-die-prüfung">4. Wichtige Konfigurationen für die Prüfung</a></h3>
+<p>Unabhängig vom gewählten Modell sollten folgende Einstellungen beachtet werden:</p>
+<ol>
+<li><strong>Temperatur niedrig ansetzen (0.0 bis 0.2):</strong><br />
+Rechtliche Prüfungen erfordern maximale Sachlichkeit und Wiederholbarkeit. Eine niedrige Temperatur minimiert kreative Ausschmückungen und Halluzinationen.</li>
+<li><strong>Im Zweifel „Verdacht“ statt falscher Entwarnung:</strong><br />
+Das Modell sollte instruiert sein, unklare Passagen als <em>„nicht abschließend geklärt / Verdacht“</em> zu markieren, anstatt bei fehlenden Quellen vorschnell Freigaben zu erteilen.</li>
+<li><strong>Menschliche Endabnahme (Human-in-the-Loop):</strong><br />
+Selbst das beste Sprachmodell liefert lediglich eine redaktionelle Entscheidungshilfe. Die Letztentscheidung über die Veröffentlichung verbleibt immer beim Menschen.</li>
+</ol>
+<hr />
+<h2 id="praktische-schritt-für-schritt-anleitung"><a class="header" href="#praktische-schritt-für-schritt-anleitung">Praktische Schritt-für-Schritt-Anleitung</a></h2>
+<p>Wenn Sie als Autorin oder Redakteur einen Beitrag bearbeiten oder prüfen lassen möchten, gehen Sie wie folgt vor:</p>
+<h3 id="schritt-1-text-erstellen-oder-rohfassung-ausarbeiten"><a class="header" href="#schritt-1-text-erstellen-oder-rohfassung-ausarbeiten">Schritt 1: Text erstellen oder Rohfassung ausarbeiten</a></h3>
+<p>Schreiben Sie Ihren Textentwurf (idealerweise zunächst in <code>raw/&lt;thema&gt;.md</code>). Achten Sie darauf, Zahlen, Daten und Fakten eigenständig in eigenen Worten zusammenzufassen.</p>
+<h3 id="schritt-2-quellenabschnitt-prüfen"><a class="header" href="#schritt-2-quellenabschnitt-prüfen">Schritt 2: Quellenabschnitt prüfen</a></h3>
+<p>Enthält der Artikel Inhalte aus freien Quellen, ergänzen Sie am Ende des Artikels (vor dem Transparenzhinweis) den entsprechenden Herkunftsblock:</p>
+<pre><code class="language-markdown">## Wikipedia als Quelle
+
+Teile dieses Artikels wurden aus der deutschsprachigen Wikipedia übernommen und für dieses Wiki bearbeitet (gekürzt, neu gegliedert und sprachlich überarbeitet). Autoren der Vorlagen jeweils laut Versionsgeschichte des jeweiligen Artikels; die Ursprungstexte stehen unter [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de), diese Seite steht unter derselben Lizenz.
+
+- [Originalartikel](https://de.wikipedia.org/wiki/...)
+</code></pre>
+<h3 id="schritt-3-screening-ausführen"><a class="header" href="#schritt-3-screening-ausführen">Schritt 3: Screening ausführen</a></h3>
+<p>Rufen Sie im Agenten-Chat den Befehl auf:</p>
+<pre><code class="language-text">/urheberrecht-pruefung Prüfe die neu bearbeiteten Seiten
+</code></pre>
+<p>Der Agent analysiert die Änderungen und behebt eventuelle Zitat- oder Lizenzunschärfen direkt im Text.</p>
+<h3 id="schritt-4-gesamtfreigabe-vorbereiten"><a class="header" href="#schritt-4-gesamtfreigabe-vorbereiten">Schritt 4: Gesamtfreigabe vorbereiten</a></h3>
+<p>Vor dem nächsten Release starten Sie die Fachprüfung:</p>
+<pre><code class="language-text">/urheberrechtliche-fachpruefung Prüfe das gesamte Wiki
+</code></pre>
+<p>Prüfen Sie das Ergebnis im generierten Bericht unter <code>docs/urheberrechtliche-fachpruefung-JJJJ-MM-TT.md</code>. Lautet das Fazit <em>„Redaktionell zur Veröffentlichung empfohlen“</em>, liegt die redaktionelle Grundlage für die Veröffentlichung vor.</p>
+<h3 id="schritt-5-menschliche-freigabe-human-in-the-loop"><a class="header" href="#schritt-5-menschliche-freigabe-human-in-the-loop">Schritt 5: Menschliche Freigabe (Human-in-the-Loop)</a></h3>
+<p>Gemäß den Co-Wiki-Regeln trifft immer der <strong>Mensch</strong> die finale Veröffentlichungsentscheidung. Nach Ihrer Freigabe führen Sie den Build und das Deployment durch:</p>
+<pre><code class="language-bash">mdbook build
+npm run ver
+</code></pre>
+<hr />
+<h2 id="wichtige-rechtliche-grundsätze-auf-einen-blick"><a class="header" href="#wichtige-rechtliche-grundsätze-auf-einen-blick">Wichtige rechtliche Grundsätze auf einen Blick</a></h2>
+<ul>
+<li><strong>Reine Fakten sind gemeinfrei (<a href="https://www.gesetze-im-internet.de/urhg/__2.html">§ 2 Abs. 2 UrhG</a>):</strong> Öffnungszeiten, historische Jahreszahlen, Einwohnerstatistiken oder Straßennamen genießen keinen Urheberrechtsschutz. Geschützt ist erst die individuelle sprachliche Gestaltung.</li>
+<li><strong>Amtliche Werke (<a href="https://www.gesetze-im-internet.de/urhg/__5.html">§ 5 UrhG</a>):</strong> Amtliche Satzungstexte und Beschlüsse sind gemeinfrei. Webseiten, Fotos oder Broschüren von Behörden sind jedoch <em>nicht</em> automatisch gemeinfrei!</li>
+<li><strong>Share-Alike-Pflicht:</strong> Wer Inhalte unter CC BY-SA 4.0 nutzt, muss das daraus entstandene Werk zwingend wieder unter derselben Lizenz weitergeben.</li>
+<li><strong>Transparenz:</strong> Nach Art. 50 des EU AI Act werden alle mit KI-Unterstützung erstellten Seiten mit dem entsprechenden Hinweistext gekennzeichnet.</li>
+<li><strong>Keine Rechtsberatung:</strong> Diese Prüfwerkzeuge dienen der redaktionellen Qualitätssicherung; sie ersetzen im Streitfall keine anwaltliche Begutachtung.</li>
+</ul>
+<hr />
+<h2 id="verwandte-themen"><a class="header" href="#verwandte-themen">Verwandte Themen</a></h2>
+<ul>
+<li><a href="urheberrecht-und-duplicate-content.html">Urheberrecht und Duplicate Content</a></li>
+<li><a href="co-wiki.html">Co-Wiki: Mensch &amp; KI</a></li>
+<li><a href="neue-artikel-erstellen.html">Neue Artikel erstellen</a></li>
+<li><a href="llm-wiki.html">LLM Wiki</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="urheberrecht-und-duplicate-content.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="wissenssysteme-im-vergleich.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="urheberrecht-und-duplicate-content.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="wissenssysteme-im-vergleich.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

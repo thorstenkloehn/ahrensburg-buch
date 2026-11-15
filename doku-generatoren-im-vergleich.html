@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Doku-Generatoren im Vergleich - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="doku-generatoren-im-vergleich"><a class="header" href="#doku-generatoren-im-vergleich">Doku-Generatoren im Vergleich</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>Ein <strong>Doku-Generator</strong> ist eine Art Druckmaschine: Vorne steckt man einfache
+Textdateien hinein – meist im Notizformat <strong>Markdown</strong> – und hinten kommt eine
+fertige Website oder ein Online-Buch heraus. „Fertig" heißt hier <strong>statisch</strong>:
+Die Seiten werden einmal gebaut und dann nur noch angezeigt, ganz ohne Datenbank
+(englischer Sammelbegriff: <em>static site generator</em>). Innerhalb der Gruppe gibt es
+zwei Zweige: <strong>spezialisierte Dokumentations-Generatoren</strong> (mdBook, Sphinx,
+MkDocs, Antora) und <strong>allgemeine Website-Generatoren</strong> (Hugo, Jekyll, Zola), die
+alles vom Blog bis zum Handbuch bauen.</p>
+<p>Dieses Wiki nutzt heute den Doku-Generator <strong>mdBook</strong>. Diese Seite vergleicht
+mdBook mit den Alternativen – an den Maßstäben aus
+<a href="software-fuer-ein-grosses-wissensprojekt.html">Software für ein großes Wissensprojekt</a>.</p>
+<blockquote>
+<p>Fachwörter wie <em>Markdown</em>, <em>Git</em>, <em>Open Source</em>, <em>Schnittstelle</em>, <em>MCP</em> oder
+<em>RAG</em> sind in
+<a href="software-fuer-ein-grosses-wissensprojekt.html#fachw%C3%B6rter-kurz-erkl%C3%A4rt">Software für ein großes Wissensprojekt</a>
+in einer kurzen Liste erklärt.</p>
+</blockquote>
+<h2 id="warum-diese-gruppe-gut-zu-den-projektzielen-passt"><a class="header" href="#warum-diese-gruppe-gut-zu-den-projektzielen-passt">Warum diese Gruppe gut zu den Projektzielen passt</a></h2>
+<p>Fast alle Punkte aus der Zielliste sind bei Doku-Generatoren <strong>automatisch</strong>
+erfüllt:</p>
+<ul>
+<li><strong>Keine persönlichen Daten:</strong> Es gibt keine Nutzerkonten – nur Texte.</li>
+<li><strong>Datenbank-neutrale Sicherung:</strong> Die „Sicherungsdatei" ist der Ordner mit den
+Markdown-Dateien selbst. Jeder kann ihn kopieren, lesen und woanders
+weiterverwenden.</li>
+<li><strong>Offen und kostenlos:</strong> Alle hier verglichenen Kandidaten sind Open Source –
+Ausnahme ist der weiter unten genannte Bezahldienst Obsidian Publish.</li>
+<li><strong>KI-Zugang:</strong> KI-Werkzeuge wie Claude Code öffnen die Textdateien direkt – man
+braucht nicht einmal eine Schnittstelle.</li>
+<li><strong>Versionsverwaltung:</strong> Die Dateien passen perfekt zu Git (Zeitmaschine für
+jede Änderung).</li>
+</ul>
+<p>Der <strong>Schwachpunkt</strong> ist immer derselbe: Ab vielen tausend Seiten dauert das
+Bauen länger, es gibt keine feine Rechteverwaltung, und wenn zwei Menschen
+dieselbe Datei ändern, gibt es einen Konflikt, den jemand von Hand auflösen muss.</p>
+<h2 id="die-kandidaten"><a class="header" href="#die-kandidaten">Die Kandidaten</a></h2>
+<h3 id="mdbook--schlank-und-robust-heute-im-einsatz"><a class="header" href="#mdbook--schlank-und-robust-heute-im-einsatz">mdBook – schlank und robust (heute im Einsatz)</a></h3>
+<ul>
+<li><strong>Sprache:</strong> Rust. Offene Lizenz (MPL-2.0). Damit ist das offizielle
+„Rust-Buch" gebaut.</li>
+<li><strong>Aufbau:</strong> Eine Datei <code>SUMMARY.md</code> ist das Inhaltsverzeichnis, alles Weitere
+sind Markdown-Dateien. Eine einzige Einstellungsdatei <code>book.toml</code>.</li>
+<li><strong>Kann:</strong> Seitenleiste, <strong>eingebaute Volltextsuche</strong>, mehrere Farbschemata,
+Code-Hervorhebung.</li>
+<li><strong>Kann nicht:</strong> Mehrsprachigkeit von Haus aus, Versionsstände eines Artikels,
+freieres Website-Layout. Es ist bewusst „nur" ein Buch.</li>
+<li><strong>Für 10.000+ Seiten:</strong> Unklar – mdBook ist für überschaubare Handbücher
+gedacht, nicht erprobt für ein Nachschlagewerk dieser Größe.</li>
+</ul>
+<h3 id="mkdocs-mit-dem-design-material"><a class="header" href="#mkdocs-mit-dem-design-material">MkDocs mit dem Design „Material"</a></h3>
+<ul>
+<li><strong>Sprache:</strong> Python. Offene Lizenzen (MkDocs BSD, Material MIT). Einige
+Zusatzfunktionen erscheinen zuerst im kostenpflichtigen „Insiders"-Programm und
+wandern nach und nach in die freie Version.</li>
+<li><strong>Kann:</strong> Sehr gute Suche, klares Aussehen, viele Erweiterungen;
+Mehrsprachigkeit über eine Erweiterung.</li>
+<li><strong>Gemeinschaft:</strong> Groß und aktiv. Sehr beliebt für Software-Handbücher.</li>
+<li><strong>Für 10.000+ Seiten:</strong> Machbar; große Projekte setzen es ein.</li>
+<li><strong>Einordnung:</strong> Der wahrscheinlich einfachste Umstieg von mdBook mit deutlich
+mehr Funktionen.</li>
+</ul>
+<h3 id="docusaurus"><a class="header" href="#docusaurus">Docusaurus</a></h3>
+<ul>
+<li><strong>Sprache:</strong> JavaScript/React, gebaut und gepflegt von der Firma Meta. Offene
+Lizenz (MIT). Weit verbreiteter Doku-Generator.</li>
+<li><strong>Kann:</strong> <strong>Versionsstände und Mehrsprachigkeit ab Werk</strong>, interaktive Bausteine
+direkt im Text, große Websites mit vielen Bereichen.</li>
+<li><strong>Haken:</strong> Schwergewichtiger Aufbau (Node.js, eine JavaScript-Umgebung),
+längere Bauzeiten, mehr zu lernen.</li>
+<li><strong>Für 10.000+ Seiten:</strong> Ausdrücklich dafür gedacht.</li>
+</ul>
+<h3 id="sphinx"><a class="header" href="#sphinx">Sphinx</a></h3>
+<ul>
+<li><strong>Sprache:</strong> Python. Offene Lizenz (BSD). Der Veteran – damit ist die
+Python-Dokumentation gebaut. Die Hosting-Plattform „Read the Docs" entstand
+ursprünglich rund um Sphinx, baut heute aber auch andere Generatoren.</li>
+<li><strong>Kann:</strong> Echte Querverweise, Stichwortverzeichnisse, <strong>PDF-Ausgabe</strong>.
+Versteht neben seinem eigenen Format „reStructuredText" (ein älteres
+Notizformat wie Markdown) auch Markdown selbst (über die Erweiterung MyST).
+Versionsstände (ein Umschalter zwischen Doku-Ständen) gibt es über Read the
+Docs oder eine Erweiterung, nicht im Kern.</li>
+<li><strong>Haken:</strong> Wirkt technisch und etwas altbacken; die eigene Schreibweise ist
+gewöhnungsbedürftig.</li>
+</ul>
+<h3 id="antora"><a class="header" href="#antora">Antora</a></h3>
+<ul>
+<li><strong>Sprache:</strong> JavaScript. Offene Lizenz (MPL-2.0). Schreibweise: <strong>AsciiDoc</strong>
+(mächtiger als Markdown, aber weniger verbreitet).</li>
+<li><strong>Besonderheit:</strong> Gebaut, um Dokumentation aus <strong>vielen getrennten Lagern</strong>
+zusammenzuführen und zu versionieren. Stark, wenn das Wissen später auf mehrere
+Projekte aufgeteilt wird.</li>
+</ul>
+<h3 id="hugo"><a class="header" href="#hugo">Hugo</a></h3>
+<ul>
+<li><strong>Sprache:</strong> Go. Offene Lizenz (Apache-2.0). <strong>Höchstes Bautempo</strong> – baut auch
+sehr große Websites in Sekunden.</li>
+<li><strong>Kann:</strong> Alles von Blog über allgemeine Website bis Handbuch. Sehr große
+Gemeinschaft, viele Designs.</li>
+<li><strong>Haken:</strong> Kein reiner Doku-Generator; für ein Doku-Design braucht man ein
+passendes Thema (z. B. „Docsy"). Die Vorlagensprache ist gewöhnungsbedürftig.</li>
+<li><strong>Für 10.000+ Seiten:</strong> Von allen hier die beste Wahl bei reiner Menge und
+Bautempo.</li>
+</ul>
+<h3 id="weitere-kurz"><a class="header" href="#weitere-kurz">Weitere, kurz</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Programm</th><th>Kurzbeschreibung</th></tr></thead><tbody>
+<tr><td><strong>Jekyll</strong></td><td>Der Ruby-Klassiker für GitHub Pages (ein kostenloser Hosting-Dienst von GitHub). Wird ab vielen Seiten langsam.</td></tr>
+<tr><td><strong>Zola</strong></td><td>Wie Hugo, aber in Rust geschrieben und mit bewusst kleinerem Funktionsumfang. Sehr schnell.</td></tr>
+<tr><td><strong>VitePress</strong></td><td>Doku-Generator auf Basis von Vue und Vite (ein Web-Framework und sein Bau-Werkzeug). Gut für Handbücher.</td></tr>
+<tr><td><strong>Starlight</strong></td><td>Doku-Design für das Website-System „Astro". Suche und Mehrsprachigkeit mitgeliefert. Gut für kleine bis mittlere Dokumentationen.</td></tr>
+<tr><td><strong>Quartz</strong></td><td>Baut aus einem Obsidian-Notizbuch eine Website – mit <strong>Rückwärts-Verweisen</strong> (wer verlinkt auf diese Seite?). Für vernetzte Wissensgärten.</td></tr>
+<tr><td><strong>Quarto</strong></td><td>Für wissenschaftliches Schreiben: Bücher, Websites und PDF aus einer Quelle, mit <strong>direkt ausführbaren Code-Blöcken</strong> (Python, R).</td></tr>
+<tr><td><strong>Jupyter Book</strong></td><td>Verwandelt Rechen-Notizbücher in ein Online-Buch. Version 2 nutzt statt Sphinx die MyST-Engine.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Nicht empfehlenswert für dieses Projekt:</strong> <em>Obsidian Publish</em> – der
+Veröffentlichungs-Dienst der Notiz-App Obsidian ist kostenpflichtig und nicht
+Open Source. Das Schreiben in Obsidian selbst ist kostenlos; nur zum
+Veröffentlichen dann besser Quartz nehmen.</p>
+<h2 id="sonderfall-ki-kompatible-wissenssysteme-llm-wiki--co-wiki"><a class="header" href="#sonderfall-ki-kompatible-wissenssysteme-llm-wiki--co-wiki">Sonderfall: KI-kompatible Wissenssysteme (LLM-Wiki / Co-Wiki)</a></h2>
+<p>Die neueste Gruppe sind Wissenssysteme, die von Grund auf für die Zusammenarbeit
+mit KI gebaut sind – <strong>LLM-Wiki</strong> (nach dem großen Sprachmodell hinter Chat-KI)
+oder <strong>Co-Wiki</strong> genannt. Sie sind meist kein eigenes Programm, sondern ein
+<strong>Organisationsmuster</strong>: kleine, klar benannte Markdown-Dateien, dazu eine
+einheitliche KI-Andockstelle (<em>MCP</em>) und die Technik <em>RAG</em> („erst nachschlagen,
+dann antworten"). Ein Doku-Generator wie mdBook baut daraus die sichtbare
+Website.</p>
+<p>Dieses Wiki folgt dem Co-Wiki-Prinzip: einfache, KI-lesbare Markdown-Dateien mit
+menschlicher Redaktion. Die ausführliche Erklärung steht in
+<a href="co-wiki.html">Co-Wiki: Mensch &amp; KI</a>; der technische Hintergrund im
+<a href="openwiki/overview.html">Überblick</a> und in der <a href="openwiki/architecture.html">Architektur</a>.</p>
+<h2 id="vergleichstabelle"><a class="header" href="#vergleichstabelle">Vergleichstabelle</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Programm</th><th>Sprache</th><th>Schreibweise</th><th>Suche ab Werk</th><th>Mehrsprachig ab Werk</th><th>Versionsstände</th><th>Sehr viele Seiten</th><th>Gemeinschaft</th></tr></thead><tbody>
+<tr><td><strong>mdBook</strong> (heute)</td><td>Rust</td><td>Markdown</td><td>Ja</td><td>Nein</td><td>Nein</td><td>Unerprobt</td><td>Mittel</td></tr>
+<tr><td><strong>MkDocs + Material</strong></td><td>Python</td><td>Markdown</td><td>Ja (sehr gut)</td><td>Über Zusatz</td><td>Über Zusatz</td><td>Ja</td><td>Groß</td></tr>
+<tr><td><strong>Docusaurus</strong></td><td>JavaScript</td><td>Markdown/MDX</td><td>Über Zusatz</td><td>Ja</td><td>Ja</td><td>Ja</td><td>Sehr groß</td></tr>
+<tr><td><strong>Sphinx</strong></td><td>Python</td><td>reStructuredText / Markdown</td><td>Ja</td><td>Ja</td><td>Über Zusatz</td><td>Ja</td><td>Groß</td></tr>
+<tr><td><strong>Antora</strong></td><td>JavaScript</td><td>AsciiDoc</td><td>Über Erweiterung</td><td>Teilweise</td><td>Ja</td><td>Ja</td><td>Mittel</td></tr>
+<tr><td><strong>Hugo</strong></td><td>Go</td><td>Markdown</td><td>Über Thema</td><td>Ja</td><td>Über Aufbau</td><td>Ja (am schnellsten)</td><td>Sehr groß</td></tr>
+<tr><td><strong>Quartz</strong></td><td>TypeScript</td><td>Markdown</td><td>Ja</td><td>Nein</td><td>Über Git</td><td>Mittel</td><td>Mittel</td></tr>
+</tbody></table>
+</div>
+<h2 id="empfehlung-für-dieses-projekt"><a class="header" href="#empfehlung-für-dieses-projekt">Empfehlung für dieses Projekt</a></h2>
+<ul>
+<li><strong>Beim datei-basierten Aufbau bleiben, aber mehr Funktionen:</strong> von mdBook zu
+<strong>MkDocs mit Material</strong> wechseln – ähnliche Einfachheit, deutlich bessere Suche,
+Mehrsprachigkeit und Erweiterungen.</li>
+<li><strong>Wenn Versionsstände und Mehrsprachigkeit wichtig werden:</strong> <strong>Docusaurus</strong>.</li>
+<li><strong>Wenn es vor allem um schiere Menge und Bautempo geht:</strong> <strong>Hugo</strong> mit einem
+Doku-Thema.</li>
+<li><strong>Wenn die starke Vernetzung der Artikel im Vordergrund steht:</strong> in Obsidian
+schreiben und mit <strong>Quartz</strong> veröffentlichen.</li>
+<li>Sobald <strong>viele Menschen gleichzeitig</strong> schreiben sollen oder eine feine
+Rechteverwaltung nötig wird, ist die Grenze der Doku-Generatoren erreicht –
+dann zu den <a href="wikis-im-vergleich.html">Wiki-Programmen</a> wechseln.</li>
+</ul>
+<h2 id="quellen"><a class="header" href="#quellen">Quellen</a></h2>
+<ul>
+<li><a href="https://rust-lang.github.io/mdBook/">mdBook – offizielle Dokumentation</a></li>
+<li><a href="https://squidfunk.github.io/mkdocs-material/alternatives/">Material for MkDocs – Alternativen (Vergleich)</a></li>
+<li><a href="https://docusaurus.io/">Docusaurus – offizielle Website</a></li>
+<li><a href="https://www.sphinx-doc.org/">Sphinx – offizielle Website</a></li>
+<li><a href="https://antora.org/">Antora – offizielle Website</a></li>
+<li><a href="https://gohugo.io/">Hugo – offizielle Website</a></li>
+<li><a href="https://docs.readthedocs.com/platform/stable/intro/doctools.html">Read the Docs – Beliebte Dokumentationswerkzeuge</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Read_the_Docs">Read the Docs bei Wikipedia (Entstehung rund um Sphinx)</a></li>
+<li><a href="https://jupyterbook.org/">Jupyter Book – offizielle Website</a></li>
+<li><a href="https://obsidian.md/publish">Obsidian Publish – Preise</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="cms-millionen-artikel.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="webframeworks-im-vergleich.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="cms-millionen-artikel.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="webframeworks-im-vergleich.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Neue Artikel - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="neue-artikel-aus-rohfassungen-erstellen"><a class="header" href="#neue-artikel-aus-rohfassungen-erstellen">Neue Artikel aus Rohfassungen erstellen</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>In einem <a href="co-wiki.html">Co-Wiki</a> schreiben Mensch und künstliche Intelligenz (KI) Hand in Hand. Doch wie entsteht aus einer ersten Idee, ein paar hingeworfenen Stichpunkten oder einer Notiz eigentlich ein fertiger, geprüfter Artikel im Buch?</p>
+<p>Der Schlüssel dazu ist die <strong>Rohfassung</strong> und die anschließende <strong>Redaktionspipeline</strong>. Diese Seite erklärt den gesamten Weg Schritt für Schritt – so einfach, dass ihn auch Einsteiger und jüngere Leser sofort verstehen.</p>
+<hr />
+<h2 id="1-was-ist-eine-rohfassung-der-rohe-tonklumpen"><a class="header" href="#1-was-ist-eine-rohfassung-der-rohe-tonklumpen">1. Was ist eine Rohfassung? (Der rohe Tonklumpen)</a></h2>
+<p>Stell dir vor, du möchtest eine schöne Schale oder eine Tierfigur aus Ton töpfern. Am Anfang hast du nur einen feuchten, unförmigen <strong>Tonklumpen</strong>. Er ist noch nicht hübsch und man kann noch nicht daraus essen – aber er enthält bereits das gesamte Material, das du brauchst.</p>
+<p>Genau das ist eine <strong>Rohfassung</strong>:</p>
+<ul>
+<li>Sie ist ein <strong>vorläufiger Arbeitsentwurf</strong>, kein fertiges Endprodukt.</li>
+<li>Sie sammelt Ideen, Notizen, Web-Links, Buchseiten und Gedanken an einem Ort.</li>
+<li>Sie lebt in einem speziellen Arbeitsordner namens <code>raw/</code> und ist <strong>niemals direkt im Buch sichtbar</strong>.</li>
+</ul>
+<p>Erst wenn der Bildhauer (die KI) den Tonklumpen in Form gebracht hat und der Meister (der Mensch) prüft, ob alles stabil und richtig ist, wird daraus ein fertiges Werkstück für das Buch unter <code>src/</code>.</p>
+<hr />
+<h2 id="2-der-bauplan-einer-rohfassung-die-vorlage"><a class="header" href="#2-der-bauplan-einer-rohfassung-die-vorlage">2. Der Bauplan einer Rohfassung (Die Vorlage)</a></h2>
+<p>Damit die KI und der Mensch reibungslos zusammenarbeiten können, gibt es für Rohfassungen eine feste Vorlage (<code>raw/_vorlage.md</code>). Jeder Abschnitt erfüllt einen wichtigen Zweck:</p>
+<pre><code class="language-markdown"># Rohfassung: Thema
+
+&gt; Status: **Rohfassung** — noch nicht für `src/` freigegeben.
+&gt; Zuständig (Mensch): &lt;Name&gt;
+&gt; Zielseite: `src/&lt;slug&gt;.md`
+
+## Worum geht es?
+&lt;Ein, zwei Sätze: was soll der Artikel erklären, für wen?&gt;
+
+## Material / Notizen
+- &lt;Stichpunkt&gt;
+- &lt;Stichpunkt&gt;
+
+## Quellen
+- &lt;URL oder Buch/Seite&gt; — &lt;was steht dort drin?&gt;
+
+## Offene Fragen
+- &lt;Was muss noch geklärt oder geprüft werden?&gt;
+
+## Rohtext
+&lt;Hier frei drauflosschreiben — Struktur egal, Hauptsache die Fakten stehen drin.&gt;
+</code></pre>
+<h3 id="warum-ist-jeder-baustein-unverzichtbar"><a class="header" href="#warum-ist-jeder-baustein-unverzichtbar">Warum ist jeder Baustein unverzichtbar?</a></h3>
+<ol>
+<li><strong>Status &amp; Zuständigkeit:</strong> Jeder weiß sofort: Dieser Text ist eine Baustelle. Und es steht fest, welcher Mensch am Ende die Verantwortung trägt.</li>
+<li><strong>Zielseite (<code>src/&lt;slug&gt;.md</code>):</strong> Legt von Anfang an fest, wie die Datei später heißen soll und wo sie im Buch hingehört.</li>
+<li><strong>Worum geht es?:</strong> Gibt der KI den Fokus vor (z. B. „Erklärung für Einsteiger“ oder „Historischer Überblick für Schüler“).</li>
+<li><strong>Material &amp; Notizen:</strong> Die wichtigsten Stichpunkte und Kernaussagen auf einen Blick.</li>
+<li><strong>Quellen (Belege):</strong> Ohne echte Quellen darf kein Artikel entstehen! Hier stehen Links, Bücher oder Dokumente, aus denen das Wissen stammt.</li>
+<li><strong>Offene Fragen:</strong> Markiert Unklarheiten (z. B. „Stimmt diese Jahreszahl wirklich?“). So weiß die KI, worüber sie nicht spekulieren darf.</li>
+<li><strong>Rohtext:</strong> Hier darf unordentlich drauflosgeschrieben oder Material hineinkopiert werden.</li>
+</ol>
+<hr />
+<h2 id="3-die-redaktionspipeline-schritt-für-schritt-zum-fertigen-artikel"><a class="header" href="#3-die-redaktionspipeline-schritt-für-schritt-zum-fertigen-artikel">3. Die Redaktionspipeline: Schritt für Schritt zum fertigen Artikel</a></h2>
+<p>Liegt eine Rohfassung im Ordner <code>raw/</code>, schickt der Mensch sie mit einem klaren Arbeitsauftrag (Prompt) in die <strong>Redaktionspipeline</strong> des Roboter-Teams:</p>
+<blockquote>
+<p><strong>Typische Prompts / Befehle:</strong></p>
+<ul>
+<li><code>Starte die Redaktionspipeline für &lt;Thema&gt;</code></li>
+<li><code>Rohfassung &lt;Thema&gt; durch die Pipeline schicken</code></li>
+</ul>
+</blockquote>
+<p>Nun arbeiten die spezialisierten Subagenten Hand in Hand:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│ 1. Briefing &amp; Info-Mappe (Forscher sammelt Fakten &amp; Quellen)│
+└──────────────────────────────┬──────────────────────────────┘
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 2. Bauplan &amp; Gliederung (Architekt baut Überschriften-Gerüst)│
+└──────────────────────────────┬──────────────────────────────┘
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 3. Textentwurf (Schreiberling verfasst den Fließtext)       │
+└──────────────────────────────┬──────────────────────────────┘
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 4. Kritikschleife (Lektor &amp; Faktenchecker prüfen streng)    │
+└──────────────────────────────┬──────────────────────────────┘
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 5. Verlinkung (Verlinker setzt Querverweise im Wiki)        │
+└──────────────────────────────┬──────────────────────────────┘
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 6. Finale Freigabe durch den Menschen (Human-in-the-Loop)   │
+└─────────────────────────────────────────────────────────────┘
+</code></pre>
+<ol>
+<li><strong>Der Forscher (<em>Research Agent</em>):</strong> Liest die Rohfassung, prüft die angegebenen Quellen und baut eine strukturierte Info-Mappe auf.</li>
+<li><strong>Der Architekt (<em>Outline Agent</em>):</strong> Entwirft die Gliederung (welche Überschriften gibt es und worum geht es in welchem Absatz?).</li>
+<li><strong>Der Schreiberling (<em>Writer Agent</em>):</strong> Verwandelt den Bauplan in verständlichen, lebendigen deutschen Fließtext.</li>
+<li><strong>Die Kritikschleife (Lektor &amp; Faktenchecker):</strong>
+<ul>
+<li>Der <strong>Lektor</strong> feilt am Schreibstil, beseitigt Schachtelsätze und sorgt für guten Lesefluss.</li>
+<li>Der <strong>Faktenchecker</strong> gleicht jeden einzelnen Satz mit den Quellen ab. Gibt es Unstimmigkeiten, muss der Schreiberling nachbessern (bis zu 2–3 Runden).</li>
+</ul>
+</li>
+<li><strong>Der Verlinker (<em>Linker Agent</em>):</strong> Ergänzt Querverweise zu anderen Seiten im Wiki (z. B. zu verwandten Geschichts- oder Naturthemen).</li>
+<li><strong>Menschliche Freigabe:</strong> Der Mensch prüft das Gesamtergebnis. Erst mit seiner Freigabe wandert der Text nach <code>src/&lt;slug&gt;.md</code> und in das Inhaltsverzeichnis <code>src/SUMMARY.md</code>.</li>
+</ol>
+<hr />
+<h2 id="4-warum-dieser-aufwand-risiken--qualitätsprüfung"><a class="header" href="#4-warum-dieser-aufwand-risiken--qualitätsprüfung">4. Warum dieser Aufwand? Risiken &amp; Qualitätsprüfung</a></h2>
+<p>Man könnte sich fragen: <em>Warum lassen wir die KI nicht einfach mit einem kurzen Satz einen ganzen Artikel schreiben?</em></p>
+<p>Die Antwort liegt in der Funktionsweise moderner Sprachmodelle (LLMs):</p>
+<h3 id="das-problem-der-halluzinationen"><a class="header" href="#das-problem-der-halluzinationen">Das Problem der „Halluzinationen“</a></h3>
+<p>Ein Sprachmodell denkt nicht wie ein Mensch. Es rechnet mathematisch aus, welches Wort statistisch am besten auf das vorherige folgt (<em>Next-Token-Prediction</em>). Wenn dem Modell ein echtes Faktum fehlt, denkt es nicht nach und sagt nicht „Ich weiß es nicht“, sondern erfindet mitunter täuschend echt klingende Jahreszahlen, historische Ereignisse oder Personen.</p>
+<h3 id="strikte-belegpflicht--nachprüfbarkeit"><a class="header" href="#strikte-belegpflicht--nachprüfbarkeit">Strikte Belegpflicht &amp; Nachprüfbarkeit</a></h3>
+<p>In einem verlässlichen Nachschlagewerk darf kein erfundenes Wissen stehen. Deshalb gilt im Co-Wiki eine <strong>strikte Belegpflicht</strong>: Jede Kernaussage in der Rohfassung muss auf echten Primärquellen beruhen. Der Faktenchecker-Agent und der Mensch prüfen unnachgiebig, ob die Quellen die Behauptungen auch wirklich stützen.</p>
+<h3 id="der-mensch-als-chef-human-in-the-loop"><a class="header" href="#der-mensch-als-chef-human-in-the-loop">Der Mensch als Chef (Human-in-the-Loop)</a></h3>
+<p>Die KI ist eine unheimlich schnelle Schreibmaschine und ein kluger Sortierhelfer – aber sie trägt keine Verantwortung. Nur ein Mensch kann mit gesundem Menschenverstand beurteilen, ob ein Text fair, wahrheitsgetreu und angemessen formuliert ist. Deshalb veröffentlicht die KI niemals selbstständig eine Seite.</p>
+<hr />
+<h2 id="5-die-gefahr-des-modell-kollapses-model-collapse"><a class="header" href="#5-die-gefahr-des-modell-kollapses-model-collapse">5. Die Gefahr des Modell-Kollapses (Model Collapse)</a></h2>
+<p>Ein weiterer, noch tieferer Grund für echte menschliche Recherche ist der sogenannte <strong>Modell-Kollaps</strong>:</p>
+<p>Wenn immer mehr Texte im Internet ausschließlich von KI generiert werden, passiert etwas Gefährliches: Zukünftige KI-Modelle werden mit Texten trainiert, die vorherige KIs geschrieben haben. Man nennt das auch <strong>„Modell-Inzucht“</strong>.</p>
+<ul>
+<li><strong>Informationsverlust:</strong> Seltene Fakten, lokale Besonderheiten und feine sprachliche Nuancen gehen verloren.</li>
+<li><strong>Fehlerverstärkung:</strong> Kleine Ungenauigkeiten schaukeln sich von Generation zu Generation weiter auf.</li>
+<li><strong>Verflachung:</strong> Alle Texte klingen irgendwann gleich förmlich und inhaltsleer.</li>
+</ul>
+<blockquote>
+<p><strong>Der unersetzliche Wert des Menschen:</strong><br />
+Nur echte Menschen, die selbst vor Ort recherchieren, Archive durchstöbern, Zeitzeugen befragen oder Bücher lesen, bringen <strong>neues, unverfälschtes Weltwissen</strong> in den Datenpool. Ohne menschliche Originalarbeit verkümmert das Wissen im digitalen Raum.</p>
+</blockquote>
+<hr />
+<h2 id="6-lebenszyklus--aufräumen-vom-entwurf-ins-buch"><a class="header" href="#6-lebenszyklus--aufräumen-vom-entwurf-ins-buch">6. Lebenszyklus &amp; Aufräumen: Vom Entwurf ins Buch</a></h2>
+<p>Wie sieht der Lebenslauf einer Rohfassung in diesem Projekt konkret aus?</p>
+<ol>
+<li><strong>Lokal vorschreiben:</strong> Ein Mensch legt <code>raw/&lt;thema&gt;.md</code> an (basierend auf <code>raw/_vorlage.md</code>). Da <code>raw/</code> in <code>.gitignore</code> eingetragen ist, bleibt der Entwurf privat auf dem Rechner.</li>
+<li><strong>Pipeline starten:</strong> Mensch gibt den Auftrag an die Redaktionspipeline.</li>
+<li><strong>Freigabe &amp; Veröffentlichung:</strong> Sobald der Artikel fertig und geprüft ist, wird er unter <code>src/&lt;slug&gt;.md</code> gespeichert und in <a href="SUMMARY.html">SUMMARY.md</a> eingetragen.</li>
+<li><strong>Transparenzhinweis:</strong> Jede Seite in <code>src/</code> erhält oben und unten den vorgeschriebenen Transparenzhinweis gemäß Art. 50 EU AI Act.</li>
+<li><strong>Rohfassung löschen:</strong> Da alle wertvollen Inhalte, Quellen und Fakten nun sauber strukturiert im versionierten Wiki (<code>src/</code>) gesichert sind, wird die temporäre Datei in <code>raw/</code> gelöscht. So bleibt der Arbeitsbereich stets aufgeräumt.</li>
+</ol>
+<hr />
+<h2 id="verwandte-seiten"><a class="header" href="#verwandte-seiten">Verwandte Seiten</a></h2>
+<ul>
+<li><a href="co-wiki.html">Co-Wiki: Mensch &amp; KI</a> – Das grundlegende Kooperationsmodell dieses Wikis.</li>
+<li><a href="urheberrecht-und-duplicate-content.html">Urheberrecht und Duplicate Content</a> – Wie das Wiki Urheberrechte prüft (zentrale Aufgabe des Faktencheckers in der Pipeline).</li>
+<li><a href="wissen-speichern.html">Wissen speichern</a> – Was einen guten Wissensartikel ausmacht und wie große Wissensmengen abgelegt, durchsucht und weitergegeben werden.</li>
+<li><a href="software-fuer-ein-grosses-wissensprojekt.html">Software für ein großes Wissensprojekt</a> – Wie das Wiki technisch aufgebaut ist.</li>
+<li><a href="doku-generatoren-im-vergleich.html">Doku-Generatoren im Vergleich</a> – Warum mdBook für dieses Wissensprojekt genutzt wird.</li>
+<li><a href="openwiki/overview.html">Überblick</a> – Technische Übersicht über das Repository.</li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="hauptseite.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="llm-wiki.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="hauptseite.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="llm-wiki.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

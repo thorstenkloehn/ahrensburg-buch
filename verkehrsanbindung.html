@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Verkehrsanbindung - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="verkehrsanbindung-in-ahrensburg"><a class="header" href="#verkehrsanbindung-in-ahrensburg">Verkehrsanbindung in Ahrensburg</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p>Ahrensburg profitiert von einer verkehrsgeografischen Vorzugslage im Kreis Stormarn auf der Entwicklungsachse zwischen der Freien und Hansestadt Hamburg und der Hansestadt Lübeck. Die Stadt ist über die Schiene, die Hamburger U-Bahn, regionale Buslinien sowie ein leistungsfähiges Fernstraßennetz an die gesamte Metropolregion angebunden.</p>
+<h2 id="schienenverkehr-und-nahverkehr"><a class="header" href="#schienenverkehr-und-nahverkehr">Schienenverkehr und Nahverkehr</a></h2>
+<p>Ahrensburg ist vollständig in das Tarifsystem des <a href="https://www.hvv.de">Hamburger Verkehrsverbunds (HVV)</a> und des Nahverkehrsverbunds Schleswig-Holstein (NAH.SH) integriert.</p>
+<h3 id="regionalbahn-und-regional-express"><a class="header" href="#regionalbahn-und-regional-express">Regionalbahn und Regional-Express</a></h3>
+<p>Der Bahnhof <em>Ahrensburg</em> ist der zentrale Schienenknotenpunkt der Stadt an der zweigleisigen Hauptstrecke Hamburg–Lübeck:</p>
+<ul>
+<li><strong>RE 8 / RE 80:</strong> Schnelle Regional-Express-Züge verbinden Ahrensburg in rund 14 bis 18 Minuten mit dem Hamburger Hauptbahnhof und in etwa 30 bis 35 Minuten mit Lübeck Hauptbahnhof (mit Weiterführung nach Travemünde Strand).</li>
+<li><strong>RB 81:</strong> Die Regionalbahn verdichtet das Angebot im Berufsverkehr zu einem dichten Takt und bedient neben dem Bahnhof Ahrensburg auch den Haltepunkt <strong>Ahrensburg-Gartenholz</strong> im Norden der Stadt.</li>
+<li><strong>S-Bahn-Projekt S4 (Ost):</strong> Das im Bau bzw. in der Realisierung befindliche Großprojekt der S-Bahnlinie S4 soll künftig eine umsteigefreie Anbindung auf eigenen Gleisen von Hamburg-Altona über den Hauptbahnhof, Wandsbek und Ahrensburg bis nach Bad Oldesloe schaffen.</li>
+</ul>
+<h3 id="u-bahn-linie-u1"><a class="header" href="#u-bahn-linie-u1">U-Bahn-Linie U1</a></h3>
+<p>Als Besonderheit im schleswig-holsteinischen Umland verfügt Ahrensburg über direkten Anschluss an das Hamburger U-Bahn-Netz der Hamburger Hochbahn AG:</p>
+<ul>
+<li><strong>Ahrensburg West:</strong> Erschließt den Westen der Kernstadt, das Schulzentrum am Heimgarten sowie nahegelegene Wohngebiete.</li>
+<li><strong>Ahrensburg Ost:</strong> Erschließt die östlichen Wohnquartiere und das Umfeld des Ahrensburger Tunneltals.</li>
+<li>Die Linie U1 verkehrt im tagsüber üblichen 10- bis 20-Minuten-Takt in Richtung Hamburg (über Volksdorf, Wandsbek Markt, Hauptbahnhof bis Norderstedt Mitte) sowie in Gegenrichtung nach Großhansdorf.</li>
+</ul>
+<h3 id="stadt--und-regionalbusse"><a class="header" href="#stadt--und-regionalbusse">Stadt- und Regionalbusse</a></h3>
+<p>Mehrere Buslinien im HVV sorgen für die innerstädtische Feinerschließung und verbinden die Bahnhöfe mit den Wohn- und Gewerbegebieten (<a href="gewerbegebiete.html">Gewerbegebiete</a>) sowie den Umlandgemeinden (u. a. Ammersbek, Delingsdorf, Großhansdorf, Siek und Schmalenbeck).</p>
+<h2 id="straßenverkehr"><a class="header" href="#straßenverkehr">Straßenverkehr</a></h2>
+<h3 id="autobahnanbindung"><a class="header" href="#autobahnanbindung">Autobahnanbindung</a></h3>
+<p>Ahrensburg ist direkt an das deutsche Fernstraßennetz angeschlossen:</p>
+<ul>
+<li><strong>Bundesautobahn A 1 (Europastraße E 22):</strong> Die Anschlussstelle <em>Ahrensburg</em> (Nr. 28) verbindet die Stadt mit der Hansestadt Hamburg (Fahrzeit bis Hamburg-Zentrum ca. 25–35 Minuten je nach Verkehrslage) sowie über Lübeck mit der Ostseeküste und Skandinavien.</li>
+<li>Nahegelegene Anschlussstellen wie <em>Bargteheide</em> (Autobahnkreuz A 1 / A 21) und <em>Stapelfeld</em> bieten alternative Zufahrten für Gewerbe- und Pendlerverkehre.</li>
+</ul>
+<h3 id="bundes--und-landesstraßen"><a class="header" href="#bundes--und-landesstraßen">Bundes- und Landesstraßen</a></h3>
+<ul>
+<li><strong>Bundesstraße B 75:</strong> Verläuft als wichtige historische Verbindungstrasse von Hamburg (über Rahlstedt) durch Ahrensburg weiter in Richtung Bargteheide und Bad Oldesloe.</li>
+<li>Verschiedene Landesstraßen gewährleisten die Erreichbarkeit benachbarter Stormarner Zentren und Naherholungsgebiete wie Ammersbek, Trittau und das Alstertal.</li>
+</ul>
+<h2 id="fahrrad--und-pendlerverkehr"><a class="header" href="#fahrrad--und-pendlerverkehr">Fahrrad- und Pendlerverkehr</a></h2>
+<p>Die Stadt fördert den innerstädtischen Radverkehr und baut Wegenetze kontinuierlich aus. Fahrrad-Abstellanlagen und moderne Bike-and-Ride-Plätze (B+R) stehen an den Bahnhöfen Ahrensburg und Ahrensburg-Gartenholz sowie an den beiden U-Bahn-Stationen zur Verfügung. Zudem bestehen Planungen und Trassenabschnitte für Radschnellwegeverbindungen in Richtung Hamburg.</p>
+<h2 id="verwandte-themen"><a class="header" href="#verwandte-themen">Verwandte Themen</a></h2>
+<ul>
+<li><a href="die-stadtteile-im-portraet.html">Die Stadtteile im Porträt</a></li>
+<li><a href="gewerbegebiete.html">Gewerbegebiete</a></li>
+<li><a href="wichtige-unternehmen-arbeitgeber.html">Wichtige Unternehmen &amp; Arbeitgeber</a></li>
+<li><a href="wander-und-radwege.html">Wander- und Radwege</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="infrastruktur-wirtschaft.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="wichtige-unternehmen-arbeitgeber.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="infrastruktur-wirtschaft.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="wichtige-unternehmen-arbeitgeber.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

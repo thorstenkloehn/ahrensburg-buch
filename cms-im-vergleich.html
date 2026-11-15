@@ -1,0 +1,433 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CMS im Vergleich - Ahrensburg – Wissensdatenbank</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Eine Sammlung von Texten und Wissen über Ahrensburg, zusammengestellt aus dem Wiki-Export (Tenant: main).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Ahrensburg – Wissensdatenbank</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="cms-im-vergleich"><a class="header" href="#cms-im-vergleich">CMS im Vergleich</a></h1>
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+<p><strong>CMS</strong> steht für <em>Content-Management-System</em>, auf Deutsch etwa
+„Inhalts-Verwaltungs-System" oder Redaktionssystem. Es ist ein Programm, mit dem
+eine Redaktion eine Website pflegt: Artikel schreiben, Bilder einbinden, Menüs
+ordnen, das Aussehen festlegen. Anders als bei einem <a href="wikis-im-vergleich.html">Wiki</a>
+schreiben meist <strong>wenige</strong> Leute und <strong>viele</strong> lesen nur.</p>
+<p>Diese Seite prüft, welche offenen CMS zu den Zielen aus
+<a href="software-fuer-ein-grosses-wissensprojekt.html">Software für ein großes Wissensprojekt</a>
+passen. Ein CMS ist für dieses Wiki nicht die naheliegendste Wahl – aber einige
+CMS arbeiten wie das heutige Wiki ohne Datenbank, nur mit einzelnen Textdateien
+(Fachwort: <em>Flat-File</em>).</p>
+<blockquote>
+<p>Fachwörter wie <em>Open Source</em>, <em>Schnittstelle</em>, <em>REST-API</em>, <em>GraphQL</em>, <em>JSON</em>,
+<em>Datenbank</em>, <em>Git</em> oder <em>Node.js</em> sind in
+<a href="software-fuer-ein-grosses-wissensprojekt.html#fachw%C3%B6rter-kurz-erkl%C3%A4rt">Software für ein großes Wissensprojekt</a>
+in einer kurzen Liste erklärt.</p>
+</blockquote>
+<h2 id="drei-bauarten-von-cms"><a class="header" href="#drei-bauarten-von-cms">Drei Bauarten von CMS</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Bauart</th><th>Idee</th><th>Beispiele</th></tr></thead><tbody>
+<tr><td><strong>Klassisch (monolithisch)</strong></td><td>Ein großes Programm macht alles: Texte speichern, Seite gestalten, ausliefern. Inhalte stecken in einer Datenbank.</td><td>WordPress, Drupal, TYPO3, Joomla</td></tr>
+<tr><td><strong>Headless</strong> („kopflos")</td><td>Das CMS speichert und verwaltet nur die Inhalte und gibt sie über eine Schnittstelle heraus. Das Aussehen baut man getrennt.</td><td>Strapi, Directus, Payload, Ghost</td></tr>
+<tr><td><strong>Flat-File / Git-basiert</strong></td><td>Keine Datenbank. Jede Seite ist eine Textdatei im Ordner, oft in Markdown, verfolgt mit der Versionsverwaltung Git.</td><td>Grav, Kirby, Decap, Statamic</td></tr>
+</tbody></table>
+</div>
+<h2 id="klassische-cms"><a class="header" href="#klassische-cms">Klassische CMS</a></h2>
+<h3 id="wordpress"><a class="header" href="#wordpress">WordPress</a></h3>
+<ul>
+<li><strong>Verbreitung:</strong> Mit Abstand am größten – ein großer Teil aller Websites läuft
+damit. Riesige Gemeinschaft, unzählige Erweiterungen. PHP, Lizenz GPL
+(Version 2 oder später – gilt ebenso für Drupal und TYPO3).</li>
+<li><strong>Speicher:</strong> Datenbank, <strong>nur MySQL/MariaDB</strong> (kein PostgreSQL).</li>
+<li><strong>Sicherungsdatei:</strong> Eingebauter <strong>WXR-Export</strong> (kurz für „WordPress Extended
+RSS", eine XML-Datei mit Beiträgen und Seiten). Praktisch, aber Bilder und
+einige Einstellungen sind darin nicht enthalten.</li>
+<li><strong>KI-Zugang:</strong> <strong>REST-API</strong> ist ab Werk dabei.</li>
+<li><strong>Haken:</strong> Für ein Nachschlagewerk mit zehntausenden verknüpften Artikeln ist
+WordPress nicht gebaut; es glänzt bei Blogs und Firmen-Websites. Große
+Installationen brauchen sorgfältige Pflege gegen Sicherheitslücken.</li>
+</ul>
+<h3 id="drupal"><a class="header" href="#drupal">Drupal</a></h3>
+<ul>
+<li><strong>Stärke:</strong> Gebaut für <strong>große, stark strukturierte</strong> Websites mit viel Inhalt.
+Bei Behörden und Hochschulen für trafficstarke Installationen bewährt. PHP.</li>
+<li><strong>Speicher:</strong> Datenbank – <strong>MySQL/MariaDB, PostgreSQL oder SQLite</strong>.</li>
+<li><strong>Sicherungsdatei:</strong> Kein einzelner Standard-Export wie bei WordPress; Inhalte
+exportiert man über Zusatzbausteine (z. B. „Default Content") nach JSON (ein
+lesbares Textformat für Daten).</li>
+<li><strong>KI-Zugang:</strong> <strong>JSON-Schnittstelle und REST</strong> sind im Kern enthalten.</li>
+<li><strong>Haken:</strong> Anspruchsvoll zu lernen. Kleinere, aber sehr fachkundige
+Gemeinschaft.</li>
+</ul>
+<h3 id="typo3"><a class="header" href="#typo3">TYPO3</a></h3>
+<ul>
+<li><strong>Herkunft:</strong> Im deutschsprachigen Raum stark verbreitet, viele Behörden und
+größere Unternehmen. PHP. Sehr gute Mehrsprachigkeit.</li>
+<li><strong>Speicher:</strong> Datenbank – MySQL/MariaDB, daneben PostgreSQL und SQLite; einige
+Erweiterungen setzen jedoch MySQL voraus.</li>
+<li><strong>Sicherungsdatei:</strong> Eigene Export-/Import-Funktion (Format T3D bzw. XML).</li>
+<li><strong>KI-Zugang:</strong> REST über Erweiterungen.</li>
+<li><strong>Haken:</strong> Gilt als schwergewichtig. Für sehr große, trafficstarke
+Installationen gibt es weniger dokumentierte Referenzen als bei Drupal.</li>
+</ul>
+<h2 id="headless-cms"><a class="header" href="#headless-cms">Headless CMS</a></h2>
+<p>Diese Programme trennen Inhalt und Aussehen. Strapi, Directus und Payload bieten
+<strong>REST- und GraphQL-Schnittstellen</strong> (zwei Arten von Abfrage-Schnittstellen für
+Programme), Ghost nur REST – in allen Fällen gut für KI-Werkzeuge.</p>
+<h3 id="strapi"><a class="header" href="#strapi">Strapi</a></h3>
+<ul>
+<li><strong>Grundlage:</strong> Node.js (Laufzeitumgebung für JavaScript auf dem Server). Strapi
+hat die mit Abstand größte Gemeinschaft unter den Headless-CMS und einen
+sichtbaren Baukasten für Inhaltstypen.</li>
+<li><strong>Speicher:</strong> PostgreSQL, MySQL/MariaDB oder SQLite.</li>
+<li><strong>Lizenz-Einschränkung:</strong> Der Kern (Community Edition) bleibt MIT-lizenziert;
+seit Version 5 sind aber mehr Funktionen – etwa die dauerhafte
+Inhalts-Versionierung, Freigabe-Abläufe und die zentrale Anmeldung (ein Login
+für alles, englisch <em>Single Sign-On</em> / SSO) – bezahlten Plänen vorbehalten.
+Entwicklung genau beobachten.</li>
+</ul>
+<h3 id="directus"><a class="header" href="#directus">Directus</a></h3>
+<ul>
+<li>Node.js, „datenbank-zuerst": Directus legt sich <strong>über eine ganz normale
+SQL-Datenbank</strong> – am besten PostgreSQL – und macht daraus sofort eine
+Schnittstelle. Die Daten bleiben in einfachen, selbst lesbaren Datenbank-
+Tabellen – <strong>keine Abhängigkeit vom Programm</strong>.</li>
+<li><strong>Lizenz-Einschränkung:</strong> Nicht mehr voll Open Source. 2023 Wechsel von GPLv3 auf die
+„Business Source License", inzwischen die „Monospace Sustainable Core License".
+Kostenlos für kleine Organisationen (unter 5 Mio. US-Dollar Umsatz <strong>und</strong>
+unter 50 Beschäftigte); jede Version wird nach vier Jahren GPLv3. Für ein
+gemeinnütziges Projekt meist unkritisch, aber vorher prüfen.</li>
+</ul>
+<h3 id="payload"><a class="header" href="#payload">Payload</a></h3>
+<ul>
+<li>Node.js/TypeScript, echte offene Lizenz (MIT). Aufbau über Code. 2025 von der
+Design-Firma Figma übernommen.</li>
+<li><strong>Speicher:</strong> PostgreSQL, SQLite oder MongoDB (eine Datenbank, die Daten als
+einzelne Dokumente statt als Tabellen ablegt).</li>
+<li>Jünger und mit kleinerer Gemeinschaft als Strapi oder Directus.</li>
+</ul>
+<h3 id="ghost-sonderfall"><a class="header" href="#ghost-sonderfall">Ghost (Sonderfall)</a></h3>
+<ul>
+<li>Node.js, offene Lizenz (MIT). Eigentlich für Blogs und Newsletter gemacht.</li>
+<li><strong>Bester Export der Gruppe:</strong> eingebauter <strong>JSON-Export</strong> des gesamten Inhalts.</li>
+<li><strong>Speicher:</strong> ausschließlich MySQL 8 (SQLite nur zum Entwickeln; MariaDB wird
+nicht mehr unterstützt).</li>
+<li>Für ein großes verknüpftes Nachschlagewerk aber zu einfach gestrickt.</li>
+</ul>
+<h2 id="flat-file---git-basierte-cms"><a class="header" href="#flat-file---git-basierte-cms">Flat-File- / Git-basierte CMS</a></h2>
+<p>Diese Gruppe liegt am nächsten am heutigen Aufbau dieses Wikis (Markdown-Dateien</p>
+<ul>
+<li>Git).</li>
+</ul>
+<h3 id="grav"><a class="header" href="#grav">Grav</a></h3>
+<ul>
+<li>PHP, offene Lizenz (MIT). <strong>Keine Datenbank</strong> – nur Markdown-Dateien im Ordner,
+damit von Natur aus datenbank-neutral und gut für Git.</li>
+<li><strong>Version 2</strong> (stabil seit Mitte 2026) bringt eine <strong>REST-API</strong>, eine neue
+Verwaltungsoberfläche, ein Werkzeug für den Umstieg bestehender
+Grav-1.7/1.8-Seiten und sogar einen eigenen <strong>MCP-Server</strong> (<em>Model Context
+Protocol</em> – eine einheitliche Andockstelle speziell für KI-Helfer). REST-API,
+neue Oberfläche, Migrationswerkzeug und MCP-Server gehören nach Angaben des
+Grav-Blogs alle zum kostenlosen Kern.</li>
+<li>Mittelgroße, aktive Gemeinschaft.</li>
+<li><strong>Haken:</strong> Bei sehr vielen Seiten und mehreren gleichzeitigen Autoren gilt das
+Gleiche wie bei allen Datei-Systemen: Es kann langsam und konfliktreich werden.</li>
+</ul>
+<h3 id="decap-cms-früher-netlify-cms"><a class="header" href="#decap-cms-früher-netlify-cms">Decap CMS (früher „Netlify CMS")</a></h3>
+<ul>
+<li>Offene Lizenz (MIT). Kein eigenständiges CMS, sondern eine
+<strong>Bearbeitungs-Oberfläche</strong>, die man <strong>über</strong> einen Doku-Generator legt. Die
+Texte bleiben als Markdown im Git-Lager, keine Datenbank.</li>
+<li>Damit können auch Menschen, die keine Textdateien bearbeiten möchten, die
+Inhalte über eine grafische Oberfläche ändern.</li>
+<li><strong>Haken:</strong> Nachdem die Firma Netlify sich zurückgezogen hat, wird das Projekt
+von der Gemeinschaft weitergeführt – mit kleinerem, wechselndem Team.</li>
+</ul>
+<h3 id="kirby-und-statamic"><a class="header" href="#kirby-und-statamic">Kirby und Statamic</a></h3>
+<p>Beide sind sehr solide Flat-File-CMS mit Git-Unterstützung, aber <strong>beide Kerne
+stehen unter proprietären Lizenzen</strong> – der Code liegt nur einsehbar auf GitHub.</p>
+<ul>
+<li><strong>Kirby</strong> kostet 99 € (Tarif „Basic", nur bei unter 1 Mio. € Umsatz) bzw.
+349 € (Tarif „Enterprise") pro Website. Kostenlose Lizenzen für Studierende
+und Lehrende; für gemeinnützige Organisationen je nach Fall kostenlos oder
+vergünstigt.</li>
+<li><strong>Statamic</strong> hat einen dauerhaft <strong>kostenlos nutzbaren</strong> Kern (unter einer
+eigenen, nicht quelloffenen Lizenz); erweiterte Funktionen kosten extra
+(„Pro", 349 US-Dollar pro Website).</li>
+</ul>
+<p>Für das Ziel „jeder darf alles frei nutzen und weitergeben" sind damit <strong>Kirby
+und Statamic</strong> heikel.</p>
+<h2 id="vergleichstabelle"><a class="header" href="#vergleichstabelle">Vergleichstabelle</a></h2>
+<p>Diese Seite bewertet CMS an den Zielen dieses Projekts. Wie dieselben Systeme
+technisch mit sehr großen Beständen umgehen – und welche davon überhaupt „echtes"
+PostgreSQL sprechen –, behandelt die Seite
+<a href="cms-millionen-artikel.html">Wie CMS mit Millionen Artikeln umgehen</a>.</p>
+<div class="table-wrapper"><table><thead><tr><th>Programm</th><th>Bauart</th><th>Lizenz voll offen?</th><th>Speicher</th><th>PostgreSQL?</th><th>Ganzer-Inhalt-Export</th><th>Schnittstelle</th><th>Nah am heutigen Aufbau?</th></tr></thead><tbody>
+<tr><td><strong>WordPress</strong></td><td>klassisch</td><td>Ja (GPL v2+)</td><td>Datenbank</td><td>Nein</td><td>Ja – WXR (XML), ohne Medien</td><td>REST ab Werk</td><td>Nein</td></tr>
+<tr><td><strong>Drupal</strong></td><td>klassisch</td><td>Ja (GPL v2+)</td><td>Datenbank</td><td>Ja</td><td>Über Zusatzbausteine (JSON)</td><td>JSON-API + REST ab Werk</td><td>Nein</td></tr>
+<tr><td><strong>TYPO3</strong></td><td>klassisch</td><td>Ja (GPL v2+)</td><td>Datenbank</td><td>Ja (auch SQLite)</td><td>Ja – T3D/XML</td><td>REST per Erweiterung</td><td>Nein</td></tr>
+<tr><td><strong>Strapi</strong></td><td>headless</td><td>Kern MIT, Teile kostenpflichtig</td><td>Datenbank</td><td>Ja</td><td>Über Zusatzbausteine</td><td>REST + GraphQL</td><td>Nein</td></tr>
+<tr><td><strong>Directus</strong></td><td>headless</td><td>Eingeschränkt (Source-available, MSCL)</td><td>Datenbank</td><td>Ja</td><td>Daten liegen offen in SQL-Tabellen</td><td>REST + GraphQL</td><td>Nein</td></tr>
+<tr><td><strong>Payload</strong></td><td>headless</td><td>Ja (MIT)</td><td>Datenbank</td><td>Ja (auch SQLite)</td><td>Über Code/Schnittstelle</td><td>REST + GraphQL</td><td>Nein</td></tr>
+<tr><td><strong>Ghost</strong></td><td>headless</td><td>Ja (MIT)</td><td>Datenbank</td><td>Nein (nur MySQL 8)</td><td>Ja – JSON ab Werk</td><td>REST (Content + Admin)</td><td>Nein</td></tr>
+<tr><td><strong>Grav</strong></td><td>flat-file</td><td>Ja (MIT)</td><td>Dateien</td><td>–</td><td>Ja – der Ordner selbst</td><td>REST (ab Version 2) + MCP</td><td><strong>Ja</strong></td></tr>
+<tr><td><strong>Decap CMS</strong></td><td>flat-file</td><td>Ja (MIT)</td><td>Dateien (über Git)</td><td>–</td><td>Ja – der Git-Ordner</td><td>arbeitet über Git</td><td><strong>Ja</strong></td></tr>
+</tbody></table>
+</div>
+<h2 id="empfehlung-für-dieses-projekt"><a class="header" href="#empfehlung-für-dieses-projekt">Empfehlung für dieses Projekt</a></h2>
+<p>Ein <strong>CMS ist selten die beste Wahl</strong> für ein Nachschlagewerk – dafür sind
+<a href="wikis-im-vergleich.html">Wiki-Programme</a> gebaut. Muss es doch ein CMS sein, hängt
+die Antwort von der Bauart ab:</p>
+<ul>
+<li><strong>Flat-File (beste Passung):</strong> <strong>Grav</strong> (echte offene Lizenz, keine Datenbank,
+REST-API und KI-Andockstelle in Version 2) oder <strong>Decap CMS</strong> als reine
+Bearbeitungs-Oberfläche über einem Doku-Generator. Beide erhalten den heutigen
+datei-basierten Aufbau. Für einen reinen Datei-Ansatz ohne Oberfläche siehe auch
+<a href="doku-generatoren-im-vergleich.html">Doku-Generatoren im Vergleich</a>.</li>
+<li><strong>Klassisch:</strong> <strong>Drupal</strong>, wenn eine Datenbank und sehr viel strukturierter
+Inhalt gewünscht sind (PostgreSQL, für große Installationen bewährt,
+Schnittstelle ab Werk).</li>
+<li><strong>Headless:</strong> <strong>Directus</strong> ist technisch reizvoll (Daten bleiben in offenen
+PostgreSQL-Tabellen), aber die Lizenz (Monospace Sustainable Core License)
+vorher genau prüfen.</li>
+</ul>
+<h2 id="quellen"><a class="header" href="#quellen">Quellen</a></h2>
+<ul>
+<li><a href="https://dsrpt.com.au/think-tank/headless-cms-showdown-strapi-vs-payload-vs-directus-in-2026">Headless-CMS-Vergleich 2026: Strapi vs. Directus vs. Payload (dsrpt.com.au)</a></li>
+<li><a href="https://rajeshrnair.com/blog/web-development/open-source-cms-comparison-wordpress-strapi-directus-india.html">Open-Source-CMS-Vergleich 2026: WordPress vs. Strapi vs. Directus (rajeshrnair.com)</a></li>
+<li><a href="https://unfoldcms.com/blog/flat-file-cms-vs-database-cms">Flat-File-CMS vs. Datenbank-CMS (unfoldcms.com)</a></li>
+<li><a href="https://www.selecthub.com/cms-software/grav-cms-vs-kirby/">Grav vs. Kirby CMS (selecthub.com)</a></li>
+<li><a href="https://help.dreamhost.com/hc/en-us/articles/360050852091-Importing-and-exporting-a-WXR-file-in-WordPress">WXR-Datei in WordPress importieren und exportieren (DreamHost)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/TYPO3">TYPO3 bei Wikipedia</a></li>
+<li><a href="https://getgrav.org/blog/grav-2-stable-released">Grav 2.0 Released! (getgrav.org-Blog)</a></li>
+<li><a href="https://directus.com/resources/why-we-are-relicensing-directus/">Warum wir Directus neu lizenzieren (directus.com)</a></li>
+<li><a href="https://directus.com/license/">Directus – Lizenz</a></li>
+<li><a href="https://ghost.org/docs/faq/supported-databases/">Ghost – Unterstützte Datenbanken (Dokumentation)</a></li>
+<li><a href="https://statamic.com/pricing">Statamic – Preise</a></li>
+<li><a href="https://getkirby.com/buy">Kirby – Lizenzen kaufen</a></li>
+</ul>
+<hr />
+<p><em>Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="wikis-im-vergleich.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="cms-millionen-artikel.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="wikis-im-vergleich.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="cms-millionen-artikel.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
