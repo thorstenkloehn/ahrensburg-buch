@@ -8,16 +8,27 @@ Diese Anleitung erklärt, **wie oft** geprüft werden soll, **welche Skill** in 
 
 ---
 
-## Die drei Prüf-Skills im Überblick
+## Die Prüf- und Redaktions-Skills im Überblick
 
-Für die rechtliche und textliche Qualitätssicherung stehen im Repository drei spezialisierte Werkzeuge zur Verfügung:
+Für die rechtliche, textliche und technische Qualitätssicherung stehen im Repository acht spezialisierte KI-Skills (sowie ein Co-Wiki-Grundlagen-Skill) zur Verfügung:
 
-| Kriterium | Skill: `/urheberrecht-pruefung` | Skill: `/urheberrechtliche-fachpruefung` | Skill: `/duplicate-content-pruefung` |
-|---|---|---|---|
-| **Hauptzweck** | Schnelles Screening, Verdachtsliste, Erkennung von formalen Mängeln und direkte Textbereinigung. | Vertiefte redaktionelle Rechteprüfung, vollständiger Primärquellenabgleich, Nachweis der Rechtekette. | Interne Redundanzen und Textdopplungen aufspüren; Single-Source-of-Truth und Querverweise etablieren. |
-| **Prüftiefe** | Screening nach Zitaten, Wikipedia-Bausteinen, ungenauen Pauschalformulierungen und Bildverweisen. | Vollständiges Seiteninventar mit Prüfsummen (SHA-256), Einzelfallmatrix und Schrankenprüfung (§§ 2, 5, 23, 51, 87a UrhG). | Absatzweiser Ähnlichkeitsabgleich (Jaccard-Ähnlichkeit ≥ 50 %); Erkennung wiederholter Textblöcke über Seitengrenzen. |
-| **Ausgabe** | Arbeitsbericht mit Fundstellen, Schweregraden (Niedrig/Mittel/Hoch) und sofortigen Korrekturen. | Förmlicher Prüfbericht unter `docs/urheberrechtliche-fachpruefung-JJJJ-MM-TT.md` mit Veröffentlichungsempfehlung. | Analysebericht mit Dopplungs-Paaren, Bestimmung der Hauptseite und Entflechtungs-Diffs. |
-| **Typischer Einsatz** | Routine-Check vor dem Veröffentlichen und bei einzelnen Textüberarbeitungen. | Periodisches Gesamtaudit und Revisionsprüfung vor größeren Meilensteinen. | Redaktionelle Bereinigung vor Deploys zur Vermeidung von SEO-Kannibalisierung. |
+### 1. Rechtliche & Textliche Prüf-Skills
+
+| Kriterium | Skill: `/urheberrecht-pruefung` | Skill: `/urheberrechtliche-fachpruefung` | Skill: `/duplicate-content-pruefung` | Skill: `/dsgvo-und-persoenlichkeitsrecht` |
+|---|---|---|---|---|
+| **Hauptzweck** | Schnelles Screening, Verdachtsliste, Erkennung von formalen Mängeln und direkte Textbereinigung. | Vertiefte redaktionelle Rechteprüfung, vollständiger Primärquellenabgleich, Nachweis der Rechtekette. | Interne Redundanzen und Textdopplungen aufspüren; Single-Source-of-Truth und Querverweise etablieren. | Prüfung auf personenbezogene Daten Lebender (DSGVO), Äußerungsrecht bei lokalen Betrieben und Pflichtseiten. |
+| **Prüftiefe** | Screening nach Zitaten, Wikipedia-Bausteinen, ungenauen Pauschalformulierungen und Bildverweisen. | Vollständiges Seiteninventar mit Prüfsummen (SHA-256), Einzelfallmatrix und Schrankenprüfung (§§ 2, 5, 23, 51, 87a UrhG). | Absatzweiser Ähnlichkeitsabgleich (`scripts/find_duplicate_content.py`, Jaccard ≥ 50 %). | Scan nach privaten Kontaktdaten, Klarnamen Nicht-Öffentlicher und werblichen Superlativen. |
+| **Ausgabe** | Arbeitsbericht mit Fundstellen, Schweregraden (Niedrig/Mittel/Hoch) und sofortigen Korrekturen. | Förmlicher Prüfbericht unter `docs/urheberrechtliche-fachpruefung-JJJJ-MM-TT.md` mit Veröffentlichungsempfehlung. | Analysebericht mit Dopplungs-Paaren, Bestimmung der Hauptseite und Entflechtungs-Diffs. | Risikobericht (DSGVO / APR / UWG) mit Empfehlungen zur Neutralisierung oder Anonymisierung. |
+| **Typischer Einsatz** | Routine-Check vor dem Veröffentlichen und bei einzelnen Textüberarbeitungen. | Periodisches Gesamtaudit und Revisionsprüfung vor größeren Meilensteinen. | Redaktionelle Bereinigung vor Deploys zur Vermeidung von SEO-Kannibalisierung. | Bei Artikeln über Vereine, Gastronomie, Praxen, Unternehmen und Persönlichkeiten. |
+
+### 2. Technische & Redaktionelle Workflow-Skills
+
+| Skill | Automatisierte Aufgabe & Skript-Unterstützung | Wann einsetzen? |
+|---|---|---|
+| **`/wiki-konventions-check`** | Führt `scripts/check_wiki_conventions.py` aus: Prüft `SUMMARY.md`-Vollständigkeit, EU-AI-Act-Transparenzhinweise (oben/unten), interne Links/Anker, Stormarn-Lexikon-Zusatz (`© Kreisarchiv Stormarn`) und Wikipedia-Blöcke. | Vor jedem Commit oder Pull Request. |
+| **`/deploy-und-sync`** | Synchronisiert den Mirror (`.claude/` → `.agents/`), prüft `src/openwiki/` auf Drift, führt `mdbook build` sowie den CNAME-only-Diff-Check gegen `origin/gh-pages` aus. | Vor und nach jedem Web-Deploy (`npm run ver`). |
+| **`/raw-zu-artikel`** | Steuert die 6-stufige Multi-Agenten-Redaktionspipeline (`forscher` → `architekt` → `schreiber` → `faktenchecker` + `lektor` → `verlinker`) für menschliche Rohentwürfe unter `raw/<thema>.md`. | Wenn ein neuer Rohentwurf in `raw/` ausgearbeitet werden soll. |
+| **`/aktualitaet-und-fakten-check`** | Scannt bestehende Artikel auf veraltende Angaben („aktuell/derzeit", Öffnungszeiten, Buslinien, Politik, vergangene Jahreszahlen) sowie tote externe Links und erstellt punktgenaue Delta-Updates. | Regelmäßige Bestandspflege oder bei lokalen Änderungen in Ahrensburg. |
 
 ---
 

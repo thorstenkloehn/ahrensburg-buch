@@ -165,6 +165,6 @@ The `gh-pages` package pushes `book/` to the `gh-pages` branch. The `--cname wis
 
 - [`overview.md`](overview.md) — high-level project overview.
 - [`source-map.md`](source-map.md) — per-file repository map.
-- [`docs/deploy-verification.md`](../docs/deploy-verification.md) — deploy runbook and CNAME-only diff check.
+- [`docs/deploy-verification.md`](https://github.com/Thorsten-Kloehn/ahrensburg-buch/blob/main/docs/deploy-verification.md) — deploy runbook and CNAME-only diff check.
 
 *Hinweis: Diese Inhalte wurden mit Unterstützung von Künstlicher Intelligenz erstellt und redaktionell überprüft (Transparenzhinweis gemäß Art. 50 EU AI Act).*
